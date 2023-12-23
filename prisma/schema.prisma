@@ -10,11 +10,18 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+enum Size {
+  S
+  M
+  L
+  XL
+}
+
 model Product {
   id          String  @id @default(uuid())
   name        String
   price       Int
-  size        String
+  size        Size
   description String
   photo       String
 }
