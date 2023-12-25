@@ -1,18 +1,17 @@
-$font-text: 'Poppins', sans-serif;
-$font-title: 'Oleo Script', sans-serif;
 
 $radius: 5px;
-$base-size: 14px;
 
 // ---------- Settings COLOR VARIABLES ---------- //
 $white: #f7f6f6;
 $darkGray: #2a2a2a;
-$primary: #aaaccc;
+$gold: #FFD700;
+$gray: #aaaccc;
 
 // ---------- PROJECT COLOR VARIABLES ---------- //
 $text-color: $darkGray;
 $text-color-light: $white;
-$text-color-primary: $primary;
+$text-color-mid: $gray;
+$text-color-primary: $gold;
 
 // ---------- Animations for hover ---------- //
 $transitionTime-bg: 250ms;
@@ -29,16 +28,23 @@ $transitionScaleCart: scale(1);
 
 %transitionHover {
   transition: background-color $transitionTime-bg,
-              color $transitionTime-text,
-              border-color $transitionTime-bg,
-              margin-bottom $transitionTime-shift,
+  color $transitionTime-text,
+  border-color $transitionTime-bg,
+  margin-bottom $transitionTime-shift,
               transform $transitionTime-scale;
   transition-timing-function: $transitionTimingFunction;
 }
 
 %buttonHover {
  &:hover {
-  margin-bottom: $transitionShiftUpButton;
-  transform: $transitionScaleButton;
- }
+   margin-bottom: $transitionShiftUpButton;
+   transform: $transitionScaleButton;
+  }
 }
+
+// ---------- Fonts and text sizes ---------- //
+$font-text: 'Nunito', sans-serif;
+$font-title: 'Oleo Script', sans-serif;
+$base-size: 14px;
+
+$text-nav: $base-size * 1.5;

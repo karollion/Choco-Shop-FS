@@ -8,8 +8,17 @@
     color: $text-color;
     text-decoration: none;
     margin: 0 10px;
+    font-size: $text-nav;
+    font-family: $font-title;
   }
   .linkActive {
     color: $text-color-primary;
+  }
+
+  .logo {
+    font-size: $text-nav;
+    font-family: $font-title;
+    color: $text-color-primary;
+    font-weight: bold;
   }
 }

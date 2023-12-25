@@ -16,7 +16,7 @@ const Product = () => {
   return (
 
     <div className='min-vh-100 px-4'>
-      <h2 className='my-4' >productvertisement</h2>
+      <h2 className='my-4' >product</h2>
       <Card className={styles.card}>
         <Card.Img variant='top' src={IMGS_URL + product.photo} className={styles.img} />
         <Card.Body>
@@ -28,7 +28,7 @@ const Product = () => {
           </Card.Text>
 
           <Card.Text>
-            <b>Size:</b> {product.size}
+            <b>Size:</b> {product.size}g
           </Card.Text>
           
           <Card.Text>
