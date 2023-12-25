@@ -11,6 +11,6 @@ async function bootstrap() {
 
   await app.enableShutdownHooks();
 
-  await app.listen(3030);
+  await app.listen(3000);
 }
 bootstrap();

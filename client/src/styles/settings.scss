@@ -1,0 +1,43 @@
+$font-text: 'Poppins', sans-serif;
+
+$radius: 5px;
+$base-size: 14px;
+
+// ---------- Settings COLOR VARIABLES ---------- //
+$white: #f7f6f6;
+$darkGray: #2a2a2a;
+$primary: #aaaccc;
+
+// ---------- PROJECT COLOR VARIABLES ---------- //
+$text-color: $darkGray;
+$text-color-light: $white;
+$text-color-primary: $primary;
+
+// ---------- Animations for hover ---------- //
+$transitionTime-bg: 250ms;
+$transitionTime-text: 250ms;
+$transitionTime-shift: 250ms;
+$transitionTime-scale: 250ms;
+$transitionTimingFunction: linear;
+
+$transitionShiftUpButton: 0px;
+$transitionScaleButton: scale(1);
+
+$transitionShiftUpCart: 0px;
+$transitionScaleCart: scale(1);
+
+%transitionHover {
+  transition: background-color $transitionTime-bg,
+              color $transitionTime-text,
+              border-color $transitionTime-bg,
+              margin-bottom $transitionTime-shift,
+              transform $transitionTime-scale;
+  transition-timing-function: $transitionTimingFunction;
+}
+
+%buttonHover {
+ &:hover {
+  margin-bottom: $transitionShiftUpButton;
+  transform: $transitionScaleButton;
+ }
+}

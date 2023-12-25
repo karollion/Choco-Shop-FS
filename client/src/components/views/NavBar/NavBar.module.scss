@@ -1,0 +1,13 @@
+@import '../../../styles/settings.scss';
+
+.root {
+  
+  a {
+    color: $text-color;
+    text-decoration: none;
+    margin: 0 10px;
+  }
+  .linkActive {
+    color: $text-color-primary;
+  }
+}
