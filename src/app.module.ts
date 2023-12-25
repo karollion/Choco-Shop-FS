@@ -7,10 +7,20 @@ import {
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ProductsModule } from './products/products.module';
+import { ServeStaticModule } from '@nestjs/serve-static';
+import { join } from 'path';
 import * as cors from 'cors';
 
 @Module({
-  imports: [ProductsModule],
+  imports: [
+    ProductsModule,
+    // ServeStaticModule.forRoot({
+    //   rootPath: join(__dirname, '..', '../client'),
+    // }),
+    ServeStaticModule.forRoot({
+      rootPath: join(__dirname, '..', '../public'),
+    }),
+  ],
   controllers: [AppController],
   providers: [AppService],
 })

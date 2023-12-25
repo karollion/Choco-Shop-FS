@@ -10,6 +10,7 @@ import NavBar from "./components/views/NavBar/NavBar";
 
 // import pages
 import Home from "./components/pages/Home/Home"
+import Product from './components/pages/Product/Product';
 
 function App() {
   const dispatch = useDispatch();
@@ -21,6 +22,7 @@ function App() {
       <Container>
         <Routes>
           <Route path="/" element={<Home/>} />
+          <Route path="/products/:id" element={<Product />} />
         </Routes>
       </Container>
       <Footer />

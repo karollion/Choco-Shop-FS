@@ -3,7 +3,7 @@ import { setLoading } from './isLoadingRedux';
 
 //selectors
 export const getAllProducts = ({ products }) => products;
-export const getProductById = ({ products }, productId) => products.find(product => product._id === productId);
+export const getProductById = ({ products }, productId) => products.find(product => product.id === productId);
 
 // actions
 const createActionName = actionName => `app/products/${actionName}`;

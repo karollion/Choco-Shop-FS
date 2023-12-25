@@ -10,13 +10,13 @@ const Home = () => {
   const isLoading = useSelector(state => getIsLoading(state));
   
   return (
-    <div className='min-vh-100'>
+    <div className={styles.root}>
       <h1>Home</h1>
-      <div className={styles.heroBg}></div>
-      <img 
+      {/* <div className={styles.heroBg}></div> */}
+      {/* <img 
         className={styles.image}
         alt={'home background'}
-        src={`${process.env.PUBLIC_URL}/images/layout/home_bg.jpg`} />
+        src={`${process.env.PUBLIC_URL}/images/layout/home_bg.jpg`} /> */}
 
       {products.length === 0 && !isLoading && <p>No products</p>}
       {isLoading && <Spinner animation='border' variant='primary' />}

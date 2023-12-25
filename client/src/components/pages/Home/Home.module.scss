@@ -1,7 +1,23 @@
-.heroBg {
-  background: #493232;
+@import '../../../styles/settings.scss';
+
+.root {
+  position: relative;
   width: 100%;
-  height: 700px;
-  background-image: url(../../../../public/images/layout/home_bg.jpg);
-  
+  min-height: 720px;
+
+  h1 {
+    font-family: $font-title;
+  }
+  .heroBg {
+    position: absolute;
+    top: -60px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    background: #493232;
+    width: 100vw;
+    height: 100vh;
+    //background-image: url(../../../../public/images/layout/home_bg.jpg);
+    background-size: cover
+    
+  }
 }
