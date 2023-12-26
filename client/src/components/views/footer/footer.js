@@ -1,4 +1,4 @@
-
+import styles from './footer.module.scss';
 const Footer = () => {
   
   function getDate() {
@@ -8,8 +8,8 @@ const Footer = () => {
   }
 
     return (
-      <footer className='footer mt-auto py-3'>
-        <p className='text-center text-secondary'>Copyright &copy; Choco-Shop {getDate()}</p>
+      <footer className={styles.root}>
+        <p>Copyright &copy; Choco-Shop {getDate()}</p>
       </footer>
     );
 };
