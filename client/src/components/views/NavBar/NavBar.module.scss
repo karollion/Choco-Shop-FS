@@ -1,12 +1,13 @@
 @import '../../../styles/settings.scss';
 
 .root {
-  height: 50px;
-  margin-top: 10px;
+  position: relative;
+  height: 60px;
   z-index: 99;
+  background: $Background-color;
   
   a {
-    color: $text-color;
+    color: $text-color-light;
     text-decoration: none;
     margin: 0 10px;
     font-size: $text-nav;

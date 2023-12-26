@@ -14,7 +14,9 @@ const NavBar = () => {
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="ms-auto">
                 <NavLink className={({ isActive }) => isActive ? styles.linkActive : undefined} as={NavLink} to="/">Home</NavLink>
-                <NavLink className={({ isActive }) => isActive ? styles.linkActive : undefined} as={NavLink} to="/cart">Cart</NavLink>
+                <NavLink className={({ isActive }) => isActive ? styles.linkActive : undefined} as={NavLink} to="/cart">
+                  Cart
+                </NavLink>
               </Nav>
             </Navbar.Collapse>
         </Navbar>

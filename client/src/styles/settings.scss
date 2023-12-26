@@ -4,6 +4,9 @@ $radius: 5px;
 // ---------- Settings COLOR VARIABLES ---------- //
 $white: #f7f6f6;
 $darkGray: #2a2a2a;
+$darkBrown: #3A0000;
+$brown: #4C1600;
+$lightBrown: #7B3F00;
 $gold: #FFD700;
 $gray: #aaaccc;
 
@@ -12,6 +15,8 @@ $text-color: $darkGray;
 $text-color-light: $white;
 $text-color-mid: $gray;
 $text-color-primary: $gold;
+
+$Background-color: $darkBrown;
 
 // ---------- Animations for hover ---------- //
 $transitionTime-bg: 250ms;
