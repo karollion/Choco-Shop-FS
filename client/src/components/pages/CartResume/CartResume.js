@@ -1,12 +1,12 @@
-import styles from './Cart.module.scss';
+import styles from './CartResume.module.scss';
 import { useSelector } from 'react-redux';
 import { getIsLoading } from '../../../redux/isLoadingRedux';
 import { getAllOrders } from '../../../redux/ordersRedux';
-import { Button, Spinner } from 'react-bootstrap';
+import { Spinner } from 'react-bootstrap';
 import AllOrders from '../../features/AllOrders/AllOrders';
-import { Link } from 'react-router-dom';
+import ContactForm from '../../features/ContactForm/ContactForm';
 
-const Cart = () => {
+const CartResume = () => {
   const orders = useSelector(state => getAllOrders(state));
   const isLoading = useSelector(state => getIsLoading(state));
   console.log(orders)
@@ -17,9 +17,9 @@ const Cart = () => {
       {orders.length === 0 && !isLoading && <p>You cart is empty</p>}
       {isLoading && <Spinner animation='border' variant='primary' />}
       {!isLoading && <AllOrders />}
-      <Button variant="primary" as={Link} to={"/resume"}>Resume</Button>
+      <ContactForm />
     </div>
   );
 };
 
-export default Cart;
+export default CartResume;
