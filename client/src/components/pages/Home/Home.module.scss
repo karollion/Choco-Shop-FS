@@ -4,6 +4,7 @@
   position: relative;
   width: 100%;
   min-height: 720px;
+  z-index: 1;
 
   h1 {
     font-family: $font-title;
@@ -14,8 +15,8 @@
     left: 50%;
     transform: translate(-50%, 0);
     background: #493232;
-    width: 100vw;
-    height: 100vh;
+    width: 100px;
+    height: 100px;
     //background-image: url(../../../../public/images/layout/home_bg.jpg);
     background-size: cover
     

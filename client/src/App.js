@@ -11,6 +11,7 @@ import NavBar from "./components/views/NavBar/NavBar";
 // import pages
 import Home from "./components/pages/Home/Home"
 import Product from './components/pages/Product/Product';
+import Cart from './components/pages/Cart/Cart';
 
 function App() {
   const dispatch = useDispatch();
@@ -23,6 +24,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home/>} />
           <Route path="/products/:id" element={<Product />} />
+          <Route path="/cart" element={<Cart />} />
         </Routes>
       </Container>
       <Footer />

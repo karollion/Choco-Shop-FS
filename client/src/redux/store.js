@@ -3,10 +3,12 @@ import thunk from 'redux-thunk';
 import initialState from './initialState';
 import isloadingReducer from './isLoadingRedux';
 import productsReducer from './productsRedux';
+import ordersReducer from './ordersRedux';
 
 const subreducers = {
   loading: isloadingReducer,
   products: productsReducer,
+  orders: ordersReducer,
 }
 
 const reducer = combineReducers(subreducers);

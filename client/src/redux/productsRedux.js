@@ -29,7 +29,7 @@ export const fetchProducts = () => {
   };
 };
 
-export const updateAdRequest = ( product ) => {
+export const updateProductRequest = ( product ) => {
   return(dispatch) => {
     const fd = new FormData()
 
@@ -43,7 +43,7 @@ export const updateAdRequest = ( product ) => {
   };
 };
 
-export const addAdRequest = product => {
+export const addProductRequest = product => {
   return(dispatch) => {
 
     const fd = new FormData()
@@ -60,7 +60,7 @@ export const addAdRequest = product => {
   };
 };
 
-export const removeAdRequest = id => {
+export const removeProductRequest = id => {
 	return dispatch => {
 		const options = {
 			method: 'DELETE',

@@ -12,7 +12,7 @@ const Home = () => {
   return (
     <div className={styles.root}>
       <h1>Home</h1>
-      {/* <div className={styles.heroBg}></div> */}
+      <div className={styles.heroBg}></div>
       {/* <img 
         className={styles.image}
         alt={'home background'}

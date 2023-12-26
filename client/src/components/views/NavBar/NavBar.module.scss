@@ -3,6 +3,7 @@
 .root {
   height: 50px;
   margin-top: 10px;
+  z-index: 99;
   
   a {
     color: $text-color;
