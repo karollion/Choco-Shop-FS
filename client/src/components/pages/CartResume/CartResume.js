@@ -25,7 +25,7 @@ const CartResume = () => {
   };
   return (
     <div className={styles.root}>
-      <h1>Cart</h1>
+      <h1>Cart - resume</h1>
       
       {orders.length === 0 && !isLoading && <p>You cart is empty</p>}
       {isLoading && <Spinner animation='border' variant='primary' />}
