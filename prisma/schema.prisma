@@ -24,13 +24,12 @@ model Product {
 model Order {
   id          String          @id @default(uuid())
   quantity    Int
-  description String
+  description String?
 
   product     Product         @relation(fields: [productId], references: [id])
   productId   String
 
-  confirmId   String
-  confirm     ConfirmOrder    @relation(fields: [confirmId], references: [id])
+  confirmOrder    OrderOnConfirm[]
 
 }
 
@@ -42,5 +41,14 @@ model ConfirmOrder {
   phone       Int
   email       String
 
-  orders      Order[]
+  orders      OrderOnConfirm[]
+}
+
+model OrderOnConfirm {
+  order       Order @relation(fields: [orderId], references: [id])
+  orderId     String 
+  confirm     ConfirmOrder @relation(fields: [confirmId], references: [id])
+  confirmId   String 
+
+  @@id([orderId, confirmId])
 }

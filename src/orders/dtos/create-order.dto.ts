@@ -13,17 +13,12 @@ export class CreateOrderDTO {
   @Min(0)
   quantity: number;
 
-  @IsNotEmpty()
   @IsString()
-  @Length(20, 1000)
+  @Length(0, 1000)
   description: string;
 
   @IsNotEmpty()
   @IsUUID()
   @IsString()
   productId: string;
-
-  @IsUUID()
-  @IsString()
-  confirmId: string;
 }
