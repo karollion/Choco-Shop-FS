@@ -20,7 +20,7 @@ const CartResume = () => {
   const handleSubmit = data => {
     data.orders = orders;
     dispatch(addOrderRequest(data));
-    console.log(data)
+    //console.log(data)
     navigate('/');
   };
   return (
@@ -29,7 +29,7 @@ const CartResume = () => {
       
       {orders.length === 0 && !isLoading && <p>You cart is empty</p>}
       {isLoading && <Spinner animation='border' variant='primary' />}
-      {!isLoading && <AllOrders />}
+      {!isLoading && <AllOrders orders={orders} canBeEdited={false} />}
       <ContactForm action={handleSubmit}/>
     </div>
   );
