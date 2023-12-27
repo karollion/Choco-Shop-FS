@@ -1,15 +1,17 @@
 import {
-  //Body,
+  Body,
   Controller,
   Delete,
   Get,
   NotFoundException,
   Param,
   ParseUUIDPipe,
-  //Post,
-  //Put,
+  Post,
+  Put,
 } from '@nestjs/common';
 import { ConfirmOrdersService } from './confirm-orders.service';
+import { CreateConfirmOrderDTO } from './dtos/create-confirm-order.dto';
+import { UpdateConfirmOrderDTO } from './dtos/update-confirm-order.dto';
 
 @Controller('confirm-orders')
 export class ConfirmOrdersController {
@@ -35,20 +37,20 @@ export class ConfirmOrdersController {
     return { success: true };
   }
 
-  // @Post('/')
-  // create(@Body() confirmOrderData: CreateConfirmOrderDTO) {
-  //   return this.confirmOrdersService.create(confirmOrderData);
-  // }
+  @Post('/')
+  create(@Body() confirmOrderData: CreateConfirmOrderDTO) {
+    return this.confirmOrdersService.create(confirmOrderData);
+  }
 
-  // @Put('/:id')
-  // async update(
-  //   @Param('id', new ParseUUIDPipe()) id: string,
-  //   @Body() confirmOrderData: UpdateConfirmOrderDTO,
-  // ) {
-  //   if (!(await this.confirmOrdersService.getById(id)))
-  //     throw new NotFoundException('Confirmed order not found');
+  @Put('/:id')
+  async update(
+    @Param('id', new ParseUUIDPipe()) id: string,
+    @Body() confirmOrderData: UpdateConfirmOrderDTO,
+  ) {
+    if (!(await this.confirmOrdersService.getById(id)))
+      throw new NotFoundException('Confirmed order not found');
 
-  //   await this.confirmOrdersService.updateById(id, confirmOrderData);
-  //   return { success: true };
-  // }
+    await this.confirmOrdersService.updateById(id, confirmOrderData);
+    return { success: true };
+  }
 }

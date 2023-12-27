@@ -3,7 +3,7 @@ import { IsInt, IsNotEmpty, IsString, Length, Min } from 'class-validator';
 export class UpdateProductDTO {
   @IsNotEmpty()
   @IsString()
-  @Length(3, 30)
+  @Length(3, 20)
   name: string;
 
   @IsNotEmpty()
@@ -12,8 +12,9 @@ export class UpdateProductDTO {
   price: number;
 
   @IsNotEmpty()
-  @IsString()
-  size: string;
+  @IsInt()
+  @Min(0)
+  size: number;
 
   @IsNotEmpty()
   @IsString()

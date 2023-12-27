@@ -1,15 +1,17 @@
 import {
-  //Body,
+  Body,
   Controller,
   Delete,
   Get,
   NotFoundException,
   Param,
   ParseUUIDPipe,
-  //Post,
-  //Put,
+  Post,
+  Put,
 } from '@nestjs/common';
 import { OrdersService } from './orders.service';
+import { CreateOrderDTO } from './dtos/create-order.dto';
+import { UpdateOrderDTO } from './dtos/update-order.dto';
 
 @Controller('orders')
 export class OrdersController {
@@ -35,20 +37,20 @@ export class OrdersController {
     return { success: true };
   }
 
-  // @Post('/')
-  // create(@Body() orderData: CreateOrderDTO) {
-  //   return this.ordersService.create(orderData);
-  // }
+  @Post('/')
+  create(@Body() orderData: CreateOrderDTO) {
+    return this.ordersService.create(orderData);
+  }
 
-  // @Put('/:id')
-  // async update(
-  //   @Param('id', new ParseUUIDPipe()) id: string,
-  //   @Body() orderData: UpdateOrderDTO,
-  // ) {
-  //   if (!(await this.ordersService.getById(id)))
-  //     throw new NotFoundException('Order not found');
+  @Put('/:id')
+  async update(
+    @Param('id', new ParseUUIDPipe()) id: string,
+    @Body() orderData: UpdateOrderDTO,
+  ) {
+    if (!(await this.ordersService.getById(id)))
+      throw new NotFoundException('Order not found');
 
-  //   await this.ordersService.updateById(id, orderData);
-  //   return { success: true };
-  // }
+    await this.ordersService.updateById(id, orderData);
+    return { success: true };
+  }
 }
