@@ -1,0 +1,17 @@
+@import '../../../styles/settings.scss';
+
+.root{
+  color: $text-color-light;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .image {
+    width: 100px;
+    height: 100px;
+  }
+
+  .quantityLabel {
+    width: 70px;
+  }
+}

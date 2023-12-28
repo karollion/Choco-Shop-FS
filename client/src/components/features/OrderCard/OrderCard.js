@@ -9,43 +9,47 @@ const OrderCard = ({ order, canBeEdited }) => {
   const [description, setDescription] = useState(order.description);
 
   return (
-    <Col xs='12' md='6' lg='4' className='mb-4'>
-      <Card className='p-3'>
-        <Card.Img variant='top' src={IMGS_URL + order.product.photo} className={styles.img} />
-			  <Card.Body>
-          <Card.Title>{order.product.name}</Card.Title>
-          <Card.Text>{order.product.price}</Card.Text>
-          <Card.Text>{"wybieranie ilosci"}</Card.Text>
-          {canBeEdited ? (
-          <Form className='col-12 col-sm-3 mx-auto'>
-            <Form.Group  controlId="formphone">
-              <Form.Label>Quantity</Form.Label>
-              <Form.Control
-                value={quantity}
-                onChange={e => setQuantity(e.target.value)}
-                type='number'
-              />
-            </Form.Group>
-            <Form.Group  controlId="formphone">
-              <Form.Label>Description</Form.Label>
-              <Form.Control
-                value={description}
-                onChange={e => setDescription(e.target.value)}
-                type='text'
-              />
-            </Form.Group>
-          </Form>
-          ) : null}
-          {!canBeEdited ? (
-            <div>
-              <Card.Text>quantity: {quantity}</Card.Text>
-              <Card.Text>description: {description}</Card.Text>
-            </div>
-            ) : null}
-          <Button variant="danger" as={Link} to={"/orders/" + order.id}>remove</Button>
-        </Card.Body>
-      </Card>
-    </Col>
+    <div className={styles.root}>
+      <img 
+        className={styles.image}
+        alt={'home background'}
+        src={IMGS_URL + order.product.photo} 
+      />
+      <p>{order.product.name}</p>
+      <p>{order.product.price}$</p>
+      {canBeEdited ? (
+        <Form >
+          <Form.Group  controlId="formphone" className=''>
+            <Form.Label>pcs.</Form.Label>
+            <Form.Control
+              className={styles.quantityLabel}
+              value={quantity}
+              onChange={e => setQuantity(e.target.value)}
+              type='number'
+            />
+          </Form.Group>
+        </Form>
+      ) : null}
+      {canBeEdited ? (
+        <Form >
+          <Form.Group  controlId="formphone">
+            <Form.Label>Description</Form.Label>
+            <Form.Control
+              value={description}
+              onChange={e => setDescription(e.target.value)}
+              type='text'
+            />
+          </Form.Group>
+        </Form>
+      ) : null}
+      {!canBeEdited ? (
+          <p>quantity: {quantity}</p>
+      ) : null}
+      {!canBeEdited ? (
+          <p>description: {description}</p>
+      ) : null}
+      <Button variant="danger" as={Link} to={"/orders/" + order.id}>remove</Button>
+    </div>
   );
 };
 
