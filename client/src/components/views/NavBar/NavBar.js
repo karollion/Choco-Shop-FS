@@ -3,6 +3,9 @@ import Container from '../../common/container/Container';
 import { Navbar, Nav } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faShoppingBasket } from '@fortawesome/free-solid-svg-icons';
+
 const NavBar = () => {
 
   return (
@@ -15,7 +18,7 @@ const NavBar = () => {
               <Nav className="ms-auto">
                 <NavLink className={({ isActive }) => isActive ? styles.linkActive : undefined} as={NavLink} to="/">Home</NavLink>
                 <NavLink className={({ isActive }) => isActive ? styles.linkActive : undefined} as={NavLink} to="/cart">
-                  Cart
+                  <FontAwesomeIcon className={styles.icon} icon={faShoppingBasket} />
                 </NavLink>
               </Nav>
             </Navbar.Collapse>

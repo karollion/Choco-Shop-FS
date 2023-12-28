@@ -7,6 +7,7 @@ import { Button, Card, Form } from 'react-bootstrap';
 import { IMGS_URL } from '../../../config';
 import { useState } from 'react';
 import { addOrderRequest } from '../../../redux/ordersRedux';
+import GallerySlider from '../../features/ProductGallery/GallerySlider';
 
 const Product = () => {
   const dispatch = useDispatch();
@@ -30,8 +31,8 @@ const Product = () => {
       <h2 className='my-4' >product</h2>
       <Card className={styles.card}>
         <Card.Img variant='top' src={IMGS_URL + product.photo} className={styles.img} />
+        <GallerySlider />
         <Card.Body>
-
           <Card.Title><h3>{product.name}</h3></Card.Title>
 
           <Card.Text>

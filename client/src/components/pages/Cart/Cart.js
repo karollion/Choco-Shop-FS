@@ -13,7 +13,7 @@ const Cart = () => {
 
   const orders = useSelector(state => getAllOrders(state));
   const isLoading = useSelector(state => getIsLoading(state));
-  console.log(orders)
+  //console.log(orders)
   return (
     <div className={styles.root}>
       <h1>Cart</h1>
