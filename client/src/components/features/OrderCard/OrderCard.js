@@ -1,12 +1,21 @@
 import styles from './OrderCard.module.scss';
-import { Link } from 'react-router-dom';
 import { Button, Form } from 'react-bootstrap';
 import { IMGS_URL } from '../../../config';
 import { useState } from 'react';
+import { removeOrderRequest } from '../../../redux/ordersRedux';
+import { useDispatch } from 'react-redux';
 
 const OrderCard = ({ order, canBeEdited }) => {
+  const dispatch = useDispatch();
+
   const [quantity, setQuantity] = useState(order.quantity);
   const [description, setDescription] = useState(order.description);
+
+  console.log(order)
+  const handleRemove = (event) => {
+    event.preventDefault();
+    dispatch(removeOrderRequest(order.id));
+  };
 
   return (
     <div className={styles.root}>
@@ -24,7 +33,7 @@ const OrderCard = ({ order, canBeEdited }) => {
             <Form.Control
               className={styles.quantityLabel}
               value={quantity}
-              onChange={e => setQuantity(e.target.value)}
+              onChange={e => setQuantity(Number(e.target.value))}
               type='number'
             />
           </Form.Group>
@@ -49,7 +58,7 @@ const OrderCard = ({ order, canBeEdited }) => {
           <p>description: {description}</p>
       ) : null}
       {canBeEdited ? (
-      <Button variant="danger" as={Link} to={"/orders/" + order.id}>remove</Button>
+      <Button variant="danger" onClick={handleRemove}>remove</Button>
       ) : null}
       </div>
   );

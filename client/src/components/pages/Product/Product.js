@@ -7,7 +7,7 @@ import { Button, Card, Form } from 'react-bootstrap';
 import { IMGS_URL } from '../../../config';
 import { useState } from 'react';
 import { addOrderRequest } from '../../../redux/ordersRedux';
-import GallerySlider from '../../features/ProductGallery/GallerySlider';
+//import GallerySlider from '../../features/ProductGallery/GallerySlider';
 
 const Product = () => {
   const dispatch = useDispatch();

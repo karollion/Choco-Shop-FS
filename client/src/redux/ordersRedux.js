@@ -64,7 +64,7 @@ export const removeOrderRequest = id => {
 	return dispatch => {
 		const options = {
 			method: 'DELETE',
-      credentials: 'include',
+      //credentials: 'include',
 		}
 
 		fetch(`${API_URL}/orders/${id}`, options)
