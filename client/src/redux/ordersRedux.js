@@ -45,15 +45,15 @@ export const updateOrderRequest = ( order ) => {
 
 export const addOrderRequest = order => {
   return(dispatch) => {
-
-    const fd = new FormData()
-
     const options = {
       method: 'POST',
-      credentials: 'include',
-      body: fd
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(
+        order
+      )
     };
-    
     fetch(`${API_URL}/orders`, options)
       .then(() => {dispatch(fetchOrders())})
       .catch((err) => console.log(err))

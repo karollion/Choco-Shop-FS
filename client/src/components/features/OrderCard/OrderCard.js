@@ -1,6 +1,6 @@
 import styles from './OrderCard.module.scss';
 import { Link } from 'react-router-dom';
-import { Card, Col, Button, Form } from 'react-bootstrap';
+import { Button, Form } from 'react-bootstrap';
 import { IMGS_URL } from '../../../config';
 import { useState } from 'react';
 
@@ -37,7 +37,7 @@ const OrderCard = ({ order, canBeEdited }) => {
             <Form.Control
               value={description}
               onChange={e => setDescription(e.target.value)}
-              type='text'
+              type='textarea'
             />
           </Form.Group>
         </Form>
@@ -48,8 +48,10 @@ const OrderCard = ({ order, canBeEdited }) => {
       {!canBeEdited ? (
           <p>description: {description}</p>
       ) : null}
+      {canBeEdited ? (
       <Button variant="danger" as={Link} to={"/orders/" + order.id}>remove</Button>
-    </div>
+      ) : null}
+      </div>
   );
 };
 

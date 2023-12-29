@@ -16,11 +16,12 @@ const Product = () => {
   const  {id}  = useParams();
   const product = useSelector(state => getProductById(state, id));
   const [quantity, setQuantity] = useState(1);
-  
-  const handleSubmit = () => {
-    
-    dispatch(addOrderRequest({ product, quantity}));
-    
+  const productId = product.id;
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    let description = '';
+    dispatch(addOrderRequest({ productId, quantity, description}));
     navigate('/cart');
   };
 
@@ -31,7 +32,7 @@ const Product = () => {
       <h2 className='my-4' >product</h2>
       <Card className={styles.card}>
         <Card.Img variant='top' src={IMGS_URL + product.photo} className={styles.img} />
-        <GallerySlider />
+        {/* <GallerySlider /> */}
         <Card.Body>
           <Card.Title><h3>{product.name}</h3></Card.Title>
 
@@ -53,11 +54,11 @@ const Product = () => {
 
           <Form onSubmit={handleSubmit} className='col-12 col-sm-3 mx-auto'>
 
-            <Form.Group  controlId="formphone">
+            <Form.Group  >
               <Form.Label>Quantity</Form.Label>
               <Form.Control
                 value={quantity}
-                onChange={e => setQuantity(e.target.value)}
+                onChange={e => setQuantity(Number(e.target.value))}
                 type='number'
               />
             </Form.Group>
