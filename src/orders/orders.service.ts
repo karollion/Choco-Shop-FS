@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { Order } from '@prisma/client';
+import { Order, OrderOnConfirm } from '@prisma/client';
 import { PrismaService } from 'src/shared/services/prisma.service';
 
 @Injectable()
@@ -43,6 +43,24 @@ export class OrdersService {
     return this.prismaService.order.update({
       where: { id },
       data: productData,
+    });
+  }
+
+  public async addToConfirmOrder(
+    confirmData: Omit<OrderOnConfirm, 'id'>,
+  ): Promise<Order> {
+    const { orderId, confirmId } = confirmData;
+    return await this.prismaService.order.update({
+      where: { id: orderId },
+      data: {
+        confirmOrder: {
+          create: {
+            confirm: {
+              connect: { id: confirmId },
+            },
+          },
+        },
+      },
     });
   }
 }

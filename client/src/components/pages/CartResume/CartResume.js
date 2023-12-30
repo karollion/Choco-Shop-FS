@@ -19,8 +19,10 @@ const CartResume = () => {
   
   const handleSubmit = data => {
     data.orders = orders;
+
+    console.log(data)
     dispatch(addOrderRequest(data));
-    //console.log(data)
+    
     navigate('/');
   };
   return (

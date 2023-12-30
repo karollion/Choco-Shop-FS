@@ -53,4 +53,12 @@ export class OrdersController {
     await this.ordersService.updateById(id, orderData);
     return { success: true };
   }
+
+  @Post('/confirmorder')
+  async addToConfirmOrder(@Body() confirmData) {
+    if (!(await this.ordersService.getById(confirmData.orderId)))
+      throw new NotFoundException('Order not found');
+
+    return this.ordersService.addToConfirmOrder(confirmData);
+  }
 }
