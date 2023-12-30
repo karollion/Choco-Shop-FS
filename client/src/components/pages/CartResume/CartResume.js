@@ -7,6 +7,7 @@ import AllOrders from '../../features/AllOrders/AllOrders';
 import ContactForm from '../../features/ContactForm/ContactForm';
 import { useNavigate } from 'react-router-dom';
 import { addOrderRequest } from '../../../redux/confirmOrdersRedux';
+import { v4 as uuidv4 } from 'uuid';
 
 
 const CartResume = () => {
@@ -16,12 +17,12 @@ const CartResume = () => {
   
   const orders = useSelector(state => getAllOrders(state));
   const isLoading = useSelector(state => getIsLoading(state));
+  let confirmId = uuidv4();
   
-  const handleSubmit = data => {
-    data.orders = orders;
-
-    console.log(data)
-    dispatch(addOrderRequest(data));
+  const handleSubmit = confirmOrderData => {
+    confirmOrderData.id = confirmId;
+    ///////////////////////////////////////////////////////////////////////////
+    dispatch(addOrderRequest(confirmOrderData));
     
     navigate('/');
   };

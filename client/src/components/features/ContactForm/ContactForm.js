@@ -60,7 +60,7 @@ const ContactForm = ({ action }) => {
           <Form.Control
             {...register("phone", { required: true })}
             value={phone}
-            onChange={e => setPhone(e.target.value)}
+            onChange={e => setPhone(Number(e.target.value))}
             type='phone' placeholder='555444666'
           />
           {errors.phone && <small className="d-block form-text text-danger mt-2">Phone can't be empty</small>}

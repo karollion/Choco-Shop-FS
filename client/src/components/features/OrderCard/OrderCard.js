@@ -11,7 +11,7 @@ const OrderCard = ({ order, canBeEdited }) => {
   const [quantity, setQuantity] = useState(order.quantity);
   const [description, setDescription] = useState(order.description);
 
-  console.log(order)
+  //console.log(order)
   const handleRemove = (event) => {
     event.preventDefault();
     dispatch(removeOrderRequest(order.id));

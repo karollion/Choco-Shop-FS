@@ -9,18 +9,18 @@ const ADD_ORDER  = createActionName('ADD_ORDER');
 // action creators
 export const addOrder = payload => ({type: ADD_ORDER, payload});
 
-export const addOrderRequest = order => {
+export const addOrderRequest = confirmOrderData => {
   return(dispatch) => {
-
-    const fd = new FormData()
-
     const options = {
       method: 'POST',
-      credentials: 'include',
-      body: fd
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(
+        confirmOrderData
+      )
     };
-    
-    fetch(`${API_URL}/orders`, options)
+    fetch(`${API_URL}/confirm-orders`, options)
       .catch((err) => console.log(err))
   };
 };
