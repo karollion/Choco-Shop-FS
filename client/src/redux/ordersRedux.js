@@ -60,6 +60,23 @@ export const addOrderRequest = order => {
   };
 };
 
+export const addToConfirmOrder = data => {
+  console.log(data)
+  return(dispatch) => {
+    const options = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(
+        data
+      )
+    };
+    fetch(`${API_URL}/orders/confirmorder`, options)
+      .catch((err) => console.log(err))
+  };
+};
+
 export const removeOrderRequest = id => {
 	return dispatch => {
 		const options = {

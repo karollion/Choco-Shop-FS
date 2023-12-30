@@ -4,11 +4,13 @@ import initialState from './initialState';
 import isloadingReducer from './isLoadingRedux';
 import productsReducer from './productsRedux';
 import ordersReducer from './ordersRedux';
+import confirmOrdersReducer from './confirmOrdersRedux';
 
 const subreducers = {
   loading: isloadingReducer,
   products: productsReducer,
   orders: ordersReducer,
+  confirmOrders: confirmOrdersReducer,
 }
 
 const reducer = combineReducers(subreducers);
