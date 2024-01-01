@@ -31,15 +31,19 @@ export const fetchOrders = () => {
 
 export const updateOrderRequest = ( order ) => {
   return(dispatch) => {
-    const fd = new FormData()
-
     const options = {
-      method: 'PUT',
-      credentials: 'include',
-      body: fd
+      method: 'PATCH',
+      
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(
+        order
+      )
     };
     fetch(`${API_URL}/orders/${order.id}`, options)
       .then(() => {dispatch(fetchOrders())})
+      .catch((err) => console.log(err))
   };
 };
 
@@ -60,8 +64,7 @@ export const addOrderRequest = order => {
   };
 };
 
-export const addToConfirmOrder = data => {
-  console.log(data)
+export const addToConfirmOrderRequest = data => {
   return(dispatch) => {
     const options = {
       method: 'POST',

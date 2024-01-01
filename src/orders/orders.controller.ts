@@ -6,8 +6,8 @@ import {
   NotFoundException,
   Param,
   ParseUUIDPipe,
+  Patch,
   Post,
-  Put,
 } from '@nestjs/common';
 import { OrdersService } from './orders.service';
 import { CreateOrderDTO } from './dtos/create-order.dto';
@@ -42,7 +42,7 @@ export class OrdersController {
     return this.ordersService.create(orderData);
   }
 
-  @Put('/:id')
+  @Patch('/:id')
   async update(
     @Param('id', new ParseUUIDPipe()) id: string,
     @Body() orderData: UpdateOrderDTO,

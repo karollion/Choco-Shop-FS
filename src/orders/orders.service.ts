@@ -21,15 +21,6 @@ export class OrdersService {
     });
   }
 
-  public getAllUnconfirmed(): Promise<Order[]> {
-    const orders = this.prismaService.order.findMany({
-      include: {
-        product: true,
-      },
-    });
-    return orders;
-  }
-
   public getById(id: Order['id']): Promise<Order | null> {
     return this.prismaService.order.findUnique({
       where: { id },
