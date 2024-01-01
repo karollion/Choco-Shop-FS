@@ -8,10 +8,26 @@ export class OrdersService {
 
   public getAll(): Promise<Order[]> {
     return this.prismaService.order.findMany({
+      where: {
+        confirmOrder: {
+          none: {
+            confirm: {},
+          },
+        },
+      },
       include: {
         product: true,
       },
     });
+  }
+
+  public getAllUnconfirmed(): Promise<Order[]> {
+    const orders = this.prismaService.order.findMany({
+      include: {
+        product: true,
+      },
+    });
+    return orders;
   }
 
   public getById(id: Order['id']): Promise<Order | null> {

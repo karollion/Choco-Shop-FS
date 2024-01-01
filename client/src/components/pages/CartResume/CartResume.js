@@ -7,7 +7,6 @@ import AllOrders from '../../features/AllOrders/AllOrders';
 import ContactForm from '../../features/ContactForm/ContactForm';
 import { useNavigate } from 'react-router-dom';
 import { addOrderRequest } from '../../../redux/confirmOrdersRedux';
-import { addToConfirmOrder } from '../../../redux/ordersRedux';
 import { v4 as uuidv4 } from 'uuid';
 
 
