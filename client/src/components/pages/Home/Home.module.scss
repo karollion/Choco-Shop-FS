@@ -6,19 +6,30 @@
   min-height: 100vh;
   z-index: 1;
 
-  h1 {
-    font-family: $font-title;
-  }
-  .heroBg {
-    position: absolute;
-    top: -60px;
-    left: 50%;
-    transform: translate(-50%, 0);
+  .hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 100px;
     background: #493232;
     width: 100vw;
     height: 100vh;
+    min-height: 720px;
     background-image: url(../../../../public/images/layout/home_bg.jpg);
-    background-size: cover
+    background-size: cover;
     
+    h1 {
+      display: block;
+      font-family: $font-title;
+      color: $title-color-primary;
+      font-size: 70px;
+    }
+    h2 {
+      display: block;
+      font-family: $font-title;
+      color: $title-color-primary;
+      font-size: 50px;
+    }
   }
 }

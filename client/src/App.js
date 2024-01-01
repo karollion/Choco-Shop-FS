@@ -4,7 +4,6 @@ import { useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
 
 // Import views
-import Container from './components/common/container/Container';
 import Footer from "./components/views/footer/footer";
 import NavBar from "./components/views/NavBar/NavBar";
 
@@ -31,7 +30,7 @@ function App() {
   return (
     <div>
       <NavBar />
-      <Container>
+      
       <div
           className={`${transitionStage}`}
           onAnimationEnd={() => {
@@ -48,7 +47,7 @@ function App() {
             <Route element={<NotFoundPage />} />
           </Routes>
         </div>
-      </Container>
+      
       <Footer />
     </div>
   );

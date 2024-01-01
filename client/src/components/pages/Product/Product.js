@@ -8,6 +8,7 @@ import { IMGS_URL } from '../../../config';
 import { useState } from 'react';
 import { addOrderRequest } from '../../../redux/ordersRedux';
 import ImageGallery from "react-image-gallery";
+import Container from '../../common/container/Container';
 
 const Product = () => {
   const dispatch = useDispatch();
@@ -48,51 +49,52 @@ const Product = () => {
 
   if (!product) return <Navigate to="/" />;
   return (
+    <Container>
+      <div className='min-vh-100 px-4'>
+        <h2 className='my-4' >product</h2>
+        <Card className={styles.card}>
+          <ImageGallery 
+            items={images} 
+            showPlayButton={false} 
+            showNav={false}
+          />
+          <Card.Body>
+            <Card.Title><h3>{product.name}</h3></Card.Title>
 
-    <div className='min-vh-100 px-4'>
-      <h2 className='my-4' >product</h2>
-      <Card className={styles.card}>
-        <ImageGallery 
-          items={images} 
-          showPlayButton={false} 
-          showNav={false}
-        />
-        <Card.Body>
-          <Card.Title><h3>{product.name}</h3></Card.Title>
+            <Card.Text>
+              <b>Price:</b> $ {product.price}
+            </Card.Text>
 
-          <Card.Text>
-            <b>Price:</b> $ {product.price}
-          </Card.Text>
+            <Card.Text>
+              <b>Size:</b> {product.size}g
+            </Card.Text>
+            
+            <Card.Text>
+              <b>description:</b>
+            </Card.Text>
 
-          <Card.Text>
-            <b>Size:</b> {product.size}g
-          </Card.Text>
-          
-          <Card.Text>
-            <b>description:</b>
-          </Card.Text>
+            <Card className='p-2'>
+              {product.description}
+            </Card>
 
-          <Card className='p-2'>
-            {product.description}
-          </Card>
+            <Form onSubmit={handleSubmit} className='col-12 col-sm-3 mx-auto'>
 
-          <Form onSubmit={handleSubmit} className='col-12 col-sm-3 mx-auto'>
+              <Form.Group  >
+                <Form.Label>Quantity</Form.Label>
+                <Form.Control
+                  value={quantity}
+                  onChange={e => setQuantity(Number(e.target.value))}
+                  type='number'
+                />
+              </Form.Group>
 
-            <Form.Group  >
-              <Form.Label>Quantity</Form.Label>
-              <Form.Control
-                value={quantity}
-                onChange={e => setQuantity(Number(e.target.value))}
-                type='number'
-              />
-            </Form.Group>
+              <Button className='my-3' variant="primary" type="submit">Add to cart</Button>
+            </Form>
 
-            <Button className='my-3' variant="primary" type="submit">Add to cart</Button>
-          </Form>
-
-        </Card.Body>
-      </Card>
-    </div>
+          </Card.Body>
+        </Card>
+      </div>
+    </Container>
   );
 };
 
