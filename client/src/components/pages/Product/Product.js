@@ -34,6 +34,7 @@ const Product = () => {
       <Card className={styles.card}>
         <Card.Img variant='top' src={IMGS_URL + photos[0]} className={styles.img} />
         {/* <GallerySlider /> */}
+        
         <Card.Body>
           <Card.Title><h3>{product.name}</h3></Card.Title>
 
