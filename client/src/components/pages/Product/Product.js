@@ -7,7 +7,7 @@ import { Button, Card, Form } from 'react-bootstrap';
 import { IMGS_URL } from '../../../config';
 import { useState } from 'react';
 import { addOrderRequest } from '../../../redux/ordersRedux';
-//import GallerySlider from '../../features/ProductGallery/GallerySlider';
+import ImageGallery from "react-image-gallery";
 
 const Product = () => {
   const dispatch = useDispatch();
@@ -18,6 +18,26 @@ const Product = () => {
   const [quantity, setQuantity] = useState(1);
   const productId = product.id;
   const photos = product.photo.split(' ');
+
+  const images = [
+    {
+      original: IMGS_URL + photos[0],
+      thumbnail: IMGS_URL + photos[0],
+    },
+    {
+      original: IMGS_URL + photos[0],
+      thumbnail: IMGS_URL + photos[0],
+    },
+    {
+      original: IMGS_URL + photos[0],
+      thumbnail: IMGS_URL + photos[0],
+    },
+    {
+      original: IMGS_URL + photos[0],
+      thumbnail: IMGS_URL + photos[0],
+    },
+    
+  ];
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -32,9 +52,11 @@ const Product = () => {
     <div className='min-vh-100 px-4'>
       <h2 className='my-4' >product</h2>
       <Card className={styles.card}>
-        <Card.Img variant='top' src={IMGS_URL + photos[0]} className={styles.img} />
-        {/* <GallerySlider /> */}
-        
+        <ImageGallery 
+          items={images} 
+          showPlayButton={false} 
+          showNav={false}
+        />
         <Card.Body>
           <Card.Title><h3>{product.name}</h3></Card.Title>
 
