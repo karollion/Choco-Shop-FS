@@ -7,9 +7,9 @@ import { useDispatch } from 'react-redux';
 
 const OrderCard = ({ order, canBeEdited }) => {
   const dispatch = useDispatch();
-
   const [quantity, setQuantity] = useState(order.quantity);
   const [description, setDescription] = useState(order.description);
+  const photos = order.product.photo.split(' ');
 
   const handleRemove = (event) => {
     event.preventDefault();
@@ -31,7 +31,7 @@ const OrderCard = ({ order, canBeEdited }) => {
       <img 
         className={styles.image}
         alt={'home background'}
-        src={IMGS_URL + order.product.photo} 
+        src={IMGS_URL + photos[0]} 
       />
       <p>{order.product.name}</p>
       <p>{order.product.price}$</p>

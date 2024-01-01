@@ -17,6 +17,7 @@ const Product = () => {
   const product = useSelector(state => getProductById(state, id));
   const [quantity, setQuantity] = useState(1);
   const productId = product.id;
+  const photos = product.photo.split(' ');
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -31,7 +32,7 @@ const Product = () => {
     <div className='min-vh-100 px-4'>
       <h2 className='my-4' >product</h2>
       <Card className={styles.card}>
-        <Card.Img variant='top' src={IMGS_URL + product.photo} className={styles.img} />
+        <Card.Img variant='top' src={IMGS_URL + photos[0]} className={styles.img} />
         {/* <GallerySlider /> */}
         <Card.Body>
           <Card.Title><h3>{product.name}</h3></Card.Title>
