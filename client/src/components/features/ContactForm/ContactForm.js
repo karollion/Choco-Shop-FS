@@ -2,6 +2,7 @@ import { Button, Form } from 'react-bootstrap';
 import styles from './ContactForm.module.scss';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import PropTypes from 'prop-types'
 
 const ContactForm = ({ action }) => {
   const [fName, setFName] = useState('');
@@ -82,5 +83,9 @@ const ContactForm = ({ action }) => {
     </div>
   );
 };
+
+ContactForm.propTypes = {
+	action: PropTypes.func.isRequired,
+}
 
 export default ContactForm;

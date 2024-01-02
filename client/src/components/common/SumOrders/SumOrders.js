@@ -1,4 +1,5 @@
 import styles from './SumOrders.module.scss';
+import PropTypes from 'prop-types'
 
 const SumOrders = ({ orders }) => {
   let sumPrice = 0;
@@ -13,5 +14,9 @@ const SumOrders = ({ orders }) => {
     </div>
   );
 };
+
+SumOrders.propTypes = {
+	orders: PropTypes.array.isRequired,
+}
 
 export default SumOrders;

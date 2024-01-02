@@ -4,6 +4,7 @@ import { IMGS_URL } from '../../../config';
 import { useState } from 'react';
 import { removeOrderRequest, updateOrderRequest } from '../../../redux/ordersRedux';
 import { useDispatch } from 'react-redux';
+import PropTypes from 'prop-types'
 
 const OrderCard = ({ order, canBeEdited }) => {
   const dispatch = useDispatch();
@@ -75,5 +76,10 @@ const OrderCard = ({ order, canBeEdited }) => {
       </div>
   );
 };
+
+OrderCard.propTypes = {
+	order: PropTypes.object.isRequired,
+  canBeEdited: PropTypes.bool.isRequired,
+}
 
 export default OrderCard;

@@ -2,6 +2,7 @@ import styles from './ProductCard.module.scss';
 import { Link } from 'react-router-dom';
 import { Card, Col, Button } from 'react-bootstrap';
 import { IMGS_URL } from '../../../config';
+import PropTypes from 'prop-types'
 
 const ProductCard = ({ product }) => {
   const photos = product.photo.split(' ');
@@ -19,5 +20,9 @@ const ProductCard = ({ product }) => {
     </Col>
   );
 };
+
+ProductCard.propTypes = {
+	product: PropTypes.object.isRequired,
+}
 
 export default ProductCard;
