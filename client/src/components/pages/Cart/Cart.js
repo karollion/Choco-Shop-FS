@@ -10,6 +10,7 @@ import SumOrders from '../../common/SumOrders/SumOrders';
 import Container from '../../common/container/Container';
 
 const Cart = () => {
+  window.scrollTo(0 ,0);
   const dispatch = useDispatch();
   useEffect(() => dispatch(fetchOrders()), [dispatch]);
 

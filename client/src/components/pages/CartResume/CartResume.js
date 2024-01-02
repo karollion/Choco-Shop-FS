@@ -12,6 +12,7 @@ import SumOrders from '../../common/SumOrders/SumOrders';
 import Container from '../../common/container/Container';
 
 const CartResume = () => {
+  window.scrollTo(0 ,0);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 

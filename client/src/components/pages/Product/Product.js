@@ -11,6 +11,7 @@ import ImageGallery from "react-image-gallery";
 import Container from '../../common/container/Container';
 
 const Product = () => {
+  window.scrollTo(0 ,0);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 

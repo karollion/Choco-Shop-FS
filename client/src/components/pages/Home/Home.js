@@ -7,6 +7,7 @@ import AllProducts from '../../features/AllProducts/AllProducts';
 import Container from '../../common/container/Container';
 
 const Home = () => {
+  window.scrollTo(0 ,0);
   const products = useSelector(state => getAllProducts(state));
   const isLoading = useSelector(state => getIsLoading(state));
   
