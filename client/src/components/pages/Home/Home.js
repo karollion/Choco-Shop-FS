@@ -15,8 +15,9 @@ const Home = () => {
     
       <div className={styles.root}>
         <div className={styles.hero}>
-        <h1>Choco - Shop</h1>
-        <h2>Treat yourself to a bit of sweetness</h2>
+          <div className={styles.bgshadow}></div>
+          <h1>Choco - Shop</h1>
+          <h2>Treat yourself to a bit of sweetness</h2>
         </div>
         <Container>
           {products.length === 0 && !isLoading && <p>No products</p>}
