@@ -8,6 +8,7 @@ $darkGray: #2a2a2a;
 $darkBrown: #3A0000;
 $brown: #4C1600;
 $lightBrown: #7B3F00;
+$lightBrown2:rgb(240, 193, 142)0;
 $gold: #FFD700;
 $gray: #aaaccc;
 
@@ -26,6 +27,9 @@ $footer-bg: $brown;
 $bg-all-orders: $lightBrown;
 $bg-all-orders-child: $brown;
 $bg-cart: $lightBrown;
+
+$bg-prod-card: $darkBrown;
+$bg-prod-card-content: $lightBrown2;
 
 // ---------- Animations for hover ---------- //
 $transitionTime-bg: 250ms;
@@ -61,4 +65,4 @@ $font-text: 'Nunito', sans-serif;
 $font-title: 'Oleo Script', sans-serif;
 $base-size: 14px;
 
-$text-nav: $base-size * 1.5;
+$text-nav: $base-size * 2;

@@ -7,7 +7,7 @@ const AllProducts = () => {
   const products = useSelector(getAllProducts);
 
     return (
-      <Row className='py-4'>
+      <Row className='p-3'>
         {products.map(product => (
           <ProductCard key={product.id} product={product}  />
         ))}
