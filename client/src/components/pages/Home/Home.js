@@ -20,6 +20,7 @@ const Home = () => {
           <h2>Treat yourself to a bit of sweetness</h2>
         </div>
         <Container>
+          <h2 className={styles.title}>All our sweets</h2>
           {products.length === 0 && !isLoading && <p>No products</p>}
           {isLoading && <Spinner animation='border' variant='primary' />}
           {!isLoading && <AllProducts />}

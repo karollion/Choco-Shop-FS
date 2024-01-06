@@ -60,3 +60,12 @@ $font-title: 'Oleo Script', sans-serif;
 $base-size: 14px;
 
 $text-nav: $base-size * 2;
+
+%titleStyle {
+  text-align: center;
+    color: $title-color-primary;
+    font-family: $font-title;
+    font-size: 42px;
+    margin-top: 25px;
+    margin-bottom: 15px;
+}

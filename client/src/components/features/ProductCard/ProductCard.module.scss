@@ -46,7 +46,7 @@
       font-size: 26px;
       display: flex;
       justify-content: space-between;
-
+      color: $text-color-primary;
     }
 
     .button {
@@ -57,12 +57,15 @@
       left: 10px;
       width: calc(100% - 20px);
       font-size: 26px;
+      font-weight: 600;
       border: 2px solid $text-color-light;
       border-radius: 10px;
+      border-color: $text-color-primary;
+      color: $text-color-primary;
 
       &:hover {
-        color: $text-color-primary;
-        border-color: $text-color-primary;
+        color: $bg-prod-card;
+        background: $text-color-primary;
       }
 
       &:active {

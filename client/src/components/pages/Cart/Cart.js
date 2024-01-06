@@ -20,8 +20,7 @@ const Cart = () => {
   return (
     <Container>
       <div className={styles.root}>
-        <h1>Cart</h1>
-        
+        <h2 className={styles.title}>Cart</h2>
         {orders.length === 0 && !isLoading && <p>You cart is empty</p>}
         {isLoading && <Spinner animation='border' variant='primary' />}
         {!isLoading && <AllOrders orders={orders} canBeEdited={true} />}

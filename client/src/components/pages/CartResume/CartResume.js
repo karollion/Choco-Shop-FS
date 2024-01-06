@@ -28,8 +28,7 @@ const CartResume = () => {
   return (
     <Container>
       <div className={styles.root}>
-        <h1>Cart - resume</h1>
-        
+        <h2 className={styles.title}>Cart - resume</h2>
         {orders.length === 0 && !isLoading && <p>You cart is empty</p>}
         {isLoading && <Spinner animation='border' variant='primary' />}
         {!isLoading && <AllOrders orders={orders} canBeEdited={false} />}
