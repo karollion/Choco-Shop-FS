@@ -1,17 +1,17 @@
 import { useSelector } from 'react-redux';
 import { getAllProducts } from '../../../redux/productsRedux';
-import { Row } from 'react-bootstrap';
 import ProductCard from '../ProductCard/ProductCard';
+import styles from './AllProducts.module.scss';
 
 const AllProducts = () => {
   const products = useSelector(getAllProducts);
 
     return (
-      <Row className='p-3'>
+      <div className={styles.root}>
         {products.map(product => (
           <ProductCard key={product.id} product={product}  />
         ))}
-      </Row>
+      </div>
     );
 };
 

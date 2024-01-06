@@ -1,0 +1,10 @@
+@import '../../../styles/settings.scss';
+
+.root {
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding: 10px;
+  gap: 10px;
+}

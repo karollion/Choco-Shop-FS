@@ -1,33 +1,73 @@
 @import '../../../styles/settings.scss';
 
 .root {
-  height: 500px;
-  margin: 0 0 15px 0;
+  @extend %transitionHover;
+  height: 472px;
+  width: 373px;
+  margin: 0 0 50px 0;
+  position: relative;
+  background: $bg-prod-card;
+  color: $text-color-light;
+  border-radius: 18px;
+  -webkit-box-shadow: 0px 3px 49px -17px $bg-prod-card-shadow;
+  -moz-box-shadow: 0px 3px 49px -17px $bg-prod-card-shadow;
+  box-shadow: 0px 3px 49px -17px $bg-prod-card-shadow;
 
-  .box {
-    position: relative;
-    background: $bg-prod-card;
-    width: 100%;
-    height: 100%;
+  &:hover {
+    -webkit-box-shadow: 0px 13px 49px -17px $bg-prod-card-shadow;
+    -moz-box-shadow: 0px 13px 49px -17px $bg-prod-card-shadow;
+    box-shadow: 0px 13px 49px -17px $bg-prod-card-shadow;
+    transform: scale(1.1);
+  }
+  
+  .img {
+    @extend %transitionHover;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    margin: 0;
+    width: calc(100% - 20px);
+    height: 65%;
+    object-fit: cover;
     border-radius: 10px;
+  }
 
-    .img {
-      margin: 0;
-      width: 100%;
-      height: 60%;
-      object-fit: cover;
-      border-radius: 10px 10px 0 0;
+  .content {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 30%;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: $bg-prod-card;
+    background-image: linear-gradient(180deg, rgba(89, 131, 252, 0) 0%, rgba(16, 16, 16, 0.9) 100%);
+  
+    .text {
+      font-size: 26px;
+      display: flex;
+      justify-content: space-between;
+
     }
 
-    .content {
+    .button {
+      @extend %transitionHover;
+      background: none;
       position: absolute;
       bottom: 10px;
-      left: 50%;
-      border-radius: 10px;
-      transform: translate(-50%, 0);
+      left: 10px;
       width: calc(100% - 20px);
-      height: 250px;
-      background: $bg-prod-card-content;
+      font-size: 26px;
+      border: 2px solid $text-color-light;
+      border-radius: 10px;
+
+      &:hover {
+        color: $text-color-primary;
+        border-color: $text-color-primary;
+      }
+
+      &:active {
+        background: none;
+      }
     }
   }
 }

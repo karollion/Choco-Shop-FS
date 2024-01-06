@@ -8,7 +8,7 @@ $darkGray: #2a2a2a;
 $darkBrown: #3A0000;
 $brown: #4C1600;
 $lightBrown: #7B3F00;
-$lightBrown2:rgb(240, 193, 142)0;
+$lightBrown2:rgb(240, 193, 142);
 $gold: #FFD700;
 $gray: #aaaccc;
 
@@ -29,7 +29,7 @@ $bg-all-orders-child: $brown;
 $bg-cart: $lightBrown;
 
 $bg-prod-card: $darkBrown;
-$bg-prod-card-content: $lightBrown2;
+$bg-prod-card-shadow: $lightBrown;
 
 // ---------- Animations for hover ---------- //
 $transitionTime-bg: 250ms;
@@ -41,23 +41,17 @@ $transitionTimingFunction: linear;
 $transitionShiftUpButton: 0px;
 $transitionScaleButton: scale(1);
 
-$transitionShiftUpCart: 0px;
-$transitionScaleCart: scale(1);
+$transitionShiftUp: 0px;
+$transitionScale: scale(1);
 
 %transitionHover {
   transition: background-color $transitionTime-bg,
-  color $transitionTime-text,
-  border-color $transitionTime-bg,
-  margin-bottom $transitionTime-shift,
+              box-shadow $transitionTime-bg,
+              color $transitionTime-text,
+              border-color $transitionTime-bg,
+              margin-bottom $transitionTime-shift,
               transform $transitionTime-scale;
   transition-timing-function: $transitionTimingFunction;
-}
-
-%buttonHover {
- &:hover {
-   margin-bottom: $transitionShiftUpButton;
-   transform: $transitionScaleButton;
-  }
 }
 
 // ---------- Fonts and text sizes ---------- //
