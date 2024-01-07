@@ -59,6 +59,10 @@ export const removeOrderRequest = (id) => {
   };
 };
 
+export const removeAllOrdersFromLocalStorage = () => {
+  localStorage.removeItem('orders');
+};
+
 // Comunication to server
 export const fetchOrdersOnServer = () => {
   return(dispatch) => {

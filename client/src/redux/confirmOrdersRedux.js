@@ -1,5 +1,5 @@
 import { API_URL } from '../config'
-import { addToConfirmOrderRequest } from './ordersRedux';
+import { addOrderRequestOnServer, addToConfirmOrderRequest } from './ordersRedux';
 
 //selectors
 
@@ -23,8 +23,14 @@ export const addOrderRequest = (confirmOrderData, orders) => {
     };
     fetch(`${API_URL}/confirm-orders`, options)
       .then(() => {
+        console.log('ORDERS', orders);
+        console.log('CONFIRM', confirmOrderData);
+
         for(let order of orders){
-          dispatch(addToConfirmOrderRequest({orderId: order.id, confirmId: confirmOrderData.id }))
+          dispatch(addOrderRequestOnServer(order));
+        }
+        for(let order of orders){
+          dispatch(addToConfirmOrderRequest({orderId: order.id, confirmId: confirmOrderData.id }));
         }
       })
       .catch((err) => console.log(err))
