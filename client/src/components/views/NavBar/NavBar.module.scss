@@ -1,6 +1,7 @@
 @import '../../../styles/settings.scss';
 
 .root {
+  color: $text-color-mid;
   position: absolute;
   width: 100%;
   height: 70px;
@@ -8,23 +9,43 @@
   text-shadow: 1px 3px 7px $text-color;
   
   a {
-    color: $text-color-light;
+    @extend %transitionHover;
+    color: $text-color-mid;
     text-shadow: 1px 3px 7px $text-color;
     text-decoration: none;
     margin: 0 10px;
     font-size: $text-nav;
     font-family: $font-title;
+
+    &:hover {
+      transform: scale(1.1);
+    }
   }
   .linkActive {
     color: $text-color-primary;
     text-shadow: 1px 3px 7px $text-color;
   }
 
+  .icon {
+    @extend %transitionHover;
+
+    &:hover {
+      color: $text-color-primary;
+      transform: scale(1.1);
+    }
+  }
+
   .logo {
+    @extend %transitionHover;
     font-size: $text-nav;
     font-family: $font-title;
     color: $text-color-primary;
     text-shadow: 1px 3px 7px $text-color;
     font-weight: bold;
+
+    &:hover {
+      color: $text-color-primary;
+      transform: scale(1.1);
+    }
   }
 }
