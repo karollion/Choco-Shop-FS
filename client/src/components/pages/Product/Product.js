@@ -9,6 +9,7 @@ import { useState } from 'react';
 import { addOrderRequest } from '../../../redux/ordersRedux';
 import ImageGallery from "react-image-gallery";
 import Container from '../../common/container/Container';
+import { v4 as uuidv4 } from 'uuid';
 
 const Product = () => {
   window.scrollTo(0 ,0);
@@ -44,7 +45,7 @@ const Product = () => {
   const handleSubmit = e => {
     e.preventDefault();
     let description = '';
-    dispatch(addOrderRequest({ productId, quantity, description}));
+    dispatch(addOrderRequest({ id: uuidv4() , productId, quantity, description}));
     navigate('/cart');
   };
 

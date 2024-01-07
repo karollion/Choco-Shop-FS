@@ -18,7 +18,7 @@ const OrderCard = ({ order, canBeEdited }) => {
     event.preventDefault();
     dispatch(removeOrderRequest(order.id));
   };
-
+  
   const handleUpdate = (event) => {
     event.preventDefault();
     dispatch(updateOrderRequest({
