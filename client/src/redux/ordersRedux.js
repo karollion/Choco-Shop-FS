@@ -18,9 +18,52 @@ export const updateOrder = payload => ({type: UPDATE_ORDER, payload});
 export const addOrder = payload => ({type: ADD_ORDER, payload});
 export const removeOrder = payload => ({type: REMOVE_ORDER, payload});
 
+//Comunication to localStorage
 export const fetchOrders = () => {
   return(dispatch) => {
+    dispatch(setLoading(true));
+
+    const ordersFromLocalStorage = JSON.parse(localStorage.getItem('orders')) || [];
+    dispatch(loadOrders(ordersFromLocalStorage));
+    dispatch(setLoading(false));
+  };
+};
+
+export const updateOrderRequest = (order) => {
+  return(dispatch, getState) => {
+    const { orders } = getState();
+    const updatedOrders = orders.map(o => (o.id === order.id ? { ...o, ...order } : o));
+
+    localStorage.setItem('orders', JSON.stringify(updatedOrders));
+    dispatch(updateOrder(order));
+  };
+};
+
+export const addOrderRequest = (order) => {
+  return(dispatch, getState) => {
+    const { orders } = getState();
+    const updatedOrders = [...orders, order];
+
+    localStorage.setItem('orders', JSON.stringify(updatedOrders));
+    dispatch(addOrder(order));
+  };
+};
+
+export const removeOrderRequest = (id) => {
+  return(dispatch, getState) => {
+    const { orders } = getState();
+    const updatedOrders = orders.filter(order => order.id !== id);
+
+    localStorage.setItem('orders', JSON.stringify(updatedOrders));
+    dispatch(removeOrder(id));
+  };
+};
+
+// Comunication to server
+export const fetchOrdersOnServer = () => {
+  return(dispatch) => {
     dispatch(setLoading(true))
+
     fetch(`${API_URL}/orders`)
       .then(res => res.json())
       .then(orders => {
@@ -29,25 +72,7 @@ export const fetchOrders = () => {
   };
 };
 
-export const updateOrderRequest = ( order ) => {
-  return(dispatch) => {
-    const options = {
-      method: 'PATCH',
-      
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(
-        order
-      )
-    };
-    fetch(`${API_URL}/orders/${order.id}`, options)
-      .then(() => {dispatch(fetchOrders())})
-      .catch((err) => console.log(err))
-  };
-};
-
-export const addOrderRequest = order => {
+export const addOrderRequestOnServer = order => {
   return(dispatch) => {
     const options = {
       method: 'POST',
@@ -80,7 +105,26 @@ export const addToConfirmOrderRequest = data => {
   };
 };
 
-export const removeOrderRequest = id => {
+/*
+export const updateOrderRequestOnServer = ( order ) => {
+  return(dispatch) => {
+    const options = {
+      method: 'PATCH',
+      
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(
+        order
+      )
+    };
+    fetch(`${API_URL}/orders/${order.id}`, options)
+      .then(() => {dispatch(fetchOrders())})
+      .catch((err) => console.log(err))
+  };
+};
+*//*
+export const removeOrderRequestOnServer = id => {
 	return dispatch => {
 		const options = {
 			method: 'DELETE',
@@ -91,6 +135,7 @@ export const removeOrderRequest = id => {
       .then(() => {dispatch(removeOrder(id))})
 	};
 };
+*/
 
 const ordersReducer = (statePart = [], action) => {
   switch (action.type) {

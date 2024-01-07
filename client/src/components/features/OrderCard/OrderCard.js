@@ -3,14 +3,16 @@ import { Button, Form } from 'react-bootstrap';
 import { IMGS_URL } from '../../../config';
 import { useState } from 'react';
 import { removeOrderRequest, updateOrderRequest } from '../../../redux/ordersRedux';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types'
+import { getProductById } from '../../../redux/productsRedux';
 
 const OrderCard = ({ order, canBeEdited }) => {
   const dispatch = useDispatch();
   const [quantity, setQuantity] = useState(order.quantity);
   const [description, setDescription] = useState(order.description);
-  const photos = order.product.photo.split(' ');
+  const product = useSelector(state => getProductById(state, order.productId));
+  const photos = product.photo.split(' ');
 
   const handleRemove = (event) => {
     event.preventDefault();
@@ -23,7 +25,7 @@ const OrderCard = ({ order, canBeEdited }) => {
       id: order.id,
       quantity: quantity,
       description: description,
-      productId: order.product.id,
+      productId: order.productId,
     }));
   };
 
@@ -34,8 +36,8 @@ const OrderCard = ({ order, canBeEdited }) => {
         alt={'home background'}
         src={IMGS_URL + photos[0]} 
       />
-      <p>{order.product.name}</p>
-      <p>{order.product.price}$</p>
+      <p>{product.name}</p>
+      <p>{product.price}$</p>
       {canBeEdited ? (
         <Form >
           <Form.Group  controlId="formphone" className=''>
