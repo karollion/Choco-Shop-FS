@@ -13,6 +13,7 @@ import Product from './components/pages/Product/Product';
 import Cart from './components/pages/Cart/Cart';
 import CartResume from './components/pages/CartResume/CartResume';
 import NotFoundPage from './components/pages/NotFound/NotFoundPage';
+import Contact from './components/pages/Contact/Contact';
 
 function App() {
   const dispatch = useDispatch();
@@ -42,6 +43,7 @@ function App() {
           <Routes location={displayLocation}>
             <Route path="/" element={<Home/>} />
             <Route path="/products/:id" element={<Product />} />
+            <Route path="/contact" element={<Contact />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="/resume" element={<CartResume />} />
             <Route path="*" element={<NotFoundPage />} />

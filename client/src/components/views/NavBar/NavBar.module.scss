@@ -13,11 +13,13 @@
     color: $text-color-mid;
     text-shadow: 1px 3px 7px $text-color;
     text-decoration: none;
+    text-align: center;
     margin: 0 10px;
     font-size: $text-nav;
     font-family: $font-title;
 
     &:hover {
+      color: $text-color-primary;
       transform: scale(1.1);
     }
   }
@@ -47,5 +49,10 @@
       color: $text-color-primary;
       transform: scale(1.1);
     }
+  }
+
+  button {
+    margin-right: 25px;
+    color: $text-color-primary;
   }
 }
