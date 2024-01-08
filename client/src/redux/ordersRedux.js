@@ -94,15 +94,15 @@ export const addOrderRequestOnServer = order => {
 };
 
 export const addToConfirmOrderRequest = data => {
+
+  console.log('addToConfirmOrderRequest', data)
   return(dispatch) => {
     const options = {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(
-        data
-      )
+      body: JSON.stringify(data)
     };
     fetch(`${API_URL}/orders/confirmorder`, options)
       .catch((err) => console.log(err))

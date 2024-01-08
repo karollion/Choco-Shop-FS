@@ -20,7 +20,7 @@ export class CreateConfirmOrderDTO {
 
   @IsNotEmpty()
   @IsString()
-  @Length(10, 100)
+  @Length(3, 100)
   address: string;
 
   @IsNotEmpty()

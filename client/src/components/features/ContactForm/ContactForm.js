@@ -8,7 +8,7 @@ const ContactForm = ({ action }) => {
   const [fName, setFName] = useState('');
   const [lName, setLName] = useState('');
   const [address, setAddress] = useState('');
-  const [phone, setPhone] = useState('');
+  const [phone, setPhone] = useState(0);
   const [email, setEmail] = useState('');
 
   const { register, handleSubmit: validate, formState: { errors } } = useForm();
