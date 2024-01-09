@@ -57,6 +57,8 @@ export class OrdersService {
     confirmData: Omit<OrderOnConfirm, 'id'>,
   ): Promise<Order> {
     const { orderId, confirmId } = confirmData;
+    console.log(orderId);
+    console.log(confirmId);
     return await this.prismaService.order.update({
       where: { id: orderId },
       data: {

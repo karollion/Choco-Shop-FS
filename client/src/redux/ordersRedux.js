@@ -88,7 +88,7 @@ export const addOrderRequestOnServer = order => {
       )
     };
     fetch(`${API_URL}/orders`, options)
-      .then(() => {dispatch(fetchOrders())})
+      //.then(() => {dispatch(fetchOrders())})
       .catch((err) => console.log(err))
   };
 };
