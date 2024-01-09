@@ -21,17 +21,14 @@ const Product = () => {
   const [quantity, setQuantity] = useState(1);
   const productId = product.id;
   const photos = product.photo.split(' ');
-
-  const images = [
-    {
-      original: IMGS_URL + photos[0],
-      thumbnail: IMGS_URL + photos[0],
-    },
-    {
-      original: IMGS_URL + photos[0],
-      thumbnail: IMGS_URL + photos[0],
-    },    
-  ];
+  const images = [];
+  
+  photos.forEach(photo => {
+      images.push({
+        original: IMGS_URL + photo,
+        thumbnail: IMGS_URL + photo,
+      });
+  });
 
   const handleSubmit = e => {
     e.preventDefault();
