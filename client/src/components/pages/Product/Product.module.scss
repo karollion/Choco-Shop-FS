@@ -1,25 +1,67 @@
 @import '../../../styles/settings.scss';
+.root {
+	padding-top: 70px;
+	padding-bottom: 50px;
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  z-index: 1;
+	color: $text-color-light;
+	font-size: 26px;
 
-.card {
-	width: 600px;
-	height: auto;
-	margin: 0 auto;
+	h3 {
+		font-size: 36px;
+		color: $text-color-light;
+		margin: 20px 0;
+	}
+
+	.form {
+		display: flex;
+
+		input {
+			margin: 0 10px 16px 16px;
+			width: 75px
+		}
+	}
+
+	.button {
+		@extend %transitionHover;
+		margin: 16px 0;
+		background: none;
+		width: 200px;
+		font-size: 26px;
+		font-weight: 600;
+		border: 3px solid $text-color-light;
+		border-radius: 100px ;
+		color: $text-color-light;
+		
+		&:hover {
+			color: $text-color-primary;
+			border-color: $text-color-primary;
+			background: none;
+		}
+
+		&:active {
+			background: none;
+		}
+	}
+
+	.title {
+		@extend %titleStyle;
+	}
+
 }
 
-.btnContaier {
-	margin: 3rem 0 1rem 0;
-	display: flex;
-	justify-content: space-around;
-}
+@media (max-width: 768px) {
+  .pInfo {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
 
-.btn {
-	width: 100px;
-}
-
-.avatar {
-	width: 30px;
-	height: 30px;
-	border: 1px solid black;
-	border-radius: 3px;
-	margin-left: 5px;
+	.formAndButton {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
 }

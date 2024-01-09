@@ -3,7 +3,7 @@ import { getProductById } from '../../../redux/productsRedux';
 import { Navigate, useNavigate } from "react-router-dom";
 import { useParams } from 'react-router';
 import { useDispatch, useSelector } from 'react-redux';
-import { Button, Card, Form } from 'react-bootstrap';
+import { Button, Form } from 'react-bootstrap';
 import { IMGS_URL } from '../../../config';
 import { useState } from 'react';
 import { addOrderRequest } from '../../../redux/ordersRedux';
@@ -30,16 +30,7 @@ const Product = () => {
     {
       original: IMGS_URL + photos[0],
       thumbnail: IMGS_URL + photos[0],
-    },
-    {
-      original: IMGS_URL + photos[0],
-      thumbnail: IMGS_URL + photos[0],
-    },
-    {
-      original: IMGS_URL + photos[0],
-      thumbnail: IMGS_URL + photos[0],
-    },
-    
+    },    
   ];
 
   const handleSubmit = e => {
@@ -51,52 +42,40 @@ const Product = () => {
 
   if (!product) return <Navigate to="/" />;
   return (
-    <Container>
-      <div className='min-vh-100 px-4'>
-        <h2 className='my-4' >product</h2>
-        <Card className={styles.card}>
-          <ImageGallery 
-            items={images} 
-            showPlayButton={false} 
-            showNav={false}
-          />
-          <Card.Body>
-            <Card.Title><h3>{product.name}</h3></Card.Title>
-
-            <Card.Text>
-              <b>Price:</b> $ {product.price}
-            </Card.Text>
-
-            <Card.Text>
-              <b>Size:</b> {product.size}g
-            </Card.Text>
-            
-            <Card.Text>
-              <b>description:</b>
-            </Card.Text>
-
-            <Card className='p-2'>
-              {product.description}
-            </Card>
-
-            <Form onSubmit={handleSubmit} className='col-12 col-sm-3 mx-auto'>
-
-              <Form.Group  >
-                <Form.Label>Quantity</Form.Label>
-                <Form.Control
-                  value={quantity}
-                  onChange={e => setQuantity(Number(e.target.value))}
-                  type='number'
-                />
-              </Form.Group>
-
-              <Button className='my-3' variant="primary" type="submit">Add to cart</Button>
-            </Form>
-
-          </Card.Body>
-        </Card>
-      </div>
-    </Container>
+    <div className={styles.root}>
+      <Container>
+        <div className='min-vh-100 px-4'>
+          <h2 className={styles.title} >Product details</h2>
+          <div className='row py-3'>
+            <div className='col-md-6 p-3' >
+              <ImageGallery 
+                items={images} 
+                showPlayButton={false} 
+                showNav={false}
+              />
+            </div>
+            <div className={`col-md-6 p-3 ${styles.pInfo}`} >
+              <h3>{product.name}</h3>
+              <p>Price: ${product.price}</p> 
+              <p>Weight: {product.size}g</p> 
+              <p>Description: </p>
+              <p>{product.description}</p>
+              <Form onSubmit={handleSubmit} className={`row ${styles.formAndButton}`}>
+                <Form.Group className={styles.form}>
+                  <Form.Label>Quantity: </Form.Label>
+                  <Form.Control
+                    value={quantity}
+                    onChange={e => setQuantity(Number(e.target.value))}
+                    type='number'
+                  />
+                </Form.Group>
+                <Button className={styles.button} variant="primary" type="submit">Add to cart</Button>
+              </Form>
+            </div>
+          </div>
+        </div>
+      </Container>
+    </div>
   );
 };
 

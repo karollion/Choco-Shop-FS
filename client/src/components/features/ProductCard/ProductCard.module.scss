@@ -41,7 +41,6 @@
       font-size: 26px;
       display: flex;
       justify-content: space-between;
-      
     }
 
     .button {
@@ -49,7 +48,6 @@
       background: none;
       position: absolute;
       bottom: 10px;
-      
       transform: translate(50%,0);
       width: 50%;
       font-size: 26px;
@@ -61,7 +59,6 @@
       &:hover {
         color: $text-color-primary;
         border-color: $text-color-primary;
-        
       }
 
       &:active {
