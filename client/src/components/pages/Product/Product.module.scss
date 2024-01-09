@@ -10,8 +10,9 @@
 	font-size: 26px;
 
 	h3 {
+		@extend %titleStyle;
 		font-size: 36px;
-		color: $text-color-light;
+		text-align: start;
 		margin: 20px 0;
 	}
 
@@ -64,4 +65,5 @@
 		flex-direction: column;
 		align-items: center;
 	}
+
 }

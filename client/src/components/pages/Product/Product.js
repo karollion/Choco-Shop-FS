@@ -49,6 +49,7 @@ const Product = () => {
                 items={images} 
                 showPlayButton={false} 
                 showNav={false}
+                showFullscreenButton={false}
               />
             </div>
             <div className={`col-md-6 p-3 ${styles.pInfo}`} >

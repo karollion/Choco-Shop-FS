@@ -1,6 +1,20 @@
 @import './settings.scss';
 @import "~react-image-gallery/styles/scss/image-gallery.scss";
 
+.image-gallery-content .image-gallery-slide .image-gallery-image {
+	height: 500px;
+  object-fit: cover;
+}
+
+.image-gallery-thumbnail .image-gallery-thumbnail-image {
+  height: 100px;
+  object-fit: cover;
+}
+
+.image-gallery-thumbnail.active, .image-gallery-thumbnail:focus {
+  border-color: $text-color-primary;
+}
+
 *, *::before, *::after {
   box-sizing: border-box;
 }
