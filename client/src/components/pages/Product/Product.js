@@ -37,6 +37,20 @@ const Product = () => {
     navigate('/cart');
   };
 
+  const decQuantity = e => {
+    if (quantity > 1) {
+      setQuantity(quantity - 1);
+    }
+  }
+
+  const incQuantity = e => {
+    if (quantity < 99) {
+      setQuantity(quantity + 1);
+    } else if (quantity > 99) {
+      setQuantity(99);
+    }
+  }
+
   if (!product) return <Navigate to="/" />;
   return (
     <div className={styles.root}>
@@ -59,14 +73,22 @@ const Product = () => {
               <p>Description: </p>
               <p>{product.description}</p>
               <Form onSubmit={handleSubmit} className={`row ${styles.formAndButton}`}>
-                <Form.Group className={styles.form}>
-                  <Form.Label>Quantity: </Form.Label>
-                  <Form.Control
-                    value={quantity}
-                    onChange={e => setQuantity(Number(e.target.value))}
-                    type='number'
-                  />
-                </Form.Group>
+                  <Form.Group className={styles.form}>
+                    <Form.Label>Quantity: </Form.Label>
+                    <Button onClick={(e) => {
+                      e.preventDefault();
+                      decQuantity();
+                      }} className={styles.qtyBtn}>-</Button>
+                    <Form.Control
+                      value={quantity}
+                      onChange={e => setQuantity(Number(e.target.value))}
+                      type='number'
+                    />
+                    <Button onClick={(e) => {
+                      e.preventDefault();
+                      incQuantity();
+                      }} className={styles.qtyBtn}>+</Button>
+                  </Form.Group>
                 <Button className={styles.button} variant="primary" type="submit">Add to cart</Button>
               </Form>
             </div>
