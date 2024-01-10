@@ -8,7 +8,6 @@ import ContactForm from '../../features/ContactForm/ContactForm';
 import { useNavigate } from 'react-router-dom';
 import { addOrderRequest } from '../../../redux/confirmOrdersRedux';
 import { v4 as uuidv4 } from 'uuid';
-import SumOrders from '../../common/SumOrders/SumOrders';
 import Container from '../../common/container/Container';
 
 const CartResume = () => {
@@ -32,7 +31,6 @@ const CartResume = () => {
         {orders.length === 0 && !isLoading && <p>You cart is empty</p>}
         {isLoading && <Spinner animation='border' variant='primary' />}
         {!isLoading && <AllOrders orders={orders} canBeEdited={false} />}
-        <SumOrders orders={orders}/>
         <ContactForm action={handleSubmit}/>
       </div>
     </Container>

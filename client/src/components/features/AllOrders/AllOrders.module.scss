@@ -2,6 +2,7 @@
 
 .root {
   background: $bg-all-orders;
+  border-radius: 16px;
 
    > :nth-child(even) {
     background-color: $bg-all-orders-child;

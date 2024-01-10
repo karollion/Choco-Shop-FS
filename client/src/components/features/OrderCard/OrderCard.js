@@ -54,19 +54,19 @@ const OrderCard = ({ order, canBeEdited }) => {
       <p>{product.price}$</p>
       {canBeEdited ? (
         <Form.Group controlId="formphone" className={styles.form}>
-          <Button onClick={(e) => {
+          <button onClick={(e) => {
             e.preventDefault();
             decQuantity();
-            }} className={styles.qtyBtn}>-</Button>
+            }} className={styles.qtyBtn}>-</button>
           <Form.Control
             value={quantity}
             onChange={e => setQuantity(Number(e.target.value))}
             type='number'
           />
-          <Button onClick={(e) => {
+          <button onClick={(e) => {
             e.preventDefault();
             incQuantity();
-            }} className={styles.qtyBtn}>+</Button>
+            }} className={styles.qtyBtn}>+</button>
         </Form.Group>
       ) : null}
       {canBeEdited ? (
@@ -88,10 +88,10 @@ const OrderCard = ({ order, canBeEdited }) => {
           <p>description: {description}</p>
       ) : null}
       {canBeEdited ? (
-      <Button variant="primary" onClick={handleUpdate}>update</Button>
+      <Button className={styles.qtyBtn} variant="primary" onClick={handleUpdate}>update</Button>
       ) : null}
       {canBeEdited ? (
-      <Button variant="danger" onClick={handleRemove}>remove</Button>
+      <Button className={styles.qtyBtn} variant="danger" onClick={handleRemove}>remove</Button>
       ) : null}
       </div>
   );

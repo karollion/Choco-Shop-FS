@@ -5,7 +5,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px;
+  padding: 10px 15px;
 
   .image {
     width: 100px;
@@ -17,6 +17,10 @@
     margin: 0;
   }
 
+  p:first-of-type {
+    width: 200px;
+  }
+
   .form {
 		display: flex;
     background: none;
@@ -25,13 +29,17 @@
 		input {
 			margin: 0;
 			width: 50px;
-			text-align: center
+			text-align: center;
+
+      .qtyBtn {
+        width: 40px;
+      }
 		}
 	}
 
   .qtyBtn {
+    @extend %transitionHover;
 		margin: 0 16px 0 16px;
-		width: 40px;
 		
 		font-weight: 600;
 		background: none;
@@ -39,7 +47,7 @@
 		border-radius: 10px ;
 		color: $text-color-light;
 		
-		&:hover:focus {
+		&:hover {
 			color: $text-color-primary;
 			border-color: $text-color-primary;
 			background: none;
