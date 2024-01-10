@@ -5,13 +5,54 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 10px;
 
   .image {
     width: 100px;
     height: 100px;
+    border-radius: 5px;
   }
 
-  .quantityLabel {
-    width: 70px;
+  p {
+    margin: 0;
   }
+
+  .form {
+		display: flex;
+    background: none;
+    background-color: none;
+
+		input {
+			margin: 0;
+			width: 50px;
+			text-align: center
+		}
+	}
+
+  .qtyBtn {
+		margin: 0 16px 0 16px;
+		width: 40px;
+		
+		font-weight: 600;
+		background: none;
+		border: 3px solid $text-color-light;
+		border-radius: 10px ;
+		color: $text-color-light;
+		
+		&:hover:focus {
+			color: $text-color-primary;
+			border-color: $text-color-primary;
+			background: none;
+		}
+	}
+
+  input[type="number"]::-webkit-inner-spin-button,
+	input[type="number"]::-webkit-outer-spin-button {
+		-webkit-appearance: none;
+		margin: 0;
+	}
+
+	input[type="number"] {
+		-moz-appearance: textfield; 
+	}
 }

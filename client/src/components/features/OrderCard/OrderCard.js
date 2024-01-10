@@ -29,6 +29,20 @@ const OrderCard = ({ order, canBeEdited }) => {
     }));
   };
 
+  const decQuantity = e => {
+    if (quantity > 1) {
+      setQuantity(quantity - 1);
+    }
+  }
+
+  const incQuantity = e => {
+    if (quantity < 99) {
+      setQuantity(quantity + 1);
+    } else if (quantity > 99) {
+      setQuantity(99);
+    }
+  }
+
   return (
     <div className={styles.root}>
       <img 
@@ -39,26 +53,30 @@ const OrderCard = ({ order, canBeEdited }) => {
       <p>{product.name}</p>
       <p>{product.price}$</p>
       {canBeEdited ? (
-        <Form >
-          <Form.Group  controlId="formphone" className=''>
-            <Form.Label>pcs.</Form.Label>
-            <Form.Control
-              className={styles.quantityLabel}
-              value={quantity}
-              onChange={e => setQuantity(Number(e.target.value))}
-              type='number'
-            />
-          </Form.Group>
-        </Form>
+        <Form.Group controlId="formphone" className={styles.form}>
+          <Button onClick={(e) => {
+            e.preventDefault();
+            decQuantity();
+            }} className={styles.qtyBtn}>-</Button>
+          <Form.Control
+            value={quantity}
+            onChange={e => setQuantity(Number(e.target.value))}
+            type='number'
+          />
+          <Button onClick={(e) => {
+            e.preventDefault();
+            incQuantity();
+            }} className={styles.qtyBtn}>+</Button>
+        </Form.Group>
       ) : null}
       {canBeEdited ? (
         <Form >
           <Form.Group  controlId="formphone">
-            <Form.Label>Description</Form.Label>
             <Form.Control
               value={description}
               onChange={e => setDescription(e.target.value)}
               type='textarea'
+              placeholder='Your description'
             />
           </Form.Group>
         </Form>

@@ -3,7 +3,7 @@
 .root {
   background: $bg-all-orders;
 
-  div:nth-child(even) {
+   > :nth-child(even) {
     background-color: $bg-all-orders-child;
   }
 }
