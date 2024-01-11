@@ -75,19 +75,19 @@ const Product = () => {
               <Form onSubmit={handleSubmit} className={`row ${styles.formAndButton}`}>
                   <Form.Group className={styles.form}>
                     <Form.Label>Quantity: </Form.Label>
-                    <Button onClick={(e) => {
+                    <button onClick={(e) => {
                       e.preventDefault();
                       decQuantity();
-                      }} className={styles.qtyBtn}>-</Button>
+                      }} className={styles.qtyBtn}>-</button>
                     <Form.Control
                       value={quantity}
                       onChange={e => setQuantity(Number(e.target.value))}
                       type='number'
                     />
-                    <Button onClick={(e) => {
+                    <button onClick={(e) => {
                       e.preventDefault();
                       incQuantity();
-                      }} className={styles.qtyBtn}>+</Button>
+                      }} className={styles.qtyBtn}>+</button>
                   </Form.Group>
                 <Button className={styles.button} variant="primary" type="submit">Add to cart</Button>
               </Form>
