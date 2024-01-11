@@ -60,7 +60,9 @@ export const removeOrderRequest = (id) => {
 };
 
 export const removeAllOrdersFromLocalStorage = () => {
-  localStorage.removeItem('orders');
+  return(dispatch) => {
+    localStorage.removeItem('orders');
+  };
 };
 
 // Comunication to server
@@ -88,14 +90,17 @@ export const addOrderRequestOnServer = order => {
       )
     };
     fetch(`${API_URL}/orders`, options)
-      //.then(() => {dispatch(fetchOrders())})
       .catch((err) => console.log(err))
   };
 };
 
-export const addToConfirmOrderRequest = data => {
+export const confirmOrders = (orders, confirmId) => {
+  return(dispatch) => {
+    orders.map(order => dispatch(addToConfirmOrderRequest({ orderId: order.id, confirmId: confirmId })));
+  };
+};
 
-  console.log('addToConfirmOrderRequest', data)
+export const addToConfirmOrderRequest = data => {
   return(dispatch) => {
     const options = {
       method: 'POST',

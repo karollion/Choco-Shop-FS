@@ -9,11 +9,14 @@ import { useNavigate } from 'react-router-dom';
 import { addOrderRequest } from '../../../redux/confirmOrdersRedux';
 import { v4 as uuidv4 } from 'uuid';
 import Container from '../../common/container/Container';
+import { confirmOrders, removeAllOrdersFromLocalStorage } from '../../../redux/ordersRedux';
+import { useState } from 'react';
 
 const CartResume = () => {
   window.scrollTo(0 ,0);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [showConfirm, setShowConfirm] = useState(false);
 
   const orders = useSelector(state => getAllOrders(state));
   const isLoading = useSelector(state => getIsLoading(state));
@@ -22,11 +25,30 @@ const CartResume = () => {
   const handleSubmit = confirmOrderData => {
     confirmOrderData.id = confirmId;
     dispatch(addOrderRequest(confirmOrderData, orders));
-    navigate('/');
+    setShowConfirm(true);
   };
+
+  const handleConfirm = () => {
+    dispatch(confirmOrders(orders, confirmId));
+    dispatch(removeAllOrdersFromLocalStorage());
+    setTimeout(() => {
+      navigate('/');
+      setShowConfirm(false);
+    }, 1000);
+  };
+
   return (
     <Container>
       <div className={styles.root}>
+        {showConfirm ? (
+          <div className={styles.confirm}>
+            <p>To finalize your order, click the "confirm" button</p>
+            <button onClick={(e) => {
+              e.preventDefault();
+              handleConfirm();
+              }} className={styles.qtyBtn}>Confirm</button>
+          </div>
+        ) : null}
         <h2 className={styles.title}>Cart - resume</h2>
         {orders.length === 0 && !isLoading && <p>You cart is empty</p>}
         {isLoading && <Spinner animation='border' variant='primary' />}

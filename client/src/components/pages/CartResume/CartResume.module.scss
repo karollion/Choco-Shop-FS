@@ -10,4 +10,17 @@
   .title {
     @extend %titleStyle;
   }
+
+  .confirm {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: $text-color-light;
+    width: 300px;
+    height: 200px;
+    background: $bg-confirm-box;
+    border-radius: 16px;
+  }
 }
