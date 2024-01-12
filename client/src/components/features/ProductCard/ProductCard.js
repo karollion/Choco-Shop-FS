@@ -13,7 +13,7 @@ const ProductCard = ({ product }) => {
   return (
     <div className={styles.root}>
       <img
-        src={IMGS_URL + photos[0]}
+        src={IMGS_URL + 'products/' + photos[0]}
         alt="Product_photo"
         className={styles.img}
       />

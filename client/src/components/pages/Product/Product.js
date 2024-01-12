@@ -25,8 +25,8 @@ const Product = () => {
   
   photos.forEach(photo => {
       images.push({
-        original: IMGS_URL + photo,
-        thumbnail: IMGS_URL + photo,
+        original: IMGS_URL + 'products/' + photo,
+        thumbnail: IMGS_URL + 'products/' + photo,
       });
   });
 

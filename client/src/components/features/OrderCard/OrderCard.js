@@ -48,7 +48,7 @@ const OrderCard = ({ order, canBeEdited }) => {
       <img 
         className={styles.image}
         alt={'home background'}
-        src={IMGS_URL + photos[0]} 
+        src={IMGS_URL + 'products/' + photos[0]} 
       />
       <p>{product.name}</p>
       <p>{product.price}$</p>
