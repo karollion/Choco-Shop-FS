@@ -1,11 +1,4 @@
-import {
-  IsEmail,
-  IsInt,
-  IsNotEmpty,
-  IsString,
-  Length,
-  Min,
-} from 'class-validator';
+import { IsEmail, IsNotEmpty, IsString, Length } from 'class-validator';
 
 export class UpdateConfirmOrderDTO {
   @IsNotEmpty()
@@ -24,9 +17,9 @@ export class UpdateConfirmOrderDTO {
   address: string;
 
   @IsNotEmpty()
-  @IsInt()
-  @Min(0)
-  phone: number;
+  @IsString()
+  @Length(3, 20)
+  phone: string;
 
   @IsNotEmpty()
   @IsEmail()

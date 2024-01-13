@@ -1,4 +1,11 @@
-import { IsInt, IsNotEmpty, IsString, Length, Min } from 'class-validator';
+import {
+  IsBoolean,
+  IsInt,
+  IsNotEmpty,
+  IsString,
+  Length,
+  Min,
+} from 'class-validator';
 
 export class UpdateProductDTO {
   @IsNotEmpty()
@@ -12,9 +19,18 @@ export class UpdateProductDTO {
   price: number;
 
   @IsNotEmpty()
-  @IsInt()
-  @Min(0)
-  size: number;
+  @IsString()
+  @Length(1, 4)
+  size: string;
+
+  @IsNotEmpty()
+  @IsString()
+  @Length(3, 20)
+  category: string;
+
+  @IsNotEmpty()
+  @IsBoolean()
+  isNew: boolean;
 
   @IsNotEmpty()
   @IsString()

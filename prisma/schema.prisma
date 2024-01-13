@@ -10,12 +10,22 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+enum Size {
+  S
+  M
+  L
+  XL
+  XXL
+}
+
 model Product {
   id          String          @id @default(uuid())
   name        String
   price       Int
-  size        Int
+  size        Size      @default(S)
   description String
+  category    String
+  isNew       Boolean
   photo       String
 
   order       Order[]
@@ -28,19 +38,26 @@ model Order {
 
   product     Product         @relation(fields: [productId], references: [id])
   productId   String
-
+  user        User            @relation(fields: [userId], references: [id])
+  userId      String
   confirmOrder    OrderOnConfirm[]
 
+  @@index([productId], name: "idx_productId")
+  @@index([userId], name: "idx_userId")
 }
+
+// ---------- Confirm Orders ------------- //
 
 model ConfirmOrder {
   id          String          @id @default(uuid())
   fName       String
   lName       String
   address     String
-  phone       Int
+  phone       String
   email       String
 
+  user        User            @relation(fields: [userId], references: [id])
+  userId      String
   orders      OrderOnConfirm[]
 }
 
@@ -51,4 +68,31 @@ model OrderOnConfirm {
   confirmId   String 
 
   @@id([orderId, confirmId])
+
+  @@index([orderId], name: "idx_orderId")
+  @@index([confirmId], name: "idx_confirmId")
+}
+
+// ---------- Users ---------- //
+
+enum Role {
+  USER
+  ADMIN
+}
+
+model User {
+  id       String    @id @default(uuid())
+  email    String    @unique
+  role     Role      @default(USER)
+  password Password?
+
+  order         Order[]
+  confirmOrder  ConfirmOrder[]
+}
+
+model Password {
+  id       String @id @default(uuid())
+  hashedPassword String
+  user     User   @relation(fields: [userId], references: [id])
+  userId   String @unique
 }
