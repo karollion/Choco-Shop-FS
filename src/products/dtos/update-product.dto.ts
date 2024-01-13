@@ -6,6 +6,8 @@ import {
   Length,
   Min,
 } from 'class-validator';
+import { Transform } from 'class-transformer';
+import { Size } from '@prisma/client';
 
 export class UpdateProductDTO {
   @IsNotEmpty()
@@ -21,7 +23,8 @@ export class UpdateProductDTO {
   @IsNotEmpty()
   @IsString()
   @Length(1, 4)
-  size: string;
+  @Transform(({ value }) => value.toUpperCase()) // Added to ensure that the enuma value will be in uppercase letters
+  size: Size;
 
   @IsNotEmpty()
   @IsString()

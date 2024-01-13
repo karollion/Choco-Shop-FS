@@ -1,4 +1,4 @@
-import { IsEmail, IsNotEmpty, IsString, Length } from 'class-validator';
+import { IsEmail, IsNotEmpty, IsString, IsUUID, Length } from 'class-validator';
 
 export class UpdateConfirmOrderDTO {
   @IsNotEmpty()
@@ -24,4 +24,8 @@ export class UpdateConfirmOrderDTO {
   @IsNotEmpty()
   @IsEmail()
   email: string;
+
+  @IsString()
+  @IsUUID()
+  userId: string;
 }

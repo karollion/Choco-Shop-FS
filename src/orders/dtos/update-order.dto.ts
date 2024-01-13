@@ -21,4 +21,8 @@ export class UpdateOrderDTO {
   @IsUUID()
   @IsString()
   productId: string;
+
+  @IsString()
+  @IsUUID()
+  userId: string;
 }

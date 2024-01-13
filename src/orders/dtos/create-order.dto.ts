@@ -21,4 +21,8 @@ export class CreateOrderDTO {
   @IsUUID()
   @IsString()
   productId: string;
+
+  @IsString()
+  @IsUUID()
+  userId: string;
 }
