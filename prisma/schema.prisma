@@ -22,7 +22,7 @@ model Product {
   id          String          @id @default(uuid())
   name        String
   price       Int
-  size        Size      @default(S)
+  size        Size            @default(S)
   description String
   category    String
   isNew       Boolean
