@@ -5,12 +5,14 @@ import isloadingReducer from './isLoadingRedux';
 import productsReducer from './productsRedux';
 import ordersReducer from './ordersRedux';
 import confirmOrdersReducer from './confirmOrdersRedux';
+import usersReducer from './usersRedux';
 
 const subreducers = {
   loading: isloadingReducer,
   products: productsReducer,
   orders: ordersReducer,
   confirmOrders: confirmOrdersReducer,
+  users: usersReducer,
 }
 
 const reducer = combineReducers(subreducers);

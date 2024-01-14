@@ -15,6 +15,9 @@ import CartResume from './components/pages/CartResume/CartResume';
 import NotFoundPage from './components/pages/NotFound/NotFoundPage';
 import Contact from './components/pages/Contact/Contact';
 import About from './components/pages/About/About';
+import Login from './components/pages/Login/Login'
+import SignUp from './components/pages/SignUp/SignUp';
+import Logout from './components/pages/Logout/Logout'
 
 function App() {
   const dispatch = useDispatch();
@@ -48,6 +51,9 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="/resume" element={<CartResume />} />
+            <Route path="/login" element={<Login/>} />
+            <Route path="/signup" element={<SignUp/>} />
+            <Route path="/logout" element={<Logout/>} />
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </div>

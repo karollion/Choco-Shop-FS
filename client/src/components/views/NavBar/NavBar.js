@@ -2,11 +2,13 @@ import styles from './NavBar.module.scss'
 import Container from '../../common/container/Container';
 import { Navbar, Nav } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingBasket } from '@fortawesome/free-solid-svg-icons';
+import { useSelector } from 'react-redux';
+import { getUser } from '../../../redux/usersRedux';
 
 const NavBar = () => {
+  const user = useSelector(getUser);
 
   return (
     <div className={styles.root}>
@@ -19,6 +21,9 @@ const NavBar = () => {
                 <NavLink className={({ isActive }) => isActive ? styles.linkActive : undefined} as={NavLink} to="/">Home</NavLink>
                 <NavLink className={({ isActive }) => isActive ? styles.linkActive : undefined} as={NavLink} to="/about">About</NavLink>
                 <NavLink className={({ isActive }) => isActive ? styles.linkActive : undefined} as={NavLink} to="/contact">Contact</NavLink>
+                {!user ? (<NavLink className={({ isActive }) => isActive ? styles.linkActive : undefined} as={NavLink} to="/login">Login</NavLink>) : null }
+                {!user ? (<NavLink className={({ isActive }) => isActive ? styles.linkActive : undefined} as={NavLink} to="/signup">Sign up</NavLink>) : null }
+                {user ? (<NavLink className={({ isActive }) => isActive ? styles.linkActive : undefined} as={NavLink} to="/logout">Logout</NavLink>) : null }
                 <NavLink className={({ isActive }) => isActive ? styles.linkActive : undefined} as={NavLink} to="/cart">
                   <FontAwesomeIcon className={styles.icon} icon={faShoppingBasket} />
                 </NavLink>
