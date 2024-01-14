@@ -1,7 +1,7 @@
 import { API_URL } from '../config'
 
 //selectors
-export const getUser = ({ user }) =>  user;
+export const getUser = ({ user }) => { return user};
 
 // actions
 const createActionName = actionName => `app/users/${actionName}`;
@@ -27,7 +27,7 @@ export const isUserLoginedIn = () => {
   };
 };
 
-const usersReducer = (statePart = [], action) => {
+const userReducer = (statePart = [], action) => {
   switch (action.type) {
     case LOG_IN:
       return action.payload;
@@ -38,4 +38,4 @@ const usersReducer = (statePart = [], action) => {
   };
 };
 
-export default usersReducer;
+export default userReducer;

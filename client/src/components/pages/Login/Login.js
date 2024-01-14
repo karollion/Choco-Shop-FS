@@ -3,14 +3,14 @@ import { Alert, Spinner, Button, Form } from 'react-bootstrap';
 import { useState } from 'react';
 import { API_URL } from '../../../config';
 import { useDispatch } from 'react-redux';
-import { logIn } from '../../../redux/usersRedux';
+import { logIn } from '../../../redux/userRedux';
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const [login, setLogin] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [status, setStatus] = useState(null); //null, 'loading', 'success', 'serverError', 'clientError'
 
@@ -19,17 +19,20 @@ const Login = () => {
 
     const options = {
       method: 'POST',
+      credentials: 'include',
+      mode: 'cors',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ login, password })
+      body: JSON.stringify({ email, password })
     };
 
     setStatus('loading');
     fetch(`${API_URL}/auth/login`, options)
       
       .then(res => {
-        if(res.status === 200) {
+        console.log(res)
+        if(res.status === 201) {
           setStatus('success');
           return res.json();
         } else if (res.status === 400) {
@@ -79,16 +82,16 @@ const Login = () => {
 
       <Form onSubmit={handleSubmit} className='col-12 col-sm-3 mx-auto my-4 px-3 min-vh-100'> 
 
-        <Form.Group className='mb-3' controlId='formLogin'>
-          <Form.Label>Login</Form.Label>
+        <Form.Group className='mb-3' controlId='email'>
+          <Form.Label>E-mail</Form.Label>
           <Form.Control 
             type='text' 
-            value={login} 
-            onChange={e => setLogin(e.target.value)} 
-            placeholder='Enter login' />
+            value={email} 
+            onChange={e => setEmail(e.target.value)} 
+            placeholder='Enter e-mail' />
         </Form.Group>
 
-        <Form.Group className='mb-3' controlId='formPassword'>
+        <Form.Group className='mb-3' controlId='password'>
           <Form.Label>Password</Form.Label>
           <Form.Control 
             type='password' 

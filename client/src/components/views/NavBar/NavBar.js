@@ -5,11 +5,13 @@ import { NavLink } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingBasket } from '@fortawesome/free-solid-svg-icons';
 import { useSelector } from 'react-redux';
-import { getUser } from '../../../redux/usersRedux';
+import { getUser } from '../../../redux/userRedux';
 
 const NavBar = () => {
-  const user = useSelector(getUser);
+  const user = useSelector((state) => getUser(state));
+  //const user = useSelector(getUser);
 
+  console.log (user)
   return (
     <div className={styles.root}>
       <Container>
