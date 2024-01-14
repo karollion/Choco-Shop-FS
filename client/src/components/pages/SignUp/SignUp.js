@@ -1,4 +1,4 @@
-//import styles from './SignUp.module.scss'
+import styles from './SignUp.module.scss'
 import { Alert, Button, Form, Spinner } from 'react-bootstrap';
 import { useState } from 'react';
 import { API_URL } from '../../../config';
@@ -43,8 +43,8 @@ const SignUp = () => {
   };
 
   return (
-    <Form onSubmit={handleSubmit} className='col-12 col-sm-3 mx-auto min-vh-100'> 
-      <h2 className='my-4'>SignUp</h2>
+    <div className={styles.root}>
+      <h2 className={styles.title}>SignUp</h2>
 
       {status === 'success' && (
         <Alert variant='success'>
@@ -72,46 +72,49 @@ const SignUp = () => {
         </Spinner>
       )}
 
-      <Form.Group className='mb-3' controlId='formEmail'>
-        <Form.Label>E-mail</Form.Label>
-        <Form.Control 
-          type='email' 
-          value={signUpData.email} 
-          onChange={(e) =>
-            setSignUpData({ ...signUpData, email: e.target.value })
-          }
-        />
-      </Form.Group>
+      <Form onSubmit={handleSubmit} className='col-12 col-sm-3 mx-auto my-4 px-3 min-vh-100'> 
 
-      <Form.Group className='mb-3' controlId='formPassword'>
-        <Form.Label>Password</Form.Label>
-        <Form.Control 
-          type='password' 
-          required
-          value={signUpData.password} 
-          onChange={(e) =>
-            setSignUpData({ ...signUpData, password: e.target.value })
-          }
-        />
-      </Form.Group>
+        <Form.Group className='mb-3' controlId='formEmail'>
+          <Form.Label>E-mail</Form.Label>
+          <Form.Control 
+            type='email' 
+            value={signUpData.email} 
+            onChange={(e) =>
+              setSignUpData({ ...signUpData, email: e.target.value })
+            }
+          />
+        </Form.Group>
 
-      <Form.Group className='mb-3' controlId='formPassword'>
-        <Form.Label>Confirm password</Form.Label>
-        <Form.Control 
-          type='password' 
-          required
-          value={signUpData.passwordRepeat} 
-          onChange={(e) =>
-            setSignUpData({ ...signUpData, passwordRepeat: e.target.value })
-          }
-        />
-      </Form.Group>
+        <Form.Group className='mb-3' controlId='password'>
+          <Form.Label>Password</Form.Label>
+          <Form.Control 
+            type='password' 
+            required
+            value={signUpData.password} 
+            onChange={(e) =>
+              setSignUpData({ ...signUpData, password: e.target.value })
+            }
+          />
+        </Form.Group>
 
-      <Button variant='primary' type='submit' >
-        Sign up
-      </Button>
+        <Form.Group className='mb-3' controlId='confirmPassword'>
+          <Form.Label>Confirm password</Form.Label>
+          <Form.Control 
+            type='password' 
+            required
+            value={signUpData.passwordRepeat} 
+            onChange={(e) =>
+              setSignUpData({ ...signUpData, passwordRepeat: e.target.value })
+            }
+          />
+        </Form.Group>
 
-    </Form>
+        <Button variant='primary' type='submit' >
+          Sign up
+        </Button>
+
+      </Form>
+    </div>
   );
 };
 

@@ -1,4 +1,4 @@
-//import styles from './Login.module.scss'
+import styles from './Login.module.scss'
 import { Alert, Spinner, Button, Form } from 'react-bootstrap';
 import { useState } from 'react';
 import { API_URL } from '../../../config';
@@ -47,8 +47,8 @@ const Login = () => {
       })
   };
   return (
-    <Form onSubmit={handleSubmit} className='col-12 col-sm-3 mx-auto min-vh-100'> 
-      <h2 className='my-4'>Login</h2>
+    <div className={styles.root}>
+      <h2 className={styles.title}>Login</h2>
 
       {status === 'success' && (
         <Alert variant='success'>
@@ -77,30 +77,33 @@ const Login = () => {
         </Spinner>
       )}
 
-      <Form.Group className='mb-3' controlId='formLogin'>
-        <Form.Label>Login</Form.Label>
-        <Form.Control 
-          type='text' 
-          value={login} 
-          onChange={e => setLogin(e.target.value)} 
-          placeholder='Enter login' />
-      </Form.Group>
+      <Form onSubmit={handleSubmit} className='col-12 col-sm-3 mx-auto my-4 px-3 min-vh-100'> 
 
-      <Form.Group className='mb-3' controlId='formPassword'>
-        <Form.Label>Password</Form.Label>
-        <Form.Control 
-          type='password' 
-          value={password} 
-          onChange={e => setPassword(e.target.value)} 
-          placeholder='Enter password' />
-      </Form.Group>
+        <Form.Group className='mb-3' controlId='formLogin'>
+          <Form.Label>Login</Form.Label>
+          <Form.Control 
+            type='text' 
+            value={login} 
+            onChange={e => setLogin(e.target.value)} 
+            placeholder='Enter login' />
+        </Form.Group>
+
+        <Form.Group className='mb-3' controlId='formPassword'>
+          <Form.Label>Password</Form.Label>
+          <Form.Control 
+            type='password' 
+            value={password} 
+            onChange={e => setPassword(e.target.value)} 
+            placeholder='Enter password' />
+        </Form.Group>
 
 
-      <Button variant='primary' type='submit' >
-        Sign in
-      </Button>
+        <Button variant='primary' type='submit' >
+          Sign in
+        </Button>
 
-    </Form>
+      </Form>
+    </div>
   );
 };
 
