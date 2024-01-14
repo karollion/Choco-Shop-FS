@@ -57,7 +57,7 @@ model ConfirmOrder {
   email       String
 
   user        User            @relation(fields: [userId], references: [id])
-  userId      String?
+  userId      String
   orders      OrderOnConfirm[]
 }
 

@@ -10,6 +10,11 @@ Server run on `localhost:3030`
 
 Data Base was in `mysql://localhost:3306/choco-shop-db`
 
+To add example data to db use:
+```bash
+$ nest g co products/products --flat --no-spec
+```
+
 ## Installation
 
 ```bash

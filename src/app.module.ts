@@ -14,6 +14,9 @@ import { ConfirmOrdersModule } from './confirm-orders/confirm-orders.module';
 import { UsersModule } from './users/users.module';
 import { AuthModule } from './auth/auth.module';
 import * as cors from 'cors';
+import { PrismaModule } from './prisma/prisma.module';
+import { ConfigModule } from '@nestjs/config';
+import configuration from './config/configuration';
 
 @Module({
   imports: [
@@ -22,12 +25,17 @@ import * as cors from 'cors';
     //   rootPath: join(__dirname, '..', '../client'),
     // }),
     ServeStaticModule.forRoot({
-      rootPath: join(__dirname, '..', '../public'),
+      rootPath: join(__dirname, '..', '../client', '../public'),
     }),
     OrdersModule,
     ConfirmOrdersModule,
     UsersModule,
     AuthModule,
+    PrismaModule,
+    ConfigModule.forRoot({
+      load: [configuration],
+      isGlobal: true,
+    }),
   ],
   controllers: [AppController],
   providers: [AppService],
