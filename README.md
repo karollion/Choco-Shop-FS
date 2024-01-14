@@ -8,11 +8,14 @@ Online store with chocolate products and other sweets.
 
 Server run on `localhost:3030`
 
-Data Base was in `mysql://localhost:3306/choco-shop-db`
+Data Base was in 
 
-To add example data to db use:
+Data base:
 ```bash
-$ nest g co products/products --flat --no-spec
+# location: `mysql://localhost:3306/choco-shop-db`
+
+# To add example data:
+$ npx prisma db seed
 ```
 
 ## Installation
