@@ -49,7 +49,6 @@ const Footer = () => {
 
             <div className={styles.footersection}>
               <h4>Newsletter</h4>
-              <p>Subscribe to our newsletter.</p>
               <a href="/newsletter-subscribe">Subscribe Now</a>
             </div>
           </div>
