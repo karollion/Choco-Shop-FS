@@ -11,6 +11,8 @@ import { ServeStaticModule } from '@nestjs/serve-static';
 import { join } from 'path';
 import { OrdersModule } from './orders/orders.module';
 import { ConfirmOrdersModule } from './confirm-orders/confirm-orders.module';
+import { UsersModule } from './users/users.module';
+import { AuthModule } from './auth/auth.module';
 import * as cors from 'cors';
 
 @Module({
@@ -24,6 +26,8 @@ import * as cors from 'cors';
     }),
     OrdersModule,
     ConfirmOrdersModule,
+    UsersModule,
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService],
