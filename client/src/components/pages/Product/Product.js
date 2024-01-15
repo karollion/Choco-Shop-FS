@@ -6,16 +6,18 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Button, Form } from 'react-bootstrap';
 import { IMGS_URL } from '../../../config';
 import { useState } from 'react';
-import { addOrderRequest } from '../../../redux/ordersRedux';
+import { addOrderRequest, addOrderRequestOnServer } from '../../../redux/ordersRedux';
 import ImageGallery from "react-image-gallery";
 import Container from '../../common/container/Container';
 import { v4 as uuidv4 } from 'uuid';
+import { getUser } from '../../../redux/userRedux';
 
 const Product = () => {
   window.scrollTo(0 ,0);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  const user = useSelector((state) => getUser(state));
   const  {id}  = useParams();
   const product = useSelector(state => getProductById(state, id));
   const [quantity, setQuantity] = useState(1);
@@ -33,7 +35,11 @@ const Product = () => {
   const handleSubmit = e => {
     e.preventDefault();
     let description = '';
-    dispatch(addOrderRequest({ id: uuidv4() , productId, quantity, description}));
+    if (user) {
+      dispatch(addOrderRequestOnServer({ productId, quantity, description, userId: user.user.id}));
+    } else {
+      dispatch(addOrderRequest({ id: uuidv4() , productId, quantity, description}));
+    }
     navigate('/cart');
   };
 
@@ -73,7 +79,7 @@ const Product = () => {
               <p>Description: </p>
               <p>{product.description}</p>
               <Form onSubmit={handleSubmit} className={`row ${styles.formAndButton}`}>
-                  <Form.Group className={styles.form}>
+                  <Form.Group className={styles.form} id='quantity'>
                     <Form.Label>Quantity: </Form.Label>
                     <button onClick={(e) => {
                       e.preventDefault();

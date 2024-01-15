@@ -9,9 +9,7 @@ import { getUser } from '../../../redux/userRedux';
 
 const NavBar = () => {
   const user = useSelector((state) => getUser(state));
-  //const user = useSelector(getUser);
 
-  console.log (user)
   return (
     <div className={styles.root}>
       <Container>

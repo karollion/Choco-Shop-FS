@@ -31,7 +31,6 @@ const Login = () => {
     fetch(`${API_URL}/auth/login`, options)
       
       .then(res => {
-        console.log(res)
         if(res.status === 201) {
           setStatus('success');
           return res.json();

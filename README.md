@@ -5,11 +5,6 @@
 
 Online store with chocolate products and other sweets.
 
-
-Server run on `localhost:3030`
-
-Data Base was in 
-
 Data base:
 ```bash
 # location: `mysql://localhost:3306/choco-shop-db`

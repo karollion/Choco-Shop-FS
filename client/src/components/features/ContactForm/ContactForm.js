@@ -8,7 +8,7 @@ const ContactForm = ({ action }) => {
   const [fName, setFName] = useState('');
   const [lName, setLName] = useState('');
   const [address, setAddress] = useState('');
-  const [phone, setPhone] = useState(0);
+  const [phone, setPhone] = useState('');
   const [email, setEmail] = useState('');
 
   const { register, handleSubmit: validate, formState: { errors } } = useForm();
@@ -61,7 +61,7 @@ const ContactForm = ({ action }) => {
           <Form.Control
             {...register("phone", { required: true })}
             value={phone}
-            onChange={e => setPhone(Number(e.target.value))}
+            onChange={e => setPhone(e.target.value)}
             type='phone' placeholder='555444666'
           />
           {errors.phone && <small className="d-block form-text text-danger mt-2">Phone can't be empty</small>}

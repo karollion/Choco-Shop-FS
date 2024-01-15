@@ -22,7 +22,6 @@ export class ConfirmOrdersService {
     });
   }
 
-  // Omit tworzy nowy interfejs na podstawie Product ale bez "id" !!!
   public create(
     confirmOrderData: Omit<ConfirmOrder, 'id'>,
   ): Promise<ConfirmOrder> {

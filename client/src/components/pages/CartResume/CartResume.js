@@ -6,16 +6,18 @@ import { Spinner } from 'react-bootstrap';
 import AllOrders from '../../features/AllOrders/AllOrders';
 import ContactForm from '../../features/ContactForm/ContactForm';
 import { useNavigate } from 'react-router-dom';
-import { addOrderRequest } from '../../../redux/confirmOrdersRedux';
+import { addConfirmOrdersRequest, addOrderRequest } from '../../../redux/confirmOrdersRedux';
 import { v4 as uuidv4 } from 'uuid';
 import Container from '../../common/container/Container';
 import { confirmOrders, removeAllOrdersFromLocalStorage } from '../../../redux/ordersRedux';
 import { useState } from 'react';
+import { getUser } from '../../../redux/userRedux';
 
 const CartResume = () => {
   window.scrollTo(0 ,0);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const user = useSelector((state) => getUser(state));
   const [showConfirm, setShowConfirm] = useState(false);
 
   const orders = useSelector(state => getAllOrders(state));
@@ -24,8 +26,17 @@ const CartResume = () => {
   
   const handleSubmit = confirmOrderData => {
     confirmOrderData.id = confirmId;
-    dispatch(addOrderRequest(confirmOrderData, orders));
-    setShowConfirm(true);
+    if (user) {
+      confirmOrderData.userId = user.user.id;
+      dispatch(addConfirmOrdersRequest(confirmOrderData, orders));
+      setTimeout(() => {
+        navigate('/');
+        setShowConfirm(false);
+      }, 5000);
+    } else {
+      dispatch(addOrderRequest(confirmOrderData, orders));
+      setShowConfirm(true);
+    }
   };
 
   const handleConfirm = () => {

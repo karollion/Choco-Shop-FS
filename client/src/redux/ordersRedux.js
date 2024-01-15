@@ -66,7 +66,7 @@ export const removeAllOrdersFromLocalStorage = () => {
 };
 
 // Comunication to server
-export const fetchOrdersOnServer = () => {
+export const fetchOrdersFromServer = () => {
   return(dispatch) => {
     dispatch(setLoading(true))
 
@@ -114,7 +114,6 @@ export const addToConfirmOrderRequest = data => {
   };
 };
 
-/*
 export const updateOrderRequestOnServer = ( order ) => {
   return(dispatch) => {
     const options = {
@@ -132,7 +131,7 @@ export const updateOrderRequestOnServer = ( order ) => {
       .catch((err) => console.log(err))
   };
 };
-*//*
+
 export const removeOrderRequestOnServer = id => {
 	return dispatch => {
 		const options = {
@@ -144,7 +143,7 @@ export const removeOrderRequestOnServer = id => {
       .then(() => {dispatch(removeOrder(id))})
 	};
 };
-*/
+
 
 const ordersReducer = (statePart = [], action) => {
   switch (action.type) {

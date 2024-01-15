@@ -1,17 +1,26 @@
 import styles from './Cart.module.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { getIsLoading } from '../../../redux/isLoadingRedux';
-import { fetchOrders, getAllOrders } from '../../../redux/ordersRedux';
+import { fetchOrders, fetchOrdersFromServer, getAllOrders } from '../../../redux/ordersRedux';
 import { Button, Spinner } from 'react-bootstrap';
 import AllOrders from '../../features/AllOrders/AllOrders';
 import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 import Container from '../../common/container/Container';
+import { getUser } from '../../../redux/userRedux';
 
 const Cart = () => {
   window.scrollTo(0 ,0);
   const dispatch = useDispatch();
-  useEffect(() => dispatch(fetchOrders()), [dispatch]);
+  const user = useSelector((state) => getUser(state));
+
+  useEffect(() => {
+      if (user) {
+        dispatch(fetchOrdersFromServer());
+      } else {
+        dispatch(fetchOrders());
+      }
+  }, [dispatch, user]);
 
   const orders = useSelector(state => getAllOrders(state));
   const isLoading = useSelector(state => getIsLoading(state));
