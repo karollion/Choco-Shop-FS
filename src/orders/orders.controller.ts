@@ -22,6 +22,13 @@ export class OrdersController {
     return this.ordersService.getAll();
   }
 
+  @Get('/user/:user')
+  async getAllOfUser(@Param('user', new ParseUUIDPipe()) user: string) {
+    const ord = await this.ordersService.getAllOfUser(user);
+    if (!ord) throw new NotFoundException('Orders not found');
+    return ord;
+  }
+
   @Get('/:id')
   async getById(@Param('id', new ParseUUIDPipe()) id: string) {
     const ord = await this.ordersService.getById(id);
