@@ -127,7 +127,7 @@ export const updateOrderRequestOnServer = ( order ) => {
       )
     };
     fetch(`${API_URL}/orders/${order.id}`, options)
-      .then(() => {dispatch(fetchOrders())})
+      .then(() => {dispatch(fetchOrdersFromServer())})
       .catch((err) => console.log(err))
   };
 };

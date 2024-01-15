@@ -31,7 +31,6 @@ const CartResume = () => {
       dispatch(addConfirmOrdersRequest(confirmOrderData, orders));
       setTimeout(() => {
         navigate('/');
-        setShowConfirm(false);
       }, 5000);
     } else {
       dispatch(addOrderRequest(confirmOrderData, orders));

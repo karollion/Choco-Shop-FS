@@ -2,13 +2,15 @@ import styles from './OrderCard.module.scss';
 import { Button, Form } from 'react-bootstrap';
 import { IMGS_URL } from '../../../config';
 import { useState } from 'react';
-import { removeOrderRequest, updateOrderRequest } from '../../../redux/ordersRedux';
+import { removeOrderRequest, removeOrderRequestOnServer, updateOrderRequest, updateOrderRequestOnServer } from '../../../redux/ordersRedux';
 import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types'
 import { getProductById } from '../../../redux/productsRedux';
+import { getUser } from '../../../redux/userRedux';
 
 const OrderCard = ({ order, canBeEdited }) => {
   const dispatch = useDispatch();
+  const user = useSelector((state) => getUser(state));
   const [quantity, setQuantity] = useState(order.quantity);
   const [description, setDescription] = useState(order.description);
   const product = useSelector(state => getProductById(state, order.productId));
@@ -16,17 +18,31 @@ const OrderCard = ({ order, canBeEdited }) => {
 
   const handleRemove = (event) => {
     event.preventDefault();
-    dispatch(removeOrderRequest(order.id));
+    if (user) {
+      dispatch(removeOrderRequestOnServer(order.id));
+    } else {
+      dispatch(removeOrderRequest(order.id));
+    }
   };
   
   const handleUpdate = (event) => {
     event.preventDefault();
-    dispatch(updateOrderRequest({
-      id: order.id,
-      quantity: quantity,
-      description: description,
-      productId: order.productId,
-    }));
+    if (user) {
+      dispatch(updateOrderRequestOnServer({
+        id: order.id,
+        quantity: quantity,
+        description: description,
+        productId: order.productId,
+        userId: user.user.id,
+      }));
+    } else {
+      dispatch(updateOrderRequest({
+        id: order.id,
+        quantity: quantity,
+        description: description,
+        productId: order.productId,
+      }));
+    }
   };
 
   const decQuantity = e => {
