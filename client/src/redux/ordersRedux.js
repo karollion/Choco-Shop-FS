@@ -65,7 +65,23 @@ export const removeAllOrdersFromLocalStorage = () => {
   };
 };
 
-// Comunication to server
+//Comunication to server
+
+export const addGuestOrders = (orders) => {
+  return(dispatch) => {
+    orders.map(order => dispatch(addOrderRequestOnServer(order)));
+  };
+};
+
+export const confirmGuestOrders = (orders, confirmId) => {
+  return(dispatch) => {
+    orders.map(order => dispatch(addToConfirmOrderRequest({ orderId: order.id, confirmId: confirmId })));
+  };
+};
+
+/**
+ * The function is used to download user orders from the server.
+ */
 export const fetchOrdersFromServer = () => {
   return(dispatch) => {
     dispatch(setLoading(true))
@@ -78,6 +94,9 @@ export const fetchOrdersFromServer = () => {
   };
 };
 
+/**
+ * The function is used to add user order to the server.
+ */
 export const addOrderRequestOnServer = order => {
   return(dispatch) => {
     const options = {
@@ -94,12 +113,10 @@ export const addOrderRequestOnServer = order => {
   };
 };
 
-export const confirmOrders = (orders, confirmId) => {
-  return(dispatch) => {
-    orders.map(order => dispatch(addToConfirmOrderRequest({ orderId: order.id, confirmId: confirmId })));
-  };
-};
-
+/**
+ * The function is used to link an order with an order confirmation
+ * @param {*} data {orderId, confirmId}
+ */
 export const addToConfirmOrderRequest = data => {
   return(dispatch) => {
     const options = {
@@ -114,6 +131,11 @@ export const addToConfirmOrderRequest = data => {
   };
 };
 
+/**
+ * The function is used to update user order no the server.
+ * Nex function download orders.
+ * @param {*} order 
+ */
 export const updateOrderRequestOnServer = ( order ) => {
   return(dispatch) => {
     const options = {
@@ -132,6 +154,10 @@ export const updateOrderRequestOnServer = ( order ) => {
   };
 };
 
+/**
+ * The function is used to delete user order on the server.
+ * @param {*} id (uuid)
+ */
 export const removeOrderRequestOnServer = id => {
 	return dispatch => {
 		const options = {

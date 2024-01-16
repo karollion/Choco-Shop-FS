@@ -1,15 +1,14 @@
 import styles from './CartResume.module.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { getIsLoading } from '../../../redux/isLoadingRedux';
-import { getAllOrders } from '../../../redux/ordersRedux';
+import {  addGuestOrders, confirmGuestOrders, getAllOrders, removeAllOrdersFromLocalStorage } from '../../../redux/ordersRedux';
 import { Spinner } from 'react-bootstrap';
 import AllOrders from '../../features/AllOrders/AllOrders';
 import ContactForm from '../../features/ContactForm/ContactForm';
 import { useNavigate } from 'react-router-dom';
-import { addConfirmOrdersRequest, addOrderRequest } from '../../../redux/confirmOrdersRedux';
+import { addConfirmOrdersRequest, addConfirmRequest } from '../../../redux/confirmOrdersRedux';
 import { v4 as uuidv4 } from 'uuid';
 import Container from '../../common/container/Container';
-import { confirmOrders, removeAllOrdersFromLocalStorage } from '../../../redux/ordersRedux';
 import { useState } from 'react';
 import { getUser } from '../../../redux/userRedux';
 
@@ -33,13 +32,17 @@ const CartResume = () => {
         navigate('/');
       }, 5000);
     } else {
-      dispatch(addOrderRequest(confirmOrderData, orders));
-      setShowConfirm(true);
+      confirmOrderData.userId = 'f4c05e45-cd90-473c-bae2-959c977ca811';
+      dispatch(addConfirmRequest(confirmOrderData));
+      dispatch(addGuestOrders(orders));
+      setTimeout(() => {
+        dispatch(confirmGuestOrders(orders, confirmId));
+        setShowConfirm(true);
+      }, 3000);
     }
   };
 
   const handleConfirm = () => {
-    dispatch(confirmOrders(orders, confirmId));
     dispatch(removeAllOrdersFromLocalStorage());
     setTimeout(() => {
       navigate('/');
@@ -52,6 +55,7 @@ const CartResume = () => {
       <div className={styles.root}>
         {showConfirm ? (
           <div className={styles.confirm}>
+            <h3>Thank you for shopping</h3>
             <p>To finalize your order, click the "confirm" button</p>
             <button onClick={(e) => {
               e.preventDefault();

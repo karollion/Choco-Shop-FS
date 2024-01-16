@@ -52,9 +52,8 @@ export class OrdersService {
     });
   }
 
-  // Omit tworzy nowy interfejs na podstawie Product ale bez "id"
+  // Omit tworzy nowy interfejs na podstawie Order ale bez "id"
   public create(ordersData: Omit<Order, 'id'>): Promise<Order> {
-    console.log(ordersData);
     return this.prismaService.order.create({
       data: ordersData,
     });
@@ -74,8 +73,6 @@ export class OrdersService {
     confirmData: Omit<OrderOnConfirm, 'id'>,
   ): Promise<Order> {
     const { orderId, confirmId } = confirmData;
-    // console.log(orderId);
-    // console.log(confirmId);
     return await this.prismaService.order.update({
       where: { id: orderId },
       data: {

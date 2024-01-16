@@ -1,5 +1,5 @@
 import { API_URL } from '../config'
-import { addOrderRequestOnServer, addToConfirmOrderRequest } from './ordersRedux';
+import { addToConfirmOrderRequest } from './ordersRedux';
 
 //selectors
 
@@ -10,7 +10,14 @@ const ADD_ORDER  = createActionName('ADD_ORDER');
 // action creators
 export const addOrder = payload => ({type: ADD_ORDER, payload});
 
-export const addOrderRequest = (confirmOrderData, orders) => {
+/**
+ * The function is used to create an order confirmation for a guests on the server. 
+ * Then link orders with it.
+ * @param {*} confirmOrderData 
+ * @param {*} orders 
+ */
+
+export const addConfirmRequest = (confirmOrderData) => {
   return (dispatch) => {
     const options = {
       method: 'POST',
@@ -21,13 +28,16 @@ export const addOrderRequest = (confirmOrderData, orders) => {
     };
 
     fetch(`${API_URL}/confirm-orders`, options)
-      .then(() => {
-        orders.map(order => dispatch(addOrderRequestOnServer(order)));
-      })
       .catch((err) => console.log(err));
   };
 };
 
+/**
+ * The function is used to create an order confirmation for a logged in user on the server. 
+ * Then link orders with it.
+ * @param {*} confirmOrderData 
+ * @param {*} orders 
+ */
 export const addConfirmOrdersRequest = (confirmOrderData, orders) => {
   return (dispatch) => {
     const options = {

@@ -38,7 +38,7 @@ const Product = () => {
     if (user) {
       dispatch(addOrderRequestOnServer({ productId, quantity, description, userId: user.user.id}));
     } else {
-      dispatch(addOrderRequest({ id: uuidv4() , productId, quantity, description}));
+      dispatch(addOrderRequest({ id: uuidv4() , productId, quantity, description, userId: 'f4c05e45-cd90-473c-bae2-959c977ca811'}));
     }
     navigate('/cart');
   };
