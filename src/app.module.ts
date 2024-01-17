@@ -21,9 +21,6 @@ import configuration from './config/configuration';
 @Module({
   imports: [
     ProductsModule,
-    // ServeStaticModule.forRoot({
-    //   rootPath: join(__dirname, '..', '../client'),
-    // }),
     ServeStaticModule.forRoot({
       rootPath: join(__dirname, '..', '../client', '../public'),
     }),

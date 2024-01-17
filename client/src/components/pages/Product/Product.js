@@ -3,7 +3,8 @@ import { getProductById } from '../../../redux/productsRedux';
 import { Navigate, useNavigate } from "react-router-dom";
 import { useParams } from 'react-router';
 import { useDispatch, useSelector } from 'react-redux';
-import { Button, Form } from 'react-bootstrap';
+import { Form } from 'react-bootstrap';
+import Button from '../../common/Button/Button';
 import { IMGS_URL } from '../../../config';
 import { useState } from 'react';
 import { addOrderRequest, addOrderRequestOnServer } from '../../../redux/ordersRedux';
@@ -80,22 +81,24 @@ const Product = () => {
               <p>{product.description}</p>
               <Form onSubmit={handleSubmit} className={`row ${styles.formAndButton}`}>
                   <Form.Group className={styles.form} id='quantity'>
-                    <Form.Label>Quantity: </Form.Label>
-                    <button onClick={(e) => {
+                    
+                    <Button action={(e) => {
                       e.preventDefault();
                       decQuantity();
-                      }} className={styles.qtyBtn}>-</button>
+                      }}>-</Button>
                     <Form.Control
                       value={quantity}
                       onChange={e => setQuantity(Number(e.target.value))}
                       type='number'
                     />
-                    <button onClick={(e) => {
+                    <Button action={(e) => {
                       e.preventDefault();
                       incQuantity();
-                      }} className={styles.qtyBtn}>+</button>
+                      }}>+</Button>
                   </Form.Group>
-                <Button className={styles.button} variant="primary" type="submit">Add to cart</Button>
+                  <div className='my-4 d-flex '>
+                    <Button type="submit">Add to cart</Button>
+                  </div>
               </Form>
             </div>
           </div>

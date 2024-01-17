@@ -1,9 +1,10 @@
 import styles from './SignUp.module.scss'
-import { Alert, Button, Form, Spinner } from 'react-bootstrap';
+import { Alert, Form, Spinner } from 'react-bootstrap';
 import { useState } from 'react';
 import { API_URL } from '../../../config';
 import { useNavigate } from "react-router-dom";
 import Container from '../../common/container/Container';
+import Button from '../../common/Button/Button';
 
 const SignUp = () => {
   const navigate = useNavigate();
@@ -81,6 +82,7 @@ const SignUp = () => {
             <Form.Control 
               type='email' 
               value={signUpData.email} 
+              placeholder='example@email.com'
               onChange={(e) =>
                 setSignUpData({ ...signUpData, email: e.target.value })
               }
@@ -93,6 +95,7 @@ const SignUp = () => {
               type='password' 
               required
               value={signUpData.password} 
+              placeholder='******'
               onChange={(e) =>
                 setSignUpData({ ...signUpData, password: e.target.value })
               }
@@ -105,15 +108,16 @@ const SignUp = () => {
               type='password' 
               required
               value={signUpData.passwordRepeat} 
+              placeholder='******'
               onChange={(e) =>
                 setSignUpData({ ...signUpData, passwordRepeat: e.target.value })
               }
             />
           </Form.Group>
 
-          <Button variant='primary' type='submit' >
-            Sign up
-          </Button>
+          <div className='my-4 d-flex justify-content-center'>
+          <Button  type='submit' >Sign up</Button>
+          </div>
 
         </Form>
       </Container>

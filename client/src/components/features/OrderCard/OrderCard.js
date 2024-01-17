@@ -1,5 +1,5 @@
 import styles from './OrderCard.module.scss';
-import { Button, Form } from 'react-bootstrap';
+import { Form } from 'react-bootstrap';
 import { IMGS_URL } from '../../../config';
 import { useState } from 'react';
 import { removeOrderRequest, removeOrderRequestOnServer, updateOrderRequest, updateOrderRequestOnServer } from '../../../redux/ordersRedux';
@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types'
 import { getProductById } from '../../../redux/productsRedux';
 import { getUser } from '../../../redux/userRedux';
+import Button from '../../common/Button/Button';
 
 const OrderCard = ({ order, canBeEdited }) => {
   const dispatch = useDispatch();
@@ -70,19 +71,19 @@ const OrderCard = ({ order, canBeEdited }) => {
       <p>{product.price}$</p>
       {canBeEdited ? (
         <Form.Group controlId="formphone" className={styles.form}>
-          <button onClick={(e) => {
+          <Button action={(e) => {
             e.preventDefault();
             decQuantity();
-            }} className={styles.qtyBtn}>-</button>
+            }}>-</Button>
           <Form.Control
             value={quantity}
             onChange={e => setQuantity(Number(e.target.value))}
             type='number'
           />
-          <button onClick={(e) => {
+          <Button action={(e) => {
             e.preventDefault();
             incQuantity();
-            }} className={styles.qtyBtn}>+</button>
+            }}>+</Button>
         </Form.Group>
       ) : null}
       {canBeEdited ? (
@@ -104,10 +105,11 @@ const OrderCard = ({ order, canBeEdited }) => {
           <p>description: {description}</p>
       ) : null}
       {canBeEdited ? (
-      <Button className={styles.qtyBtn} variant="primary" onClick={handleUpdate}>update</Button>
+      <Button 
+        action={handleUpdate}>update</Button>
       ) : null}
       {canBeEdited ? (
-      <Button className={styles.qtyBtn} variant="danger" onClick={handleRemove}>remove</Button>
+      <Button action={handleRemove}>remove</Button>
       ) : null}
       </div>
   );

@@ -27,30 +27,13 @@
     background-color: none;
 
 		input {
-			margin: 0;
+			margin: 0 7px;
 			width: 50px;
 			text-align: center;
 
       .qtyBtn {
         width: 40px;
       }
-		}
-	}
-
-  .qtyBtn {
-    @extend %transitionHover;
-		margin: 0 16px 0 16px;
-		
-		font-weight: 600;
-		background: none;
-		border: 3px solid $text-color-light;
-		border-radius: 10px ;
-		color: $text-color-light;
-		
-		&:hover {
-			color: $text-color-primary;
-			border-color: $text-color-primary;
-			background: none;
 		}
 	}
 

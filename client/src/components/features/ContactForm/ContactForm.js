@@ -1,4 +1,5 @@
-import { Button, Form } from 'react-bootstrap';
+import { Form } from 'react-bootstrap';
+import Button from '../../common/Button/Button';
 import styles from './ContactForm.module.scss';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
@@ -21,7 +22,7 @@ const ContactForm = ({ action }) => {
     <div  className={styles.root}>
       <Form onSubmit={validate(handleSubmit)} className='col-12 col-sm-3 mx-auto'>
 
-        <h4 className='my-4' >Where to deliver?</h4>
+        <h3 className='my-4' >Where to deliver?</h3>
 
         <Form.Group  controlId="formfname">
           <Form.Label>First Name</Form.Label>
@@ -78,7 +79,9 @@ const ContactForm = ({ action }) => {
           {errors.email && <small className="d-block form-text text-danger mt-2">Email can't be empty</small>}
         </Form.Group>
 
-        <Button className='my-3' variant="primary" type="submit">Submit</Button>
+        <div className='my-4 d-flex justify-content-center'>
+        <Button type="submit">Submit</Button>
+        </div>
         </Form>
     </div>
   );

@@ -1,14 +1,20 @@
 import styles from './ProductCard.module.scss';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { IMGS_URL } from '../../../config';
 import PropTypes from 'prop-types'
-import { Button } from 'react-bootstrap';
+import Button from '../../common/Button/Button';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDollar } from '@fortawesome/free-solid-svg-icons';
 
 const ProductCard = ({ product }) => {
   const photos = product.photo.split(' ');
+  const navigate = useNavigate();
+
+  const handleClick = e => {
+    e.preventDefault();
+    navigate("/products/" + product.id);
+  }
 
   return (
     <div className={styles.root}>
@@ -22,7 +28,9 @@ const ProductCard = ({ product }) => {
         {product.name}
         <span className={styles.price}><FontAwesomeIcon  icon={faDollar} />{product.price}</span>
         </div>
-        <Button className={styles.button} variant="primary" as={Link} to={"/products/" + product.id}>Read more</Button>
+        <div className='my-4 d-flex justify-content-center'>
+        <Button action={handleClick}>Read more</Button>
+        </div>
       </div>
     </div>
   );

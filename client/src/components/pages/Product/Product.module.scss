@@ -20,51 +20,11 @@
 		display: flex;
 
 		input {
-			margin: 0 0 16px 0;
+			margin: 0 9px;
 			width: 50px;
 			text-align: center
 		}
 	}
-
-	.button {
-		@extend %transitionHover;
-		margin: 16px 0;
-		background: none;
-		width: 200px;
-		font-size: 26px;
-		font-weight: 600;
-		border: 3px solid $text-color-light;
-		border-radius: 100px ;
-		color: $text-color-light;
-		
-		&:hover {
-			color: $text-color-primary;
-			border-color: $text-color-primary;
-			background: none;
-		}
-
-		&:active {
-			background: none;
-		}
-	}
-
-	.qtyBtn {
-		margin: 0 16px 16px 16px;
-		width: 40px;
-		
-		font-weight: 600;
-		background: none;
-		border: 3px solid $text-color-light;
-		border-radius: 10px ;
-		color: $text-color-light;
-		
-		&:hover {
-			color: $text-color-primary;
-			border-color: $text-color-primary;
-			background: none;
-		}
-	}
-
 
 	.title {
 		@extend %titleStyle;
