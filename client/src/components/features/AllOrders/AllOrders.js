@@ -11,8 +11,10 @@ const AllOrders = ({ orders, canBeEdited  }) => {
           {orders.map(order => (
             <OrderCard key={uuidv4()} order={order} canBeEdited={canBeEdited} />
           ))}
+        <div className={styles.sum}>
+          <SumOrders orders={orders}/>
         </div>
-        <SumOrders orders={orders}/>
+        </div>
       </div>
     );
 };
