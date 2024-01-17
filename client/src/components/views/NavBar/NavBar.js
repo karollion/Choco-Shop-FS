@@ -6,9 +6,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingBasket } from '@fortawesome/free-solid-svg-icons';
 import { useSelector } from 'react-redux';
 import { getUser } from '../../../redux/userRedux';
+import { getAllOrders } from '../../../redux/ordersRedux';
 
 const NavBar = () => {
   const user = useSelector((state) => getUser(state));
+  const orders = useSelector((state) =>  getAllOrders(state))
 
   return (
     <div className={styles.root}>
@@ -26,6 +28,7 @@ const NavBar = () => {
                 {user ? (<NavLink className={({ isActive }) => isActive ? styles.linkActive : undefined} as={NavLink} to="/logout">Logout</NavLink>) : null }
                 <NavLink className={({ isActive }) => isActive ? styles.linkActive : undefined} as={NavLink} to="/cart">
                   <FontAwesomeIcon className={styles.icon} icon={faShoppingBasket} />
+                  <div className={styles.cartOrders}>{orders.length}</div>
                 </NavLink>
               </Nav>
             </Navbar.Collapse>

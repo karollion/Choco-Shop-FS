@@ -1,6 +1,6 @@
 import { Routes, Route, useLocation } from 'react-router-dom';
 import { fetchProducts } from './redux/productsRedux';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 
 // Import views
@@ -18,6 +18,8 @@ import About from './components/pages/About/About';
 import Login from './components/pages/Login/Login'
 import SignUp from './components/pages/SignUp/SignUp';
 import Logout from './components/pages/Logout/Logout'
+import { fetchOrders, fetchOrdersFromServer } from './redux/ordersRedux';
+import { getUser } from './redux/userRedux';
 
 function App() {
   const dispatch = useDispatch();
@@ -26,6 +28,16 @@ function App() {
   const location = useLocation();
   const [displayLocation, setDisplayLocation] = useState(location);
   const [transitionStage, setTransistionStage] = useState("fadeIn");
+
+  const user = useSelector((state) => getUser(state));
+
+  useEffect(() => {
+      if (user) {
+        dispatch(fetchOrdersFromServer());
+      } else {
+        dispatch(fetchOrders());
+      }
+  }, [dispatch, user]);
 
   useEffect(() => {
     if (location !== displayLocation) setTransistionStage("fadeOut");
