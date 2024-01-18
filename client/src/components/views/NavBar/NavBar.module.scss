@@ -59,4 +59,21 @@
   .cartOrders {
     display: inline-block;
   }
+
+  @media (max-width: 991px) {
+    
+    .nav {
+      height: 100vh;
+      background-color: $bg-nav;
+      background: rgba(16, 16, 16, 0.26);
+      border-radius: 16px;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(10.9px);
+      -webkit-backdrop-filter: blur(10.9px);
+
+      a {
+        font-size: calc($text-nav * 1.5);
+      }
+    }
+  }
 }
