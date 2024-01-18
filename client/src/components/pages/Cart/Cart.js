@@ -23,7 +23,7 @@ const Cart = () => {
 
   useEffect(() => {
       if (user) {
-        dispatch(fetchOrdersFromServer());
+        dispatch(fetchOrdersFromServer(user.user.id));
       } else {
         dispatch(fetchOrders());
       }

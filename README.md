@@ -5,6 +5,8 @@
 
 Online store with chocolate products and other sweets.
 
+Customers can make purchases both as guests and logged in users. Orders of logged-in users are stored on the server, while guests' orders are stored in their browsers in localStorage.
+
 Data base:
 ```bash
 # location: `mysql://localhost:3306/choco-shop-db`

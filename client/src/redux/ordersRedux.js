@@ -82,13 +82,14 @@ export const confirmGuestOrders = (orders, confirmId) => {
 /**
  * The function is used to download user orders from the server.
  */
-export const fetchOrdersFromServer = () => {
+export const fetchOrdersFromServer = (userId) => {
   return(dispatch) => {
     dispatch(setLoading(true))
 
-    fetch(`${API_URL}/orders`)
+    fetch(`${API_URL}/orders/user/${userId}`)
       .then(res => res.json())
       .then(orders => {
+        console.log(orders)
         dispatch(setLoading(false)) 
         dispatch(loadOrders(orders))});
   };

@@ -21,10 +21,10 @@ export class OrdersService {
     });
   }
 
-  public getAllOfUser(user: Order['userId']): Promise<Order[] | null> {
+  public getAllOfUser(userId: string): Promise<Order[]> {
     return this.prismaService.order.findMany({
       where: {
-        userId: user,
+        userId: userId,
         confirmOrder: {
           none: {
             confirm: {},
