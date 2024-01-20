@@ -1,11 +1,11 @@
 import styles from './CartResume.module.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { getIsLoading } from '../../../redux/isLoadingRedux';
-import {  addGuestOrders, confirmGuestOrders, getAllOrders, removeAllOrdersFromLocalStorage } from '../../../redux/ordersRedux';
+import { fetchOrders, fetchOrdersFromServer, getAllOrders, removeAllOrdersFromLocalStorage } from '../../../redux/ordersRedux';
 import { Spinner } from 'react-bootstrap';
 import AllOrders from '../../features/AllOrders/AllOrders';
 import ContactForm from '../../features/ContactForm/ContactForm';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { addConfirmOrdersRequest, addConfirmRequest } from '../../../redux/confirmOrdersRedux';
 import { v4 as uuidv4 } from 'uuid';
 import Container from '../../common/container/Container';
@@ -18,7 +18,6 @@ const CartResume = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const user = useSelector((state) => getUser(state));
-  const [showConfirm, setShowConfirm] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
 
   const orders = useSelector(state => getAllOrders(state));
@@ -30,29 +29,20 @@ const CartResume = () => {
     if (user) {
       confirmOrderData.userId = user.user.id;
       dispatch(addConfirmOrdersRequest(confirmOrderData, orders));
+      dispatch(fetchOrdersFromServer(user.user.id));
       setShowSuccess(true);  
     } else {
       confirmOrderData.userId = 'f4c05e45-cd90-473c-bae2-959c977ca811';
-      dispatch(addConfirmRequest(confirmOrderData));
-      dispatch(addGuestOrders(orders));
-      setTimeout(() => {
-        dispatch(confirmGuestOrders(orders, confirmId));
-        setShowConfirm(true);
-      }, 3000);
+      dispatch(addConfirmRequest(confirmOrderData, orders));
+      dispatch(removeAllOrdersFromLocalStorage());
+      dispatch(fetchOrders());
+      setShowSuccess(true);
     }
   };
 
   const handleOk = () => {
     setShowSuccess(false); 
     navigate('/');
-  };
-
-  const handleConfirm = () => {
-    dispatch(removeAllOrdersFromLocalStorage());
-    setTimeout(() => {
-      navigate('/');
-      setShowConfirm(false);
-    }, 1000);
   };
 
   return (
@@ -68,18 +58,6 @@ const CartResume = () => {
                       handleOk();
                       }}
             >OK</Button>
-          </div>
-        ) : null}
-        {showConfirm ? (
-          <div className={styles.confirm}>
-            <h3>Thank you for shopping</h3>
-            <p>We have accepted your order and it is being processed. We will inform you about further progress by e-mail.</p>
-            <p>To finalize your order, click the "confirm" button</p>
-            <Button action={(e) => {
-                      e.preventDefault();
-                      handleConfirm();
-                      }}
-            >Confirm</Button>
           </div>
         ) : null}
 

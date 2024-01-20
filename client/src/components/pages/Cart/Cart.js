@@ -36,7 +36,7 @@ const Cart = () => {
     <Container>
       <div className={styles.root}>
         <h2 className={styles.title}>Cart</h2>
-        {orders.length === 0 && !isLoading && <p>You cart is empty</p>}
+        {orders.length === 0 && !isLoading && <div className={styles.emptyCart}>You cart is empty</div>}
         {isLoading && <Spinner animation='border' variant='primary' />}
         {!isLoading && <AllOrders orders={orders} canBeEdited={true} />}
         <div className='my-4 d-flex justify-content-center'>

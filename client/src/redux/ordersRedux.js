@@ -67,18 +67,6 @@ export const removeAllOrdersFromLocalStorage = () => {
 
 //Comunication to server
 
-export const addGuestOrders = (orders) => {
-  return(dispatch) => {
-    orders.map(order => dispatch(addOrderRequestOnServer(order)));
-  };
-};
-
-export const confirmGuestOrders = (orders, confirmId) => {
-  return(dispatch) => {
-    orders.map(order => dispatch(addToConfirmOrderRequest({ orderId: order.id, confirmId: confirmId })));
-  };
-};
-
 /**
  * The function is used to download user orders from the server.
  */
@@ -91,6 +79,7 @@ export const fetchOrdersFromServer = (userId) => {
       .then(orders => {
         if(orders.message === 'Orders not found') {
           orders = []
+
         }
         dispatch(setLoading(false)) 
         dispatch(loadOrders(orders))});

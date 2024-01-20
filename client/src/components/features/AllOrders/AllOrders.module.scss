@@ -9,9 +9,9 @@
   .orders {
     width: 100%;
     background: $bg-all-orders;
-    border-radius: 16px;
-
+    border-radius: 16px;  
   }
+
   .orders>:nth-child(even) {
     background-color: $bg-all-orders-child;
   }

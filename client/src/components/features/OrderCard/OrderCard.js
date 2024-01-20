@@ -98,6 +98,7 @@ const OrderCard = ({ order, canBeEdited }) => {
                 value={description}
                 onChange={e => setDescription(e.target.value)}
                 as='textarea'
+                rows={1}
                 placeholder='Your description'
               />
             </Form.Group>

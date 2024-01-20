@@ -10,4 +10,11 @@
   .title {
     @extend %titleStyle;
   }
+
+  
+  .emptyCart {
+    text-align: center;
+    font-size: 22px;
+    color: $text-color-light;
+  }
 }

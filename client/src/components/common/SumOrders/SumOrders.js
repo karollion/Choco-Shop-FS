@@ -5,6 +5,7 @@ import { getAllProducts } from '../../../redux/productsRedux';
 
 const SumOrders = ({ orders }) => {
   const products = useSelector(getAllProducts);
+  let delivery = 0;
 
   let sumPrice = 0;
   for(let order of orders) {
@@ -15,12 +16,18 @@ const SumOrders = ({ orders }) => {
       }
     }
   }
+
+  if (orders.length === 0) {
+    delivery = 0;
+  } else {
+    delivery = 10;
+  }
   
   return (
     <div  className={styles.root}>
       <p>Summary:  {sumPrice}$</p>
-      <p>Delivery: 10$</p>
-      <p>Total:    {sumPrice + 10}$</p>
+      <p>Delivery: {delivery}$</p>
+      <p>Total:    {sumPrice + delivery}$</p>
     </div>
   );
 };

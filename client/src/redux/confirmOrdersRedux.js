@@ -1,5 +1,5 @@
 import { API_URL } from '../config'
-import { addToConfirmOrderRequest } from './ordersRedux';
+import { addOrderRequestOnServer, addToConfirmOrderRequest } from './ordersRedux';
 
 //selectors
 
@@ -17,18 +17,22 @@ export const addOrder = payload => ({type: ADD_ORDER, payload});
  * @param {*} orders 
  */
 
-export const addConfirmRequest = (confirmOrderData) => {
-  return (dispatch) => {
-    const options = {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(confirmOrderData)
-    };
+export const addConfirmRequest = (confirmOrderData, orders) => {
+  return async (dispatch) => {
+    try {
+      const options = {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(confirmOrderData)
+      };
 
-    fetch(`${API_URL}/confirm-orders`, options)
-      .catch((err) => console.log(err));
+      await fetch(`${API_URL}/confirm-orders`, options);
+      await Promise.all(orders.map(order => dispatch(addOrderRequestOnServer(order))));
+    } catch (error) {
+      console.error("Error:", error.message);
+    }
   };
 };
 
