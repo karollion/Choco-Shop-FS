@@ -1,17 +1,19 @@
 import styles from './Product.module.scss'
-import { getProductById } from '../../../redux/productsRedux';
+import { useState } from 'react';
 import { Navigate, useNavigate } from "react-router-dom";
 import { useParams } from 'react-router';
-import { useDispatch, useSelector } from 'react-redux';
 import { Form } from 'react-bootstrap';
-import Button from '../../common/Button/Button';
 import { IMGS_URL } from '../../../config';
-import { useState } from 'react';
-import { addOrderRequest, addOrderRequestOnServer } from '../../../redux/ordersRedux';
-import ImageGallery from "react-image-gallery";
-import Container from '../../common/container/Container';
 import { v4 as uuidv4 } from 'uuid';
+import ImageGallery from "react-image-gallery";
+// import modules
+import Button from '../../common/Button/Button';
+import Container from '../../common/container/Container';
+// imports from redux
+import { useDispatch, useSelector } from 'react-redux';
+import { getProductById } from '../../../redux/productsRedux';
 import { getUser } from '../../../redux/userRedux';
+import { addOrderRequest, addOrderRequestOnServer } from '../../../redux/ordersRedux';
 
 const Product = () => {
   window.scrollTo(0 ,0);

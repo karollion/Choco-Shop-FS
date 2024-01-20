@@ -1,5 +1,7 @@
-import Container from '../../common/container/Container';
 import styles from './footer.module.scss';
+// import modules
+import Container from '../../common/container/Container';
+
 const Footer = () => {
   
   function getDate() {

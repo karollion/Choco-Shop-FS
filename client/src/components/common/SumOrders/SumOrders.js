@@ -1,6 +1,7 @@
-import { useSelector } from 'react-redux';
 import styles from './SumOrders.module.scss';
 import PropTypes from 'prop-types'
+// imports from redux
+import { useSelector } from 'react-redux';
 import { getAllProducts } from '../../../redux/productsRedux';
 
 const SumOrders = ({ orders }) => {

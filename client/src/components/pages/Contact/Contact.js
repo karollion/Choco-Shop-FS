@@ -1,4 +1,5 @@
 import styles from './Contact.module.scss';
+// import modules
 import Container from "../../common/container/Container";
 
 const Contact = () => {

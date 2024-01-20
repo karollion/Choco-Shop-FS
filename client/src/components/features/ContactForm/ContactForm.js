@@ -1,9 +1,10 @@
-import { Form } from 'react-bootstrap';
-import Button from '../../common/Button/Button';
 import styles from './ContactForm.module.scss';
+import PropTypes from 'prop-types'
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import PropTypes from 'prop-types'
+import { Form } from 'react-bootstrap';
+// import modules
+import Button from '../../common/Button/Button';
 
 const ContactForm = ({ action }) => {
   const [fName, setFName] = useState('');

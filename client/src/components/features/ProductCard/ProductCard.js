@@ -1,11 +1,11 @@
 import styles from './ProductCard.module.scss';
+import PropTypes from 'prop-types'
 import { useNavigate } from 'react-router-dom';
 import { IMGS_URL } from '../../../config';
-import PropTypes from 'prop-types'
-import Button from '../../common/Button/Button';
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDollar } from '@fortawesome/free-solid-svg-icons';
+// import modules
+import Button from '../../common/Button/Button';
 
 const ProductCard = ({ product }) => {
   const photos = product.photo.split(' ');

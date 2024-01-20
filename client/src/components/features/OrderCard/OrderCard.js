@@ -1,13 +1,19 @@
 import styles from './OrderCard.module.scss';
-import { Form } from 'react-bootstrap';
-import { IMGS_URL } from '../../../config';
-import { useState } from 'react';
-import { removeOrderRequest, removeOrderRequestOnServer, updateOrderRequest, updateOrderRequestOnServer } from '../../../redux/ordersRedux';
-import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types'
+import { IMGS_URL } from '../../../config';
+import { Form } from 'react-bootstrap';
+import { useState } from 'react';
+// import modules
+import Button from '../../common/Button/Button';
+// imports from redux
+import { removeOrderRequest, 
+         removeOrderRequestOnServer, 
+         updateOrderRequest, 
+         updateOrderRequestOnServer 
+       } from '../../../redux/ordersRedux';
+import { useDispatch, useSelector } from 'react-redux';
 import { getProductById } from '../../../redux/productsRedux';
 import { getUser } from '../../../redux/userRedux';
-import Button from '../../common/Button/Button';
 
 const OrderCard = ({ order, canBeEdited }) => {
   const dispatch = useDispatch();

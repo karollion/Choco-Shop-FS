@@ -3,8 +3,10 @@ import { Alert, Form, Spinner } from 'react-bootstrap';
 import { useState } from 'react';
 import { API_URL } from '../../../config';
 import { useNavigate } from "react-router-dom";
+// import modules
 import Container from '../../common/container/Container';
 import Button from '../../common/Button/Button';
+
 
 const SignUp = () => {
   const navigate = useNavigate();

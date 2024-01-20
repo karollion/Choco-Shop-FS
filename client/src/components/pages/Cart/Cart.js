@@ -1,14 +1,16 @@
 import styles from './Cart.module.scss';
-import { useDispatch, useSelector } from 'react-redux';
-import { getIsLoading } from '../../../redux/isLoadingRedux';
-import { fetchOrders, fetchOrdersFromServer, getAllOrders } from '../../../redux/ordersRedux';
 import { Spinner } from 'react-bootstrap';
-import AllOrders from '../../features/AllOrders/AllOrders';
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
+// import modules
 import Container from '../../common/container/Container';
-import { getUser } from '../../../redux/userRedux';
+import AllOrders from '../../features/AllOrders/AllOrders';
 import Button from '../../common/Button/Button';
+// imports from redux
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchOrders, fetchOrdersFromServer, getAllOrders } from '../../../redux/ordersRedux';
+import { getIsLoading } from '../../../redux/isLoadingRedux';
+import { getUser } from '../../../redux/userRedux';
 
 const Cart = () => {
   window.scrollTo(0 ,0);

@@ -1,7 +1,9 @@
+import styles from './AllOrders.module.scss';
+import PropTypes from 'prop-types';
+import { v4 as uuidv4 } from 'uuid';
+// import modules
 import SumOrders from '../../common/SumOrders/SumOrders';
 import OrderCard from '../OrderCard/OrderCard';
-import styles from './AllOrders.module.scss';
-import { v4 as uuidv4 } from 'uuid';
 
 const AllOrders = ({ orders, canBeEdited  }) => {
 
@@ -18,5 +20,10 @@ const AllOrders = ({ orders, canBeEdited  }) => {
       </div>
     );
 };
+
+AllOrders.propTypes = {
+	orders: PropTypes.array.isRequired,
+  canBeEdited: PropTypes.bool.isRequired,
+}
 
 export default AllOrders;

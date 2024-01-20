@@ -2,11 +2,13 @@ import styles from './Login.module.scss'
 import { Alert, Spinner, Form } from 'react-bootstrap';
 import { useState } from 'react';
 import { API_URL } from '../../../config';
-import { useDispatch } from 'react-redux';
-import { logIn } from '../../../redux/userRedux';
 import { useNavigate } from "react-router-dom";
+// import modules
 import Container from '../../common/container/Container';
 import Button from '../../common/Button/Button';
+// imports from redux
+import { useDispatch } from 'react-redux';
+import { logIn } from '../../../redux/userRedux';
 
 const Login = () => {
   const dispatch = useDispatch();

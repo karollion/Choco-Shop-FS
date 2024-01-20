@@ -1,13 +1,15 @@
 import styles from './NavBar.module.scss'
-import Container from '../../common/container/Container';
 import { Navbar, Nav } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
+import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingBasket } from '@fortawesome/free-solid-svg-icons';
+// import modules
+import Container from '../../common/container/Container';
+// imports from redux
 import { useSelector } from 'react-redux';
-import { getUser } from '../../../redux/userRedux';
 import { getAllOrders } from '../../../redux/ordersRedux';
-import { useState } from 'react';
+import { getUser } from '../../../redux/userRedux';
 
 const NavBar = () => {
   const user = useSelector((state) => getUser(state));

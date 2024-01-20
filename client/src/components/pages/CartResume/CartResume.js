@@ -1,17 +1,19 @@
 import styles from './CartResume.module.scss';
-import { useDispatch, useSelector } from 'react-redux';
-import { getIsLoading } from '../../../redux/isLoadingRedux';
-import { fetchOrders, fetchOrdersFromServer, getAllOrders, removeAllOrdersFromLocalStorage } from '../../../redux/ordersRedux';
 import { Spinner } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
+// import modules
 import AllOrders from '../../features/AllOrders/AllOrders';
 import ContactForm from '../../features/ContactForm/ContactForm';
-import { useNavigate } from 'react-router-dom';
-import { addConfirmOrdersRequest, addConfirmRequest } from '../../../redux/confirmOrdersRedux';
-import { v4 as uuidv4 } from 'uuid';
 import Container from '../../common/container/Container';
-import { useState } from 'react';
-import { getUser } from '../../../redux/userRedux';
 import Button from '../../common/Button/Button';
+// imports from redux
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchOrders, fetchOrdersFromServer, getAllOrders, removeAllOrdersFromLocalStorage } from '../../../redux/ordersRedux';
+import { addConfirmOrdersRequest, addConfirmRequest } from '../../../redux/confirmOrdersRedux';
+import { getIsLoading } from '../../../redux/isLoadingRedux';
+import { getUser } from '../../../redux/userRedux';
 
 const CartResume = () => {
   window.scrollTo(0 ,0);
@@ -26,12 +28,12 @@ const CartResume = () => {
   
   const handleSubmit = confirmOrderData => {
     confirmOrderData.id = confirmId;
-    if (user) {
+    if (user) { // Logged user
       confirmOrderData.userId = user.user.id;
       dispatch(addConfirmOrdersRequest(confirmOrderData, orders));
       dispatch(fetchOrdersFromServer(user.user.id));
       setShowSuccess(true);  
-    } else {
+    } else { // Guest user
       confirmOrderData.userId = 'f4c05e45-cd90-473c-bae2-959c977ca811';
       dispatch(addConfirmRequest(confirmOrderData, orders));
       dispatch(removeAllOrdersFromLocalStorage());

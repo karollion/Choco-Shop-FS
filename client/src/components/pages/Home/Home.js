@@ -1,10 +1,12 @@
 import styles from './Home.module.scss';
+import { Spinner } from 'react-bootstrap';
+// import modules
+import AllProducts from '../../features/AllProducts/AllProducts';
+import Container from '../../common/container/Container';
+// imports from redux
 import { useSelector } from 'react-redux';
 import { getIsLoading } from '../../../redux/isLoadingRedux';
 import { getAllProducts } from '../../../redux/productsRedux';
-import { Spinner } from 'react-bootstrap';
-import AllProducts from '../../features/AllProducts/AllProducts';
-import Container from '../../common/container/Container';
 
 const Home = () => {
   window.scrollTo(0 ,0);

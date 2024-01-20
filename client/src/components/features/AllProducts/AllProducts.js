@@ -1,7 +1,9 @@
+import styles from './AllProducts.module.scss';
+// import modules
+import ProductCard from '../ProductCard/ProductCard';
+// imports from redux
 import { useSelector } from 'react-redux';
 import { getAllProducts } from '../../../redux/productsRedux';
-import ProductCard from '../ProductCard/ProductCard';
-import styles from './AllProducts.module.scss';
 
 const AllProducts = () => {
   const products = useSelector(getAllProducts);
