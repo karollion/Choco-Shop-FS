@@ -43,6 +43,10 @@
 }
 
 @media (max-width: 768px) {
+	.root {
+		font-size: 18px;
+	}
+
   .pInfo {
 		display: flex;
 		flex-direction: column;

@@ -17,6 +17,16 @@
   border-color: $text-color-primary; 
 }
 
+@media (max-width: 991px) {
+  .image-gallery-content .image-gallery-slide .image-gallery-image {
+    height: 300px;
+  }
+  
+  .image-gallery-thumbnail .image-gallery-thumbnail-image {
+    height: 65px;
+  }
+}
+
 *, *::before, *::after {
   box-sizing: border-box;
 }

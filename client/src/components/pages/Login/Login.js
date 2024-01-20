@@ -55,34 +55,34 @@ const Login = () => {
       <Container>
         <h2 className={styles.title}>Login</h2>
 
-        {status === 'success' && (
-          <Alert variant='success'>
-            <Alert.Heading>Succes!</Alert.Heading>
-            <p>You have been successfully logined in!</p>
-          </Alert>
-        )}
-
-        {status === 'serverError' && (
-          <Alert variant='danger'>
-            <Alert.Heading>Something went wrong...</Alert.Heading>
-            <p>Unexpected error... Try again!</p>
-          </Alert>
-        )}
-
-        {status === 'clientError' && (
-          <Alert variant='danger'>
-            <Alert.Heading>Incorrect data</Alert.Heading>
-            <p>Login or password are incorrect...</p>
-          </Alert>
-        )}
-
-        {status === 'loading' && (
-          <Spinner animation='border' role='status' className='block mx-auto'>
-            <span className='visually-hidden'>Loading...</span>
-          </Spinner>
-        )}
-
         <Form onSubmit={handleSubmit} className='col-12 col-sm-3 mx-auto my-4 px-3 min-vh-100'> 
+          {status === 'success' && (
+            <Alert variant='success'>
+              <Alert.Heading>Succes!</Alert.Heading>
+              <p>You have been successfully logined in!</p>
+            </Alert>
+          )}
+
+          {status === 'serverError' && (
+            <Alert variant='danger'>
+              <Alert.Heading>Something went wrong...</Alert.Heading>
+              <p>Unexpected error... Try again!</p>
+            </Alert>
+          )}
+
+          {status === 'clientError' && (
+            <Alert variant='danger'>
+              <Alert.Heading>Incorrect data</Alert.Heading>
+              <p>Login or password are incorrect...</p>
+            </Alert>
+          )}
+
+          {status === 'loading' && (
+            <Spinner animation='border' role='status' className='block mx-auto'>
+              <span className='visually-hidden'>Loading...</span>
+            </Spinner>
+          )}
+
 
           <Form.Group className='mb-3' controlId='email'>
             <Form.Label>E-mail</Form.Label>

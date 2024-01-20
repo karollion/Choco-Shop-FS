@@ -26,7 +26,8 @@ export class OrdersController {
   async getAllOfUser(@Param('userId', new ParseUUIDPipe()) userId: string) {
     const ord = await this.ordersService.getAllOfUser(userId);
     if (ord.length === 0) {
-      throw new NotFoundException('Orders not found');
+      //throw new NotFoundException('Orders not found');
+      return [];
     }
     return ord;
   }

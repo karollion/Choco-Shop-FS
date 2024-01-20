@@ -49,33 +49,33 @@ const SignUp = () => {
       <Container>
         <h2 className={styles.title}>SignUp</h2>
 
-        {status === 'success' && (
-          <Alert variant='success'>
-            <Alert.Heading>Succes!</Alert.Heading>
-            <p>You have been successfully registered! You can now log in.</p>
-          </Alert>
-        )}
-
-        {status === 'emailError' && (
-          <Alert variant="danger">
-            <Alert.Heading>User with such email already exists</Alert.Heading>
-          </Alert>
-        )}
-
-        {status === 'error' && (
-          <Alert variant="danger">
-            <Alert.Heading>Something went wrong...</Alert.Heading>
-            <p>Make sure all the fields are filled correctly and try again!</p>
-          </Alert>
-        )}
-
-        {status === 'loading' && (
-          <Spinner animation='border' role='status' className='block mx-auto'>
-            <span className='visually-hidden'>Loading...</span>
-          </Spinner>
-        )}
-
         <Form onSubmit={handleSubmit} className='col-12 col-sm-3 mx-auto my-4 px-3 min-vh-100'> 
+          {status === 'success' && (
+            <Alert variant='success'>
+              <Alert.Heading>Succes!</Alert.Heading>
+              <p>You have been successfully registered! You can now log in.</p>
+            </Alert>
+          )}
+
+          {status === 'emailError' && (
+            <Alert variant="danger">
+              <Alert.Heading>User with such email already exists</Alert.Heading>
+            </Alert>
+          )}
+
+          {status === 'error' && (
+            <Alert variant="danger">
+              <Alert.Heading>Something went wrong...</Alert.Heading>
+              <p>Make sure all the fields are filled correctly and try again!</p>
+            </Alert>
+          )}
+
+          {status === 'loading' && (
+            <Spinner animation='border' role='status' className='block mx-auto'>
+              <span className='visually-hidden'>Loading...</span>
+            </Spinner>
+          )}
+
 
           <Form.Group className='mb-3' controlId='formEmail'>
             <Form.Label>E-mail</Form.Label>

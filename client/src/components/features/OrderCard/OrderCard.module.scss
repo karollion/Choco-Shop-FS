@@ -46,4 +46,38 @@
 	input[type="number"] {
 		-moz-appearance: textfield; 
 	}
+
+  .contInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .contForm {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 10px;
+  }
+
+  .contButtons {
+    display: flex;
+    gap: 10px;
+  }
+
+  @media (max-width: 991px) {
+    flex-direction: column;
+    gap: 10px;
+
+    .contForm {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .contInfo {
+      display: flex;
+      flex-direction: row;
+      
+    }
+  }
 }

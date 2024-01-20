@@ -89,7 +89,9 @@ export const fetchOrdersFromServer = (userId) => {
     fetch(`${API_URL}/orders/user/${userId}`)
       .then(res => res.json())
       .then(orders => {
-        console.log(orders)
+        if(orders.message === 'Orders not found') {
+          orders = []
+        }
         dispatch(setLoading(false)) 
         dispatch(loadOrders(orders))});
   };

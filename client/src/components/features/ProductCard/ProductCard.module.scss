@@ -69,4 +69,12 @@
       }
     }
   }
+
+  @media (max-width: 768px) {
+    .content {
+      .text {
+        font-size: 18px;
+      }
+    }
+  }
 }

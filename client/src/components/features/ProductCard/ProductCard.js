@@ -25,8 +25,8 @@ const ProductCard = ({ product }) => {
       />
       <div className={styles.content}>
         <div className={styles.text}>
-        {product.name}
-        <span className={styles.price}><FontAwesomeIcon  icon={faDollar} />{product.price}</span>
+          {product.name}
+          <span className={styles.price}><FontAwesomeIcon  icon={faDollar} />{product.price}</span>
         </div>
         <div className='my-4 d-flex justify-content-center'>
         <Button action={handleClick}>Read more</Button>

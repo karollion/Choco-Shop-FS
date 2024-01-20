@@ -62,55 +62,63 @@ const OrderCard = ({ order, canBeEdited }) => {
 
   return (
     <div className={styles.root}>
-      <img 
-        className={styles.image}
-        alt={'home background'}
-        src={IMGS_URL + 'products/' + photos[0]} 
-      />
-      <p>{product.name}</p>
-      <p>{product.price}$</p>
-      {canBeEdited ? (
-        <Form.Group controlId="formphone" className={styles.form}>
-          <Button action={(e) => {
-            e.preventDefault();
-            decQuantity();
-            }}>-</Button>
-          <Form.Control
-            value={quantity}
-            onChange={e => setQuantity(Number(e.target.value))}
-            type='number'
-          />
-          <Button action={(e) => {
-            e.preventDefault();
-            incQuantity();
-            }}>+</Button>
-        </Form.Group>
-      ) : null}
-      {canBeEdited ? (
-        <Form >
-          <Form.Group  controlId="formphone">
+      <div className={styles.contForm}>
+        <img 
+          className={styles.image}
+          alt={'home background'}
+          src={IMGS_URL + 'products/' + photos[0]} 
+        />
+        <div className={styles.contInfo}>
+          <p>{product.name}</p>
+          <p>{product.price}$</p>
+        </div>
+      </div>
+      <div  className={styles.contForm}>
+        {canBeEdited ? (
+          <Form.Group controlId="formphone" className={styles.form}>
+            <Button action={(e) => {
+              e.preventDefault();
+              decQuantity();
+              }}>-</Button>
             <Form.Control
-              value={description}
-              onChange={e => setDescription(e.target.value)}
-              type='textarea'
-              placeholder='Your description'
+              value={quantity}
+              onChange={e => setQuantity(Number(e.target.value))}
+              type='number'
             />
+            <Button action={(e) => {
+              e.preventDefault();
+              incQuantity();
+              }}>+</Button>
           </Form.Group>
-        </Form>
-      ) : null}
-      {!canBeEdited ? (
-          <p>quantity: {quantity}</p>
-      ) : null}
-      {!canBeEdited ? (
-          <p>description: {description}</p>
-      ) : null}
-      {canBeEdited ? (
-      <Button 
-        action={handleUpdate}>update</Button>
-      ) : null}
-      {canBeEdited ? (
-      <Button action={handleRemove}>remove</Button>
-      ) : null}
+        ) : null}
+        {canBeEdited ? (
+          <Form >
+            <Form.Group  controlId="formphone">
+              <Form.Control
+                value={description}
+                onChange={e => setDescription(e.target.value)}
+                as='textarea'
+                placeholder='Your description'
+              />
+            </Form.Group>
+          </Form>
+        ) : null}
+        {!canBeEdited ? (
+            <p>quantity: {quantity}</p>
+        ) : null}
+        {!canBeEdited ? (
+            <p>description: {description}</p>
+        ) : null}
+      </div>
+      <div className={styles.contButtons}>
+        {canBeEdited ? (
+        <Button 
+          action={handleUpdate}>update</Button>
+        ) : null}
+        {canBeEdited ? (
+        <Button action={handleRemove}>remove</Button>
+        ) : null}
+      </div>
       </div>
   );
 };

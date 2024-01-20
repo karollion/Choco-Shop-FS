@@ -76,7 +76,7 @@ const Product = () => {
             <div className={`col-md-6 p-3 ${styles.pInfo}`} >
               <h3>{product.name}</h3>
               <p>Price: ${product.price}</p> 
-              <p>Weight: {product.size}g</p> 
+              <p>Size: {product.size}</p> 
               <p>Description: </p>
               <p>{product.description}</p>
               <Form onSubmit={handleSubmit} className={`row ${styles.formAndButton}`}>

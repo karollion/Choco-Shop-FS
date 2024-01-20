@@ -2,21 +2,26 @@
 
 .root {
   @extend %transitionHover;
+	margin: 0 auto;
+	background: none;
+  padding: 0 20px;
+	font-size: 26px;
+	font-weight: 600;
+	border: 3px solid $text-color-light;
+	border-radius: 100px ;
+	color: $text-color-light;
+	
+	&:hover {
+		color: $text-color-primary;
+		border-color: $text-color-primary;
 		background: none;
-    padding: 0 20px;
-		font-size: 26px;
-		font-weight: 600;
-		border: 3px solid $text-color-light;
-		border-radius: 100px ;
-		color: $text-color-light;
-		
-		&:hover {
-			color: $text-color-primary;
-			border-color: $text-color-primary;
-			background: none;
-		}
+	}
 
-		&:active {
-			background: none;
-		}
+	&:active {
+		background: none;
+	}
+	
+	@media (max-width: 768px) {
+		font-size: 20px;
+	}
 }

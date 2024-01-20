@@ -51,4 +51,19 @@
   .title {
     @extend %titleStyle;
   }
+
+  @media (max-width: 720px) {
+    .hero {
+      h1 {
+        text-align: center;
+        font-size: 45px;
+        padding: 5px;
+      }
+      h2 {
+        text-align: center;
+        font-size: 30px;
+        padding: 5px;
+      }
+    }
+  }
 }

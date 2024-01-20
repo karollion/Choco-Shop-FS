@@ -21,10 +21,10 @@ const Footer = () => {
             <div className={styles.footersection}>
               <h4>Help</h4>
               <ul>
-                <li><a href="/help/orders">Order Status</a></li>
-                <li><a href="/help/returns">Returns and Exchanges</a></li>
+                <li><a href="/">Order Status</a></li>
+                <li><a href="/">Returns and Exchanges</a></li>
                 <li><a href="/contact">Contact Us</a></li>
-                <li><a href="/help/faq">FAQs</a></li>
+                <li><a href="/">FAQs</a></li>
               </ul>
             </div>
 
@@ -41,15 +41,15 @@ const Footer = () => {
             <div className={styles.footersection}>
               <h4>Customer Service</h4>
               <ul>
-                <li><a href="/customer-service/shipping">Shipping Information</a></li>
-                <li><a href="/customer-service/privacy">Privacy Policy</a></li>
-                <li><a href="/customer-service/terms">Terms and Conditions</a></li>
+                <li><a href="/">Shipping Information</a></li>
+                <li><a href="/">Privacy Policy</a></li>
+                <li><a href="/">Terms and Conditions</a></li>
               </ul>
             </div>
 
             <div className={styles.footersection}>
               <h4>Newsletter</h4>
-              <a href="/newsletter-subscribe">Subscribe Now</a>
+              <a href="/">Subscribe Now</a>
             </div>
           </div>
 

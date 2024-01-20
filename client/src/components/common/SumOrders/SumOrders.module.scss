@@ -8,4 +8,9 @@
   justify-content: space-around;
   align-items: center;
   font-size: 22px;
+  padding: 10px 15px;
+
+  @media (max-width: 991px) {
+    font-size: 14px;
+  }
 }
