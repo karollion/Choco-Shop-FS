@@ -1,5 +1,5 @@
 import styles from './ProductCard.module.scss';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
 import { IMGS_URL } from '../../../config';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';

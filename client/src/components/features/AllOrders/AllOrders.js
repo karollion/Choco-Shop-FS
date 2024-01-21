@@ -27,6 +27,7 @@ const AllOrders = ({ orders, canBeEdited, isSummed  }) => {
 AllOrders.propTypes = {
 	orders: PropTypes.array.isRequired,
   canBeEdited: PropTypes.bool.isRequired,
+  isSummed: PropTypes.bool.isRequired,
 }
 
 export default AllOrders;
