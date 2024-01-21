@@ -10,11 +10,17 @@
   .title {
     @extend %titleStyle;
   }
-
   
   .empty {
     text-align: center;
     font-size: 22px;
+    color: $text-color-light;
+  }
+
+  .info {
+    margin: 18px 0;
+    text-align: center;
+    font-size: 26px;
     color: $text-color-light;
   }
 }

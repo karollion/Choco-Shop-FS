@@ -6,11 +6,13 @@ import productsReducer from './productsRedux';
 import ordersReducer from './ordersRedux';
 import confirmOrdersReducer from './confirmOrdersRedux';
 import userReducer from './userRedux';
+import doneOrdersReducer from './doneOrdersRedux';
 
 const subreducers = {
   loading: isloadingReducer,
   products: productsReducer,
   orders: ordersReducer,
+  doneOrders: doneOrdersReducer,
   confirmOrders: confirmOrdersReducer,
   user: userReducer,
 }

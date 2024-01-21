@@ -37,6 +37,22 @@ export class OrdersService {
     });
   }
 
+  public getAllDoneOfUser(userId: string): Promise<Order[]> {
+    return this.prismaService.order.findMany({
+      where: {
+        userId: userId,
+        confirmOrder: {
+          some: {
+            confirm: {},
+          },
+        },
+      },
+      include: {
+        product: true,
+      },
+    });
+  }
+
   public getById(id: Order['id']): Promise<Order | null> {
     return this.prismaService.order.findUnique({
       where: { id },

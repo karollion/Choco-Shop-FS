@@ -28,6 +28,12 @@ export class OrdersController {
     return ord;
   }
 
+  @Get('/user/done/:userId')
+  async getAllDoneOfUser(@Param('userId', new ParseUUIDPipe()) userId: string) {
+    const ord = await this.ordersService.getAllDoneOfUser(userId);
+    return ord;
+  }
+
   @Get('/:id')
   async getById(@Param('id', new ParseUUIDPipe()) id: string) {
     const ord = await this.ordersService.getById(id);
