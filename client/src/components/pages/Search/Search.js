@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 // import modules
 import Container from '../../common/container/Container';
 import Button from '../../common/Button/Button';
+import { Form } from 'react-bootstrap';
 // imports from redux
 import { useSelector } from 'react-redux';
 import { getIsLoading } from '../../../redux/isLoadingRedux';
@@ -39,14 +40,19 @@ const Search = () => {
     <Container>
       <div className={styles.root}>
         <h2 className={styles.title}>Search products</h2>
-        <div className='my-4 d-flex justify-content-center'>
-          <input
-            type="text"
-            value={searchPhase}
-            onChange={(e) => setSearchPhase(e.target.value)}
-            placeholder="Wyszukaj produkt"
-          />
+        <div className={styles.searchForm}>
+          <Form >
+            <Form.Group  controlId="formphone">
+              <Form.Control
+                type="text"
+                value={searchPhase}
+                onChange={(e) => setSearchPhase(e.target.value)}
+                placeholder="Search phase"
+              />
+            </Form.Group>
+          </Form>
           <Button action={handleSearch}>Szukaj</Button>
+          
           <Button action={handleClick}>Back to home</Button>
         </div>
         {searchedProducts.length === 0 && !isLoading && <div className={styles.empty}>No products found</div>}

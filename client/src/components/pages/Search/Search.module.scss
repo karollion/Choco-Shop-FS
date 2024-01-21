@@ -16,4 +16,13 @@
     font-size: 22px;
     color: $text-color-light;
   }
+  
+  .searchForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+    margin: 22px 0;
+  }
 }
