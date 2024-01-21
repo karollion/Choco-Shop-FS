@@ -19,7 +19,6 @@ const Product = () => {
   window.scrollTo(0 ,0);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
   const user = useSelector((state) => getUser(state));
   const  {id}  = useParams();
   const product = useSelector(state => getProductById(state, id));

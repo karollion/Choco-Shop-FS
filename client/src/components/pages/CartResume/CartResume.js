@@ -20,10 +20,9 @@ const CartResume = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const user = useSelector((state) => getUser(state));
-  const [showSuccess, setShowSuccess] = useState(false);
-
   const orders = useSelector(state => getAllOrders(state));
   const isLoading = useSelector(state => getIsLoading(state));
+  const [showSuccess, setShowSuccess] = useState(false);
   let confirmId = uuidv4();
   
   const handleSubmit = confirmOrderData => {
@@ -66,7 +65,7 @@ const CartResume = () => {
         <h2 className={styles.title}>Cart - resume</h2>
         {orders.length === 0 && !isLoading && <p>You cart is empty</p>}
         {isLoading && <Spinner animation='border' variant='primary' />}
-        {!isLoading && <AllOrders orders={orders} canBeEdited={false} />}
+        {!isLoading && <AllOrders orders={orders} canBeEdited={false}  isSummed={true}/>}
         <ContactForm action={handleSubmit}/>
       </div>
     </Container>

@@ -5,7 +5,7 @@ import { v4 as uuidv4 } from 'uuid';
 import SumOrders from '../../common/SumOrders/SumOrders';
 import OrderCard from '../OrderCard/OrderCard';
 
-const AllOrders = ({ orders, canBeEdited  }) => {
+const AllOrders = ({ orders, canBeEdited, isSummed  }) => {
 
     return (
       <div className={styles.root}>
@@ -13,9 +13,12 @@ const AllOrders = ({ orders, canBeEdited  }) => {
           {orders.map(order => (
             <OrderCard key={uuidv4()} order={order} canBeEdited={canBeEdited} />
           ))}
-        <div className={styles.sum}>
-          <SumOrders orders={orders}/>
-        </div>
+        
+        {isSummed ? (
+          <div className={styles.sum}>
+            <SumOrders orders={orders}/>
+          </div>
+        ) : null }
         </div>
       </div>
     );

@@ -22,7 +22,7 @@ import configuration from './config/configuration';
   imports: [
     ProductsModule,
     ServeStaticModule.forRoot({
-      rootPath: join(__dirname, '..', '../client', '../public'),
+      rootPath: join(__dirname, '../../', 'client', 'build'),
     }),
     OrdersModule,
     ConfirmOrdersModule,

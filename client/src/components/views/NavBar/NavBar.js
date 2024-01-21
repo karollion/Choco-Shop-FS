@@ -3,7 +3,7 @@ import { Navbar, Nav } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faShoppingBasket } from '@fortawesome/free-solid-svg-icons';
+import { faShoppingBasket, faSearch } from '@fortawesome/free-solid-svg-icons';
 // import modules
 import Container from '../../common/container/Container';
 // imports from redux
@@ -29,7 +29,11 @@ const NavBar = () => {
                 <NavLink onClick={() => setExpanded(false)} className={({ isActive }) => isActive ? styles.linkActive : undefined} as={NavLink} to="/contact">Contact</NavLink>
                 {!user ? (<NavLink onClick={() => setExpanded(false)} className={({ isActive }) => isActive ? styles.linkActive : undefined} as={NavLink} to="/login">Login</NavLink>) : null }
                 {!user ? (<NavLink onClick={() => setExpanded(false)} className={({ isActive }) => isActive ? styles.linkActive : undefined} as={NavLink} to="/signup">Sign up</NavLink>) : null }
+                {user ? (<NavLink onClick={() => setExpanded(false)} className={({ isActive }) => isActive ? styles.linkActive : undefined} as={NavLink} to="/useraccount">Account</NavLink>) : null }
                 {user ? (<NavLink onClick={() => setExpanded(false)} className={({ isActive }) => isActive ? styles.linkActive : undefined} as={NavLink} to="/logout">Logout</NavLink>) : null }
+                <NavLink onClick={() => setExpanded(false)} className={({ isActive }) => isActive ? styles.linkActive : undefined} as={NavLink} to="/searchpage">
+                  <FontAwesomeIcon className={styles.icon} icon={faSearch} />
+                </NavLink>
                 <NavLink onClick={() => setExpanded(false)} className={({ isActive }) => isActive ? styles.linkActive : undefined} as={NavLink} to="/cart">
                   <FontAwesomeIcon className={styles.icon} icon={faShoppingBasket} />
                   <div className={styles.cartOrders}>{orders.length}</div>
