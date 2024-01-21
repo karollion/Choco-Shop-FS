@@ -50,7 +50,7 @@ function getProducts() {
       name: 'Dark chockolate',
       price: 17,
       category: 'chocolate',
-      isNew: false,
+      isNew: true,
       description:
         'Dark chocolade sodjfn as fhbsdfkndsf aksf as fasf  asfadvd ',
       photo:
@@ -79,7 +79,7 @@ function getProducts() {
       name: 'Icecream',
       price: 12,
       category: 'icecream',
-      isNew: false,
+      isNew: true,
       description: 'Icecream dsg wdgwdv wdvvwdvdsv casdcv',
       photo: 'icecream1.jpg icecream2.jpg icecream3.jpg',
     },
@@ -88,7 +88,7 @@ function getProducts() {
       name: 'Jelly candy',
       price: 5,
       category: 'candy',
-      isNew: false,
+      isNew: true,
       description: 'Jelly candy dsavjfnq qncqojcn wqdv dwv wvwdv c',
       photo: 'jelly_candy1.jpg jelly_candy2.jpg',
     },

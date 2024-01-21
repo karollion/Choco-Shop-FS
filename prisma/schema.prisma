@@ -22,7 +22,6 @@ model Product {
   id          String          @id @default(uuid())
   name        String
   price       Int
-  size        Size            @default(S)
   description String
   category    String
   isNew       Boolean
@@ -33,6 +32,7 @@ model Product {
 
 model Order {
   id          String          @id @default(uuid())
+  size        Size            @default(S)
   quantity    Int
   description String?
 
