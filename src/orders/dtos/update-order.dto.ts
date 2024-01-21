@@ -1,3 +1,4 @@
+import { Size } from '@prisma/client';
 import {
   IsInt,
   IsNotEmpty,
@@ -25,4 +26,7 @@ export class UpdateOrderDTO {
   @IsString()
   @IsUUID()
   userId: string;
+
+  @IsNotEmpty()
+  size: Size;
 }

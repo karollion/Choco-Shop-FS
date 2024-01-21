@@ -15,6 +15,14 @@ import { getProductById } from '../../../redux/productsRedux';
 import { getUser } from '../../../redux/userRedux';
 import { addOrderRequest, addOrderRequestOnServer } from '../../../redux/ordersRedux';
 
+const Size = {
+  S: 'S',
+  M: 'M',
+  L: 'L',
+  XL: 'XL',
+  XXL: 'XXL',
+}
+
 const Product = () => {
   window.scrollTo(0 ,0);
   const dispatch = useDispatch();
@@ -23,6 +31,7 @@ const Product = () => {
   const  {id}  = useParams();
   const product = useSelector(state => getProductById(state, id));
   const [quantity, setQuantity] = useState(1);
+  const [size, setSize] = useState(Size.S);
   const productId = product.id;
   const photos = product.photo.split(' ');
   const images = [];
@@ -38,9 +47,9 @@ const Product = () => {
     e.preventDefault();
     let description = '';
     if (user) {
-      dispatch(addOrderRequestOnServer({ productId, quantity, description, userId: user.user.id}));
+      dispatch(addOrderRequestOnServer({ productId, size, quantity, description, userId: user.user.id}));
     } else {
-      dispatch(addOrderRequest({ id: uuidv4() , productId, quantity, description, userId: 'f4c05e45-cd90-473c-bae2-959c977ca811'}));
+      dispatch(addOrderRequest({ id: uuidv4() , productId, size, quantity, description, userId: 'f4c05e45-cd90-473c-bae2-959c977ca811'}));
     }
     navigate('/cart');
   };
@@ -59,6 +68,10 @@ const Product = () => {
     }
   }
 
+  const handleSizeChange = (event) => {
+    setSize(event.target.value);
+  };
+
   if (!product) return <Navigate to="/" />;
   return (
     <div className={styles.root}>
@@ -76,10 +89,20 @@ const Product = () => {
             </div>
             <div className={`col-md-6 p-3 ${styles.pInfo}`} >
               <h3>{product.name}</h3>
+              <p>Category: {product.category}</p> 
               <p>Price: ${product.price}</p> 
-              <p>Size: {product.size}</p> 
               <p>Description: </p>
               <p>{product.description}</p>
+              <Form>
+                <Form.Label>Wybierz rozmiar:</Form.Label>
+                <Form.Select value={size} onChange={handleSizeChange}>
+                  <option value={Size.S}>S</option>
+                  <option value={Size.M}>M</option>
+                  <option value={Size.L}>L</option>
+                  <option value={Size.XL}>XL</option>
+                  <option value={Size.XXL}>XXL</option>
+                </Form.Select>
+              </Form>
               <Form onSubmit={handleSubmit} className={`row ${styles.formAndButton}`}>
                   <Form.Group className={styles.form} id='quantity'>
                     

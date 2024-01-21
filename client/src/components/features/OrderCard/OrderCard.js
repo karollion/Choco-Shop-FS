@@ -15,13 +15,39 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getProductById } from '../../../redux/productsRedux';
 import { getUser } from '../../../redux/userRedux';
 
+const Size = {
+  S: 'S',
+  M: 'M',
+  L: 'L',
+  XL: 'XL',
+  XXL: 'XXL',
+}
+
 const OrderCard = ({ order, canBeEdited }) => {
   const dispatch = useDispatch();
   const user = useSelector((state) => getUser(state));
+  const [size, setSize] = useState(order.size);
   const [quantity, setQuantity] = useState(order.quantity);
   const [description, setDescription] = useState(order.description);
   const product = useSelector(state => getProductById(state, order.productId));
   const photos = product.photo.split(' ');
+
+  const calcPriceOfSize = (size) => {
+    switch (size) {
+      case 'S':
+        return 1;
+      case 'M':
+        return 1.3;
+      case 'L':
+        return 1.5;
+      case 'XL':
+        return 1.8;
+      case 'XXL':
+        return 2;
+      default:
+        return 1;
+    }
+  };
 
   const handleRemove = (event) => {
     event.preventDefault();
@@ -37,6 +63,7 @@ const OrderCard = ({ order, canBeEdited }) => {
     if (user) {
       dispatch(updateOrderRequestOnServer({
         id: order.id,
+        size: size,
         quantity: quantity,
         description: description,
         productId: order.productId,
@@ -45,6 +72,7 @@ const OrderCard = ({ order, canBeEdited }) => {
     } else {
       dispatch(updateOrderRequest({
         id: order.id,
+        size: size,
         quantity: quantity,
         description: description,
         productId: order.productId,
@@ -66,6 +94,10 @@ const OrderCard = ({ order, canBeEdited }) => {
     }
   }
 
+  const handleSizeChange = (event) => {
+    setSize(event.target.value);
+  };
+
   return (
     <div className={styles.root}>
       <div className={styles.contForm}>
@@ -76,8 +108,24 @@ const OrderCard = ({ order, canBeEdited }) => {
         />
         <div className={styles.contInfo}>
           <p>{product.name}</p>
-          <p>{product.price}$</p>
+          <p>{product.price * calcPriceOfSize(size)}$</p>
         </div>
+      </div>
+      <div  className={styles.contForm}>
+        {canBeEdited ? (
+          <Form>
+            <Form.Select value={size} onChange={handleSizeChange}>
+              <option value={Size.S}>S</option>
+              <option value={Size.M}>M</option>
+              <option value={Size.L}>L</option>
+              <option value={Size.XL}>XL</option>
+              <option value={Size.XXL}>XXL</option>
+            </Form.Select>
+          </Form>
+        ) : null}
+        {!canBeEdited ? (
+          <p>size: {size}</p>
+        ) : null}
       </div>
       <div  className={styles.contForm}>
         {canBeEdited ? (
