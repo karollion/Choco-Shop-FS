@@ -11,6 +11,7 @@ const ProductCard = ({ product }) => {
   const photos = product.photo.split(' ');
   const navigate = useNavigate();
 
+  console.log(product)
   const handleClick = e => {
     e.preventDefault();
     navigate("/products/" + product.id);

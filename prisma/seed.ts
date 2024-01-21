@@ -1,5 +1,9 @@
 import { PrismaClient } from '@prisma/client';
 const db = new PrismaClient();
+enum Role {
+  USER = 'USER',
+  ADMIN = 'ADMIN',
+}
 
 function getProducts() {
   return [
@@ -151,6 +155,7 @@ function getUsers() {
     {
       id: 'f4c05e45-cd90-473c-bae2-959c977ca811',
       email: 'guest@guest.guest',
+      role: Role.USER,
     },
   ];
 }
