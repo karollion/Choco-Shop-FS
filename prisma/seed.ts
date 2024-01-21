@@ -146,10 +146,24 @@ function getProducts() {
   ];
 }
 
+function getUsers() {
+  return [
+    {
+      id: 'f4c05e45-cd90-473c-bae2-959c977ca811',
+      email: 'guest@guest.guest',
+    },
+  ];
+}
+
 async function seed() {
   await Promise.all(
     getProducts().map((product) => {
       return db.product.create({ data: product });
+    }),
+  );
+  await Promise.all(
+    getUsers().map((user) => {
+      return db.user.create({ data: user });
     }),
   );
 }
