@@ -22,12 +22,11 @@ const Search = () => {
   const [searchedProducts, setSearchedProducts] = useState([]);
 
   const handleSearch = () => {
-    // Wyszukaj produkty na podstawie wprowadzonej frazy
+    // Search for products based on the entered phrase
     const filteredProducts = allProducts.filter(product =>
       product.name.toLowerCase().includes(searchPhase.toLowerCase())
     );
-
-    // Zaktualizuj tablicę searchedProducts
+    // Update the searchedProducts array
     setSearchedProducts(filteredProducts);
   };
 
