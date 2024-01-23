@@ -10,7 +10,12 @@ import Container from '../../common/container/Container';
 import Button from '../../common/Button/Button';
 // imports from redux
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchOrders, fetchOrdersFromServer, getAllOrders, removeAllOrdersFromLocalStorage } from '../../../redux/ordersRedux';
+import { fetchOrders, 
+         fetchOrdersFromServer, 
+         getAllOrders, 
+         removeAllOrdersFromLocalStorage, 
+         fetchOrderFromServer 
+        } from '../../../redux/ordersRedux';
 import { addConfirmOrdersRequest, addConfirmRequest } from '../../../redux/confirmOrdersRedux';
 import { getIsLoading } from '../../../redux/isLoadingRedux';
 import { getUser } from '../../../redux/userRedux';
@@ -23,21 +28,31 @@ const CartResume = () => {
   const orders = useSelector(state => getAllOrders(state));
   const isLoading = useSelector(state => getIsLoading(state));
   const [showSuccess, setShowSuccess] = useState(false);
+  const [showProcess, setShowProcess] = useState(false);
   let confirmId = uuidv4();
   
   const handleSubmit = confirmOrderData => {
     confirmOrderData.id = confirmId;
     if (user) { // Logged user
+      setShowProcess(true);  
       confirmOrderData.userId = user.user.id;
       dispatch(addConfirmOrdersRequest(confirmOrderData, orders));
       dispatch(fetchOrdersFromServer(user.user.id));
-      setShowSuccess(true);  
+      setShowProcess(false); 
+      setShowSuccess(true);
     } else { // Guest user
+      setShowProcess(true);
       confirmOrderData.userId = 'f4c05e45-cd90-473c-bae2-959c977ca811';
       dispatch(addConfirmRequest(confirmOrderData, orders));
-      dispatch(removeAllOrdersFromLocalStorage());
-      dispatch(fetchOrders());
-      setShowSuccess(true);
+      setTimeout(() => {
+        orders.map(order => {
+          dispatch(fetchOrderFromServer({orderId: order.id, confirmId: confirmOrderData.id}))
+          });
+          dispatch(removeAllOrdersFromLocalStorage());
+          dispatch(fetchOrders());
+          setShowProcess(false); 
+          setShowSuccess(true);
+      }, "6000");
     }
   };
 
@@ -59,6 +74,14 @@ const CartResume = () => {
                       handleOk();
                       }}
             >OK</Button>
+          </div>
+        ) : null}
+
+        {showProcess ? (
+          <div className={styles.confirm}> 
+            <h3>Processing your orders</h3>
+            <p>Wait until processing is complete.</p>
+            <Spinner animation='border' variant='primary' />
           </div>
         ) : null}
 

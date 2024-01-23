@@ -7,9 +7,11 @@ import ordersReducer from './ordersRedux';
 import confirmOrdersReducer from './confirmOrdersRedux';
 import userReducer from './userRedux';
 import doneOrdersReducer from './doneOrdersRedux';
+import searchOrderReducer from './searchOrderRedux';
 
 const subreducers = {
   loading: isloadingReducer,
+  searchOrder: searchOrderReducer,
   products: productsReducer,
   orders: ordersReducer,
   doneOrders: doneOrdersReducer,

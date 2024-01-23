@@ -79,10 +79,32 @@ export const fetchOrdersFromServer = (userId) => {
       .then(orders => {
         if(orders.message === 'Orders not found') {
           orders = []
-
         }
         dispatch(setLoading(false)) 
         dispatch(loadOrders(orders))});
+  };
+};
+
+/**
+ * The function checks whether there is an order in the database, 
+ * and if so, adds it to confirmOrder
+ */
+export const fetchOrderFromServer = (data) => {
+  return async (dispatch) => {
+    dispatch(setLoading(true));
+    try {
+      const response = await fetch(`${API_URL}/orders/${data.orderId}`);
+      const orders = await response.json();
+      if (orders.message === 'Orders not found') {
+        console.error('Order not found');
+      } else {
+        dispatch(addToConfirmOrderRequest({orderId: data.orderId, confirmId: data.confirmId}))
+      }
+    } catch (error) {
+      console.error('Error while load order:', error);
+    } finally {
+      dispatch(setLoading(false));
+    }
   };
 };
 
