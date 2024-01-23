@@ -50,7 +50,7 @@ const Search = () => {
               />
             </Form.Group>
           </Form>
-          <Button action={handleSearch}>Szukaj</Button>
+          <Button action={handleSearch}>Search</Button>
           
           <Button action={handleClick}>Back to home</Button>
         </div>
