@@ -20,6 +20,23 @@
     transform: scale(1.05);
     color: $text-color-primary;
   }
+
+  .newProduct {
+    position: absolute;
+    top: 28px;
+    left: 230px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    font-weight: 600;
+    font-family: $font-title;
+    width: 150px;
+    height: 50px;
+    border-radius: 10px;
+    background: $text-color-primary;
+    color: $text-color;
+  }
   
   .img {
     @extend %transitionHover;

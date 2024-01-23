@@ -91,6 +91,7 @@ const Product = () => {
               <h3>{product.name}</h3>
               <p>Category: {product.category}</p> 
               <p>Price: ${product.price}</p> 
+              {product.isNew && <p>New product</p>}
               <p>Description: </p>
               <p>{product.description}</p>
               <Form className={styles.form}>

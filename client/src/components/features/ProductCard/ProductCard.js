@@ -18,6 +18,7 @@ const ProductCard = ({ product }) => {
 
   return (
     <div className={styles.root}>
+      {product.isNew && <div className={styles.newProduct}>New</div>}
       <img
         src={IMGS_URL + 'products/' + photos[0]}
         alt="Product_photo"

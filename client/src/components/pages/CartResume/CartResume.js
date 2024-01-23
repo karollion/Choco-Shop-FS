@@ -45,7 +45,7 @@ const CartResume = () => {
       confirmOrderData.userId = 'f4c05e45-cd90-473c-bae2-959c977ca811';
       dispatch(addConfirmRequest(confirmOrderData, orders));
       setTimeout(() => {
-        orders.map(order => {
+        orders.forEach(order => {
           dispatch(fetchOrderFromServer({orderId: order.id, confirmId: confirmOrderData.id}))
           });
           dispatch(removeAllOrdersFromLocalStorage());
