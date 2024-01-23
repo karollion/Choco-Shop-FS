@@ -49,7 +49,7 @@ const Home = () => {
             </Form.Select>
           </Form>
           {products.length === 0 && !isLoading && <p>No products</p>}
-          {isLoading && <Spinner animation='border' variant='primary' />}
+          {isLoading && <div className='my-4 d-flex '><Spinner animation='border' variant='primary' /></div>}
           {!isLoading && <AllProducts products={searchedProducts}/>}
         </Container>
       </div>

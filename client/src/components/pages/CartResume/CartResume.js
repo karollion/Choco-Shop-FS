@@ -87,7 +87,7 @@ const CartResume = () => {
 
         <h2 className={styles.title}>Cart - resume</h2>
         {orders.length === 0 && !isLoading && <p>You cart is empty</p>}
-        {isLoading && <Spinner animation='border' variant='primary' />}
+        {isLoading && <div className='my-4 d-flex '><Spinner animation='border' variant='primary' /></div>}
         {!isLoading && <AllOrders orders={orders} canBeEdited={false}  isSummed={true}/>}
         <ContactForm action={handleSubmit}/>
       </div>

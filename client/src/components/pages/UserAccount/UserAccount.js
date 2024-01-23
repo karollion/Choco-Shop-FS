@@ -41,7 +41,7 @@ const UserAccount = () => {
         </div>
         <h3 className={styles.title}>All orders</h3>
         {userOrders.length === 0 && !isLoading && <div className={styles.empty}>You have no orders.</div>}
-        {isLoading && <Spinner animation='border' variant='primary' />}
+        {isLoading && <div className='my-4 d-flex '><Spinner animation='border' variant='primary' /></div>}
         {!isLoading && <AllOrders orders={userOrders} canBeEdited={false}  isSummed={false}/>}
         <div className='my-4 d-flex justify-content-center'>
           <Button action={handleClick}>Back to home</Button>

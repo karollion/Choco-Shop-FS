@@ -93,8 +93,7 @@ const Product = () => {
               <p>Price: ${product.price}</p> 
               <p>Description: </p>
               <p>{product.description}</p>
-              <Form>
-                <Form.Label>Wybierz rozmiar:</Form.Label>
+              <Form className={styles.form}>
                 <Form.Select value={size} onChange={handleSizeChange}>
                   <option value={Size.S}>S</option>
                   <option value={Size.M}>M</option>
@@ -103,8 +102,8 @@ const Product = () => {
                   <option value={Size.XXL}>XXL</option>
                 </Form.Select>
               </Form>
-              <Form onSubmit={handleSubmit} className={`row ${styles.formAndButton}`}>
-                  <Form.Group className={styles.form} id='quantity'>
+              <Form onSubmit={handleSubmit} className={styles.form}>
+                  <Form.Group className={styles.formQuantity} id='quantity'>
                     
                     <Button action={(e) => {
                       e.preventDefault();
@@ -120,7 +119,7 @@ const Product = () => {
                       incQuantity();
                       }}>+</Button>
                   </Form.Group>
-                  <div className='my-4 d-flex '>
+                  <div className={styles.button}>
                     <Button type="submit">Add to cart</Button>
                   </div>
               </Form>
