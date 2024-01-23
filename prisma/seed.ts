@@ -14,7 +14,7 @@ function getProducts() {
       category: 'cake',
       isNew: false,
       description:
-        'oasjdfnodnsodvnsvmspkdv asf naon asocna s cnasf nasojf najsfn asa nasdcnsa dc',
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin blandit auctor finibus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vivamus tristique justo ac arcu consectetur lobortis.',
       photo:
         'cake_choco1.jpg cake_choco2.jpg cake_choco3.jpg cake_choco4.jpg cake_choco5.jpg',
     },
@@ -24,7 +24,8 @@ function getProducts() {
       price: 300,
       category: 'cake',
       isNew: false,
-      description: 'Cake akvnwvojndvo qks ksan a asbc jnacqsn',
+      description:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin blandit auctor finibus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vivamus tristique justo ac arcu consectetur lobortis.',
       photo: 'cake1.jpg cake2.jpg cake3.jpg cake4.jpg cake5.jpg cake6.jpg',
     },
     {
@@ -33,7 +34,8 @@ function getProducts() {
       price: 12,
       category: 'candy',
       isNew: false,
-      description: 'Candy sojdvn asodjf n oasnf aosjn asfn as cja sojn',
+      description:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin blandit auctor finibus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vivamus tristique justo ac arcu consectetur lobortis.',
       photo: 'candy1.jpg candy2.jpg candy3.jpg',
     },
     {
@@ -42,7 +44,8 @@ function getProducts() {
       price: 22,
       category: 'cake',
       isNew: false,
-      description: 'Cupcake jsdb ds ajfn fjbd gkgwsdf  na fdfg  ffsaf',
+      description:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin blandit auctor finibus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vivamus tristique justo ac arcu consectetur lobortis.',
       photo: 'cupcake1.jpg cupcake2.jpg cupcake3.jpg cupcake4.jpg cupcake5.jpg',
     },
     {
@@ -52,7 +55,7 @@ function getProducts() {
       category: 'chocolate',
       isNew: true,
       description:
-        'Dark chocolade sodjfn as fhbsdfkndsf aksf as fasf  asfadvd ',
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin blandit auctor finibus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vivamus tristique justo ac arcu consectetur lobortis.',
       photo:
         'dark_chockolade1.jpg dark_chockolade2.jpg dark_chockolade3.jpg dark_chockolade4.jpg',
     },
@@ -62,8 +65,9 @@ function getProducts() {
       price: 15,
       category: 'cake',
       isNew: false,
-      description: 'Donut asfj n askf vn wdvnxas kcwdj fndsv cdsf aks fajsk f',
-      photo: 'donut1.jpg donut2.jpg donut3.jpg donut4.jpg',
+      description:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin blandit auctor finibus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vivamus tristique justo ac arcu consectetur lobortis.',
+      photo: 'donut1.jpg donut2.jpg donut3.jpg',
     },
     {
       id: 'fd105551-0f0d-4a9f-bc41-c559c8a17261',
@@ -71,7 +75,8 @@ function getProducts() {
       price: 8,
       category: 'icecream',
       isNew: false,
-      description: 'Ice cone sdfj vnv wdv werv wvv e',
+      description:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin blandit auctor finibus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vivamus tristique justo ac arcu consectetur lobortis.',
       photo: 'ice_cone1.jpg ice_cone2.jpg',
     },
     {
@@ -80,7 +85,8 @@ function getProducts() {
       price: 12,
       category: 'icecream',
       isNew: true,
-      description: 'Icecream dsg wdgwdv wdvvwdvdsv casdcv',
+      description:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin blandit auctor finibus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vivamus tristique justo ac arcu consectetur lobortis.',
       photo: 'icecream1.jpg icecream2.jpg icecream3.jpg',
     },
     {
@@ -89,7 +95,8 @@ function getProducts() {
       price: 5,
       category: 'candy',
       isNew: true,
-      description: 'Jelly candy dsavjfnq qncqojcn wqdv dwv wvwdv c',
+      description:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin blandit auctor finibus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vivamus tristique justo ac arcu consectetur lobortis.',
       photo: 'jelly_candy1.jpg jelly_candy2.jpg',
     },
     {
@@ -98,7 +105,8 @@ function getProducts() {
       price: 3,
       category: 'candy',
       isNew: false,
-      description: ' lollypop sad vsvcwd cvwdcv  cvasc ',
+      description:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin blandit auctor finibus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vivamus tristique justo ac arcu consectetur lobortis.',
       photo: 'lollypop1.jpg lollypop2.jpg',
     },
     {
@@ -107,7 +115,8 @@ function getProducts() {
       price: 30,
       category: 'chocolate',
       isNew: false,
-      description: 'Milk chocolade sdvjn dwvsdv jwdnv wdv w vdwdv ',
+      description:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin blandit auctor finibus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vivamus tristique justo ac arcu consectetur lobortis.',
       photo: 'milk_chocolade1.jpg milk_chocolade2.jpg milk_chocolade3.jpg',
     },
     {
@@ -116,7 +125,8 @@ function getProducts() {
       price: 33,
       category: 'chocolate',
       isNew: false,
-      description: 'Mix chocolades sdv wdcwd cvw dvcdwvcwd v dcvas sacv cvadcv',
+      description:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin blandit auctor finibus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vivamus tristique justo ac arcu consectetur lobortis.',
       photo: 'mix_chocolads1.jpg mix_chocolads2.jpg mix_chocolads3.jpg',
     },
     {
@@ -125,7 +135,8 @@ function getProducts() {
       price: 18,
       category: 'cake',
       isNew: false,
-      description: 'Oreo sdv vefbef f wvb wvbw wdv sdvsd vsv',
+      description:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin blandit auctor finibus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vivamus tristique justo ac arcu consectetur lobortis.',
       photo: 'oreo1.jpg oreo2.jpg oreo3.jpg',
     },
     {
@@ -134,7 +145,8 @@ function getProducts() {
       price: 3,
       category: 'cake',
       isNew: false,
-      description: 'Pancakes sdv vdsv b bebe edf vwdsfvwfvewv sdw dw dv',
+      description:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin blandit auctor finibus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vivamus tristique justo ac arcu consectetur lobortis.',
       photo: 'pancakes1.jpg pancakes2.jpg',
     },
     {
@@ -144,7 +156,7 @@ function getProducts() {
       category: 'chocolate',
       isNew: false,
       description:
-        'white chockolade sdv vdsv b bebe edf vwdsfvwfvewv sdw dw dv',
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin blandit auctor finibus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vivamus tristique justo ac arcu consectetur lobortis.',
       photo: 'white_chockolade1.jpg',
     },
   ];
