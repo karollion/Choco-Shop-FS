@@ -54,11 +54,3 @@ $ npm run test:e2e
 $ npm run test:cov
 ```
 
-## Data base
-
-```bash
-# local: `mysql://localhost:3306/choco-shop-db`
-# To add example data:
-$ npx prisma db seed
-```
-
