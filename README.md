@@ -16,6 +16,7 @@ The project is hosted on free hosting, loading for the first time may take some 
 
 - Frontend
   - React
+  - Redux
 - Backend
   - Nest.js
   - Prisma
