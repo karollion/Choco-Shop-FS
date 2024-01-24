@@ -1,6 +1,8 @@
 {
   "name": "choco-shop",
   "version": "0.1.0",
+  "description": "Full stack app, online shop witch sweets",
+  "author": "Karol Bernatowicz",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.5.1",

@@ -1,8 +1,8 @@
 {
   "name": "choco-shop",
   "version": "0.0.1",
-  "description": "",
-  "author": "",
+  "description": "Full stack app, online shop witch sweets",
+  "author": "Karol Bernatowicz",
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
