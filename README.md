@@ -10,7 +10,7 @@ Customers can make purchases both as guests and logged in users. Orders of logge
 
 The project is hosted on free hosting, loading for the first time may take some time. Please be patient.
 
-**[Choco-Shop]()**
+**[Choco-Shop](https://choco-shop.onrender.com/)**
 
 ### Technologies
 
