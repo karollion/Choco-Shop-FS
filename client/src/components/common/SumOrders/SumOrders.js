@@ -29,7 +29,7 @@ const SumOrders = ({ orders }) => {
   for(let order of orders) {
     for(let product of products){
       if(order.productId === product.id) {
-        sumPrice = sumPrice + (order.quantity * product.price * calcPriceOfSize(order.size));
+        sumPrice = sumPrice + (Number(order.quantity) * product.price * calcPriceOfSize(order.size));
         break;
       }
     }
@@ -43,9 +43,9 @@ const SumOrders = ({ orders }) => {
   
   return (
     <div  className={styles.root}>
-      <p>Summary:  {sumPrice}$</p>
+      <p>Summary:  {sumPrice.toFixed(2)}$</p>
       <p>Delivery: {delivery}$</p>
-      <p>Total:    {sumPrice + delivery}$</p>
+      <p>Total:    {(sumPrice + delivery).toFixed(2)}$</p>
     </div>
   );
 };

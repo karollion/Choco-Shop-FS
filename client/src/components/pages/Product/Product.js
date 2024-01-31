@@ -103,7 +103,10 @@ const Product = () => {
                   <option value={Size.XXL}>XXL</option>
                 </Form.Select>
               </Form>
-              <Form onSubmit={handleSubmit} className={styles.form}>
+              <Form onSubmit={handleSubmit} 
+                    className={styles.form}
+                    autoComplete='off'
+                    id='quantity-search'>
                   <Form.Group className={styles.formQuantity} id='quantity'>
                     
                     <Button action={(e) => {
@@ -113,6 +116,7 @@ const Product = () => {
                     <Form.Control
                       value={quantity}
                       onChange={e => setQuantity(Number(e.target.value))}
+                      data-lpignore="true"
                       type='number'
                     />
                     <Button action={(e) => {

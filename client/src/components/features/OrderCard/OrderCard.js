@@ -129,25 +129,29 @@ const OrderCard = ({ order, canBeEdited }) => {
       </div>
       <div  className={styles.contForm}>
         {canBeEdited ? (
-          <Form.Group controlId="formphone" className={styles.form}>
-            <Button action={(e) => {
-              e.preventDefault();
-              decQuantity();
-              }}>-</Button>
-            <Form.Control
-              value={quantity}
-              onChange={e => setQuantity(Number(e.target.value))}
-              type='number'
-            />
-            <Button action={(e) => {
-              e.preventDefault();
-              incQuantity();
-              }}>+</Button>
-          </Form.Group>
+          <Form autoComplete='off'
+                id='quantit-search'>
+            <Form.Group className={styles.form}>
+              <Button action={(e) => {
+                e.preventDefault();
+                decQuantity();
+                }}>-</Button>
+              <Form.Control
+                value={quantity}
+                onChange={e => setQuantity(Number(e.target.value))}
+                data-lpignore="true"
+                type='number'
+              />
+              <Button action={(e) => {
+                e.preventDefault();
+                incQuantity();
+                }}>+</Button>
+            </Form.Group>
+          </Form>
         ) : null}
         {canBeEdited ? (
           <Form >
-            <Form.Group  controlId="formphone">
+            <Form.Group>
               <Form.Control
                 value={description}
                 onChange={e => setDescription(e.target.value)}
