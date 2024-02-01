@@ -108,7 +108,7 @@ const OrderCard = ({ order, canBeEdited }) => {
         />
         <div className={styles.contInfo}>
           <p>{product.name}</p>
-          <p>{product.price * calcPriceOfSize(size)}$</p>
+          <p>{(product.price * calcPriceOfSize(size)).toFixed(2)}$</p>
         </div>
       </div>
       <div  className={styles.contForm}>
