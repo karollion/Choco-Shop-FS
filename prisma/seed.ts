@@ -14,7 +14,7 @@ function getProducts() {
       category: 'cake',
       isNew: false,
       description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin blandit auctor finibus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vivamus tristique justo ac arcu consectetur lobortis.',
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin blandit auctor finibus.',
       photo:
         'cake_choco1.jpg cake_choco2.jpg cake_choco3.jpg cake_choco4.jpg cake_choco5.jpg',
     },
@@ -25,7 +25,7 @@ function getProducts() {
       category: 'cake',
       isNew: false,
       description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin blandit auctor finibus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vivamus tristique justo ac arcu consectetur lobortis.',
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin blandit auctor finibus.',
       photo: 'cake1.jpg cake2.jpg cake3.jpg cake4.jpg cake5.jpg cake6.jpg',
     },
     {
@@ -35,7 +35,7 @@ function getProducts() {
       category: 'candy',
       isNew: false,
       description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin blandit auctor finibus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vivamus tristique justo ac arcu consectetur lobortis.',
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin blandit auctor finibus.',
       photo: 'candy1.jpg candy2.jpg candy3.jpg',
     },
     {
@@ -45,7 +45,7 @@ function getProducts() {
       category: 'cake',
       isNew: false,
       description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin blandit auctor finibus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vivamus tristique justo ac arcu consectetur lobortis.',
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin blandit auctor finibus.',
       photo: 'cupcake1.jpg cupcake2.jpg cupcake3.jpg cupcake4.jpg cupcake5.jpg',
     },
     {
@@ -55,7 +55,7 @@ function getProducts() {
       category: 'chocolate',
       isNew: true,
       description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin blandit auctor finibus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vivamus tristique justo ac arcu consectetur lobortis.',
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin blandit auctor finibus.',
       photo:
         'dark_chockolade1.jpg dark_chockolade2.jpg dark_chockolade3.jpg dark_chockolade4.jpg',
     },
@@ -66,7 +66,7 @@ function getProducts() {
       category: 'cake',
       isNew: false,
       description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin blandit auctor finibus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vivamus tristique justo ac arcu consectetur lobortis.',
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin blandit auctor finibus.',
       photo: 'donut1.jpg donut2.jpg donut3.jpg',
     },
     {
@@ -76,7 +76,7 @@ function getProducts() {
       category: 'icecream',
       isNew: false,
       description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin blandit auctor finibus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vivamus tristique justo ac arcu consectetur lobortis.',
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin blandit auctor finibus.',
       photo: 'ice_cone1.jpg ice_cone2.jpg',
     },
     {
@@ -86,7 +86,7 @@ function getProducts() {
       category: 'icecream',
       isNew: true,
       description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin blandit auctor finibus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vivamus tristique justo ac arcu consectetur lobortis.',
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin blandit auctor finibus.',
       photo: 'icecream1.jpg icecream2.jpg icecream3.jpg',
     },
     {
@@ -96,7 +96,7 @@ function getProducts() {
       category: 'candy',
       isNew: true,
       description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin blandit auctor finibus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vivamus tristique justo ac arcu consectetur lobortis.',
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin blandit auctor finibus.',
       photo: 'jelly_candy1.jpg jelly_candy2.jpg',
     },
     {
@@ -106,7 +106,7 @@ function getProducts() {
       category: 'candy',
       isNew: false,
       description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin blandit auctor finibus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vivamus tristique justo ac arcu consectetur lobortis.',
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin blandit auctor finibus.',
       photo: 'lollypop1.jpg lollypop2.jpg',
     },
     {
@@ -116,7 +116,7 @@ function getProducts() {
       category: 'chocolate',
       isNew: false,
       description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin blandit auctor finibus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vivamus tristique justo ac arcu consectetur lobortis.',
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin blandit auctor finibus.',
       photo: 'milk_chocolade1.jpg milk_chocolade2.jpg milk_chocolade3.jpg',
     },
     {
@@ -126,7 +126,7 @@ function getProducts() {
       category: 'chocolate',
       isNew: false,
       description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin blandit auctor finibus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vivamus tristique justo ac arcu consectetur lobortis.',
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin blandit auctor finibus.',
       photo: 'mix_chocolads1.jpg mix_chocolads2.jpg mix_chocolads3.jpg',
     },
     {
@@ -136,7 +136,7 @@ function getProducts() {
       category: 'cake',
       isNew: false,
       description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin blandit auctor finibus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vivamus tristique justo ac arcu consectetur lobortis.',
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin blandit auctor finibus.',
       photo: 'oreo1.jpg oreo2.jpg oreo3.jpg',
     },
     {
@@ -146,7 +146,7 @@ function getProducts() {
       category: 'cake',
       isNew: false,
       description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin blandit auctor finibus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vivamus tristique justo ac arcu consectetur lobortis.',
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin blandit auctor finibus.',
       photo: 'pancakes1.jpg pancakes2.jpg',
     },
     {
@@ -156,7 +156,7 @@ function getProducts() {
       category: 'chocolate',
       isNew: false,
       description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin blandit auctor finibus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vivamus tristique justo ac arcu consectetur lobortis.',
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin blandit auctor finibus.',
       photo: 'white_chockolade1.jpg',
     },
   ];
