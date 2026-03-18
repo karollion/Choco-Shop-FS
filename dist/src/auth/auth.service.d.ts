@@ -7,11 +7,7 @@ export declare class AuthService {
     private jwtService;
     private configService;
     constructor(usersService: UsersService, jwtService: JwtService, configService: ConfigService);
-    register(registrationData: RegisterDTO): Promise<import("@prisma/client/runtime").GetResult<{
-        id: string;
-        email: string;
-        role: import(".prisma/client").Role;
-    }, unknown> & {}>;
+    register(registrationData: RegisterDTO): Promise<import(".prisma/client").User>;
     validateUser(email: string, password: string): Promise<{
         id: string;
         email: string;

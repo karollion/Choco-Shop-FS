@@ -5,10 +5,6 @@ export declare class JwtStrategy extends JwtStrategy_base {
     private configService;
     private usersService;
     constructor(configService: ConfigService, usersService: UsersService);
-    validate(payload: any): Promise<import("@prisma/client/runtime").GetResult<{
-        id: string;
-        email: string;
-        role: import(".prisma/client").Role;
-    }, unknown> & {}>;
+    validate(payload: any): Promise<import(".prisma/client").User>;
 }
 export {};
