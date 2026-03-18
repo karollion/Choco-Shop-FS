@@ -11,7 +11,10 @@ async function bootstrap() {
     const app = await core_1.NestFactory.create(app_module_1.AppModule);
     const configService = app.get(config_1.ConfigService);
     app.enableCors({
-        origin: 'http://localhost:3000',
+        origin: [
+            'http://localhost:3000',
+            'https://choco-shop.onrender.com'
+        ],
         methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
         credentials: true,
     });
@@ -21,7 +24,9 @@ async function bootstrap() {
     app.setGlobalPrefix('api');
     app.use('/public', express.static('public'));
     await app.enableShutdownHooks();
-    await app.listen(configService.get('port'));
+    const port = process.env.PORT || configService.get('port') || 3030;
+    await app.listen(process.env.PORT ?? 3030, '0.0.0.0');
+    console.log(`🚀 Server running on port ${port}`);
 }
 bootstrap();
 //# sourceMappingURL=main.js.map
