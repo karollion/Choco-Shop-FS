@@ -27,9 +27,13 @@ async function bootstrap() {
 
   await app.enableShutdownHooks();
 
-  const port = process.env.PORT || configService.get('port') || 3030;
+  // ⭐ Render-compatible port
+  const port =
+    Number(process.env.PORT) ||
+    configService.get<number>('port') ||
+    3030;
 
-  await app.listen(process.env.PORT ?? 3030, '0.0.0.0');
+  await app.listen(port, '0.0.0.0');
 
   console.log(`🚀 Server running on port ${port}`);
 }
