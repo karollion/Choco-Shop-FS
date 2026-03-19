@@ -16,8 +16,8 @@ exports.UsersController = void 0;
 const common_1 = require("@nestjs/common");
 const users_service_1 = require("./users.service");
 const common_2 = require("@nestjs/common");
-const jwt_auth_guard_1 = require("../auth/jwt-auth.guard");
-const admin_auth_guard_1 = require("../auth/admin-auth.guard");
+const jwt_auth_guard_1 = require("src/auth/jwt-auth.guard");
+const admin_auth_guard_1 = require("src/auth/admin-auth.guard");
 let UsersController = class UsersController {
     constructor(usersService) {
         this.usersService = usersService;

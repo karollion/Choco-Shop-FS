@@ -10,7 +10,7 @@ exports.ConfirmOrdersModule = void 0;
 const common_1 = require("@nestjs/common");
 const confirm_orders_controller_1 = require("./confirm-orders.controller");
 const confirm_orders_service_1 = require("./confirm-orders.service");
-const prisma_service_1 = require("../shared/services/prisma.service");
+const prisma_service_1 = require("src/shared/services/prisma.service");
 let ConfirmOrdersModule = class ConfirmOrdersModule {
 };
 exports.ConfirmOrdersModule = ConfirmOrdersModule;
