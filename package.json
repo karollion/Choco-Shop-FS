@@ -10,7 +10,7 @@
     "build": "tsc -p tsconfig.build.json",
     "postinstall": "prisma generate",
     "start": "node dist/src/main.js",
-    "start:prod": "node dist/src/main.js",
+    "start:prod": "node -r tsconfig-paths/register dist/src/main.js",
     "start:dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",
 
