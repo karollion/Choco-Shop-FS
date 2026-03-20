@@ -5,11 +5,11 @@ export declare class ConfirmOrdersController {
     private confirmOrdersService;
     constructor(confirmOrdersService: ConfirmOrdersService);
     getAll(): any;
-    getById(id: string): Promise<import(".prisma/client").ConfirmOrder>;
+    getById(id: string): Promise<import("node_modules/.prisma/client").ConfirmOrder>;
     deleteById(id: string): Promise<{
         success: boolean;
     }>;
-    create(confirmOrderData: CreateConfirmOrderDTO): Promise<import(".prisma/client").ConfirmOrder>;
+    create(confirmOrderData: CreateConfirmOrderDTO): Promise<import("node_modules/.prisma/client").ConfirmOrder>;
     update(id: string, confirmOrderData: UpdateConfirmOrderDTO): Promise<{
         success: boolean;
     }>;

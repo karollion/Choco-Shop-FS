@@ -11,7 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RegisterDTO = void 0;
 const class_validator_1 = require("class-validator");
-const match_decorator_1 = require("src/utils/match.decorator");
+const match_decorator_1 = require("../../utils/match.decorator");
 class RegisterDTO {
 }
 exports.RegisterDTO = RegisterDTO;

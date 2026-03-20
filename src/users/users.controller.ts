@@ -8,8 +8,8 @@ import {
 } from '@nestjs/common';
 import { UsersService } from './users.service';
 import { ParseUUIDPipe } from '@nestjs/common';
-import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
-import { AdminAuthGuard } from 'src/auth/admin-auth.guard';
+import { JwtAuthGuard } from '../auth/jwt-auth.guard';
+import { AdminAuthGuard } from '../auth/admin-auth.guard';
 
 @Controller('users')
 export class UsersController {

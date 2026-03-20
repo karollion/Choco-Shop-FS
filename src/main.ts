@@ -11,10 +11,7 @@ async function bootstrap() {
   const configService = app.get(ConfigService);
 
   app.enableCors({
-    origin: [
-      'http://localhost:3000',
-      'https://choco-shop.onrender.com'
-    ],
+    origin: ['http://localhost:3000', 'https://choco-shop.onrender.com'],
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true,
   });
@@ -29,9 +26,7 @@ async function bootstrap() {
 
   // ⭐ Render-compatible port
   const port =
-    Number(process.env.PORT) ||
-    configService.get<number>('port') ||
-    3030;
+    Number(process.env.PORT) || configService.get<number>('port') || 3030;
 
   await app.listen(port, '0.0.0.0');
 
