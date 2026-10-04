@@ -22,7 +22,7 @@ The project is hosted on free hosting, loading for the first time may take some 
   - Prisma
   - JWT
 - Database
-  -MySQL
+  -PostgreSQL
 
 ## Installation
 
