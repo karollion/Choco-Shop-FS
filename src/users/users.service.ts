@@ -1,5 +1,5 @@
 import { ConflictException, Injectable } from '@nestjs/common';
-import { Password, User } from '@prisma/client';
+import { Password, User, Prisma } from '@prisma/client';
 import { PrismaService } from '../prisma/prisma.service';
 
 @Injectable()
@@ -50,9 +50,12 @@ export class UsersService {
         },
       });
     } catch (error) {
-      if (error.code === 'P2002')
-        throw new ConflictException('Email is already taken');
-      else throw error;
+      if (error instanceof Prisma.PrismaClientKnownRequestError) {
+        if (error.code === 'P2002')
+          throw new ConflictException('Email is already taken');
+      }
+    
+      throw error;
     }
   }
 
@@ -81,9 +84,12 @@ export class UsersService {
         });
       }
     } catch (error) {
-      if (error.code === 'P2002')
-        throw new ConflictException('Title is already taken');
-      else throw '404 Bad request';
+      if (error instanceof Prisma.PrismaClientKnownRequestError) {
+        if (error.code === 'P2002')
+          throw new ConflictException('Title is already taken');
+      }
+    
+      throw '404 Bad request';
     }
   }
 
