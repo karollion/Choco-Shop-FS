@@ -32,6 +32,17 @@ $ npm install
 $ yarn install
 ```
 
+### Instalation on replit
+Build command
+```bash
+$ npm install && npx prisma generate && npx prisma migrate deploy && npm run build
+```
+
+Start command
+```bash
+$ npm run start:prod
+```
+
 ## Running the app
 
 ```bash
