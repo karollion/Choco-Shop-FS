@@ -54,3 +54,17 @@ $ npm run test:e2e
 $ npm run test:cov
 ```
 
+## Environment variables
+
+Create a `.env` file in the root directory:
+
+``` env
+APP:
+NODE_ENV=production/development
+PORT=3030
+JWT_SECRET = "XXXXX"
+
+DATABASE:
+DATABASE_URL="postgresql://choco_shop_db_user:XXXX@XXXXXX"
+```
+
