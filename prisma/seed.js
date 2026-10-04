@@ -1,9 +1,11 @@
-import { PrismaClient } from '@prisma/client';
+const { PrismaClient } = require('@prisma/client');
+
 const db = new PrismaClient();
-enum Role {
-  USER = 'USER',
-  ADMIN = 'ADMIN',
-}
+
+const Role = {
+  USER: 'USER',
+  ADMIN: 'ADMIN',
+};
 
 function getProducts() {
   return [
@@ -185,4 +187,11 @@ async function seed() {
   );
 }
 
-seed();
+seed()
+  .catch((error) => {
+    console.error(error);
+    process.exit(1);
+  })
+  .finally(async () => {
+    await db.$disconnect();
+  });
